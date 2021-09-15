@@ -4,6 +4,10 @@
 	margin: 100px 0 0 100px;
 }
 
+.order__container h1 {
+	text-align: center;
+}
+
 /* Add Button */
 .order__add__button__container{
 	display: flex;

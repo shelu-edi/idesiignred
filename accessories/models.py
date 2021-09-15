@@ -7,7 +7,7 @@ class AccRecievedIn(models.Model):
 	invoice_no = models.CharField(max_length=1000)  # make a foreign key once invoice model is completed
 	price = models.DecimalField(decimal_places=2, max_digits=100000)
 	quantity = models.IntegerField()
-	vale = models.IntegerField()
+	value = models.IntegerField()
 	customer_name = models.CharField(max_length=1000)
 	customer_id = models.CharField(max_length=1000)
 	delivery_date = models.DateField()
@@ -19,7 +19,7 @@ class AccSentOut(models.Model):
 	invoice_no = models.CharField(max_length=1000)  # make a foreign key once invoice model is completed
 	price = models.DecimalField(decimal_places=2, max_digits=100000)
 	quantity = models.IntegerField()
-	vale = models.IntegerField()
+	value = models.IntegerField()
 	customer_name = models.CharField(max_length=1000)
 	customer_id = models.CharField(max_length=1000)
 	delivery_date = models.DateField()
