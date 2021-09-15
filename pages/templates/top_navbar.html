@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+<html lang="en">
+{% load static %}
+<head>
+
+    <meta charset="UTF-8">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    
+    <link rel="stylesheet" href="{% static 'pages/css/top_navbar.css' %}">
+
+
+    <title>Tech Mall</title>
+</head>
+<body>
+
+<!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar__container">
+      <a href="#home" id="navbar__logo">SPARQ</a>
+      <div class="navbar__toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+          <!-- <li class="navabr__item">
+            <a href="#home" class="navbar__links" id="home-page" > Home </a>
+          </li>
+          <li class="navabr__item">
+            <a href="#about" class="navbar__links" id="about-page" > About </a>
+          </li>
+          <li class="navabr__item">
+            <a href="#services" class="navbar__links" id="services-page" > Services </a>
+          </li>-->
+          {% if user.is_authenticated %}
+          <li class="navabr__item">
+            <a href="#" class="navbar__links" id="about-page" >              
+              {{ request.user.username }}            
+          </a>
+          </li>
+          {% endif %}
+          <li class="navbar__item">
+            <div class="search-box">
+              <button class="btn-search"><i class="fa fa-search"></i></button>
+              <input type="text" class="input-search" placeholder="Type to Search...">
+            </div>  
+          </li>  
+        </ul>
+    </div>
+  </nav>
+  
+
+
+    <script src="{% static 'pages/js/navbar.js' %}" ></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
+    </script>      
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
+    </script>
+</body>
+</html>

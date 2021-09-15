@@ -1,0 +1,131 @@
+<!DOCTYPE html> 
+<html lang="en">
+{% load static %}
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Tech Mall</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>-->
+
+    <link rel="stylesheet" href="{% static 'pages/css/side_navbar.css' %}">
+
+
+</head>
+<body>
+
+    <div class="area"></div><nav class="main-menu">
+        <ul>
+            <li>
+                <a href="/">
+                <i class="fa fa-home fa-2x"></i>
+                <span class="nav-text">
+                    Home
+                </span>
+                </a>
+                  
+            </li>
+            <li class="has-subnav">
+                <a href="{% url 'orders:order_view' %}">
+                    <i class="fa fa-laptop fa-2x"></i>
+                    <span class="nav-text">
+                        Order Recieving
+                    </span>
+                    </a>
+                    
+            </li>
+            <li class="has-subnav">
+                <a href="{% url 'fabric:fabric_view' %}">
+                    <i class="fa fa-store-alt fa-2x"></i>
+                    <span class="nav-text">
+                        Fabric Store
+                    </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="{% url 'cutting:cutting_view' %}">
+                       <i class="fa fa-cut fa-2x"></i>
+                        <span class="nav-text">
+                            Cutting
+                        </span>
+                    </a>
+                   
+                </li>
+                <li class="has-subnav">
+                   <a href="{% url 'accessories:accessories_view' %}">
+                        <i class="fa fa-bar-chart-o fa-2x"></i>
+                        <span class="nav-text">
+                            Accessories
+                        </span>
+                    </a>
+                </li>
+                <li class="has-subnav">
+                    <a href="{% url 'sewing:sewing_view' %}">
+                        <i class="fa fa-font fa-2x"></i>
+                        <span class="nav-text">
+                           Sewing
+                        </span>
+                    </a>
+                </li>
+                <li class="has-subnav">
+                   <a href="{% url 'stock:stock_view' %}">
+                       <i class="fa fa-cubes fa-2x"></i>
+                        <span class="nav-text">
+                            Stock
+                        </span>
+                    </a>
+                </li>
+                <li class="has-subnav">
+                   <a href="{% url 'invoice:invoice_view' %}">
+                        <i class="fa fa-file fa-2x"></i>
+                        <span class="nav-text">
+                            Invoice
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                       <i class="fa fa-map-marker fa-2x"></i>
+                        <span class="nav-text">
+                            Branch
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <li>    
+                    {% if user.is_authenticated %}
+                    <a href="#">
+                       <i class="fa fa-user fa-2x"></i>
+                        <span class="nav-text">
+                            {{request.user.username}}
+                        </span>
+                    </a>
+                    {% endif %}
+                </li>
+            </ul>
+
+            <ul class="logout">
+                <li>
+                   <a href="#">
+                         <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            Logout
+                        </span>
+                    </a>
+                </li>  
+            </ul>
+        </nav>
+
+</body>
+</html>    

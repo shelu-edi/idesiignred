@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+
+    {% block title %}
+    <title>Idesiignred | Fabric</title>
+    {% endblock %} 
+
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'fabric/css/fabric_main.css' %}">
+    {% endblock %}  
+
+</head>
+<body>
+
+    {% block content %}
+        <div class="fabric__container">
+            <h1> Fabric </h1>
+        </div>
+        
+    {% endblock %}
+
+    
+    {% block extra_scripts %}
+    {% endblock %}
+</body>
+</html>    

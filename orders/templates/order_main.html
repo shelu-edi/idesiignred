@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+
+    {% block title %}
+    <title>Idesiignred | Orders</title>
+    {% endblock %} 
+
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'orders/css/order_main.css' %}">
+    {% endblock %}  
+
+</head>
+<body>
+
+    {% block content %}
+        <div class="order__container">
+            <h1> Orders </h1>
+
+            <div class="order__add__button__container" >
+              <button class="order__add__button">
+                Add
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr class="order__tr">
+                    <th scope="col">Order Received</th>
+                    <th scope="col">Date Order Delivered</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Order No</th>
+                    <th scope="col">Remarks/Adjustment</th>
+                    <th scope="col">Required Date</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Cutomer ID</th>
+                    <th scope="col">Consumption</th>
+                    <th scope="col">Total Consumption</th>
+                    <th scope="col">Delivery Date</th>
+                    <th scope="col">Order Status</th>
+                    <th scope="col">Order Progress</th>
+                    <th scope="col">Reason</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="order__body">
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                  </tr>
+                  <tr class="order__body">
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                  </tr>
+                  <tr class="order__body">
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>                    
+                  </tr>
+                </tbody>
+              </table>  
+            </div>         
+
+        </div>
+
+        
+
+
+        
+    {% endblock %}
+
+    
+    {% block extra_scripts %}
+    {% endblock %}
+</body>
+</html>    

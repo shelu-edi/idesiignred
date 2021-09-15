@@ -1,0 +1,35 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+
+.order__container {
+	margin: 100px 0 0 100px;
+}
+
+/* Add Button */
+.order__add__button__container{
+	display: flex;
+	float: right;
+	margin-bottom: 10px;
+}
+
+.order__add__button {
+	border: none;
+	outline: none;
+	border-radius: 4px;
+	background-color: #FF6600;
+	color: #fff;
+	width: 60px;
+	height: 40px;
+}
+
+.order__tr {
+	background-color: #002060;	
+	color: #fff;	
+}
+
+.order__tr th {
+	color: #fff;
+}
+
+.order__body {
+	background-color: #FF6600;
+}
