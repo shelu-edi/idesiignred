@@ -20,6 +20,73 @@
     {% block content %}
         <div class="sewing__container">
             <h1> Sewing </h1>
+
+            <div class="sewing__add__button__container" >
+              <button class="sewing__add__button">
+                Add
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr class="sewing__tr">
+                    <th scope="col">Order Recieved</th>
+                    <th scope="col">Date Order Deliver</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Order No</th>
+                    <th scope="col">Remarks/Adjustments</th>
+                    <th scope="col">Required Date</th>
+                    <th scope="col">Order Accepted</th>
+                    <th scope="col">Order Progress</th>
+                    <th scope="col">Completed Date</th>
+                    <th scope="col">Released Date</th>
+                    <th scope="col">Reason</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="sewing__body">
+                    {% for sewing in sewings %}
+                    <td> {{ sewing.order_received }} </td>
+                    <td> {{ sewing.date_order_delivered }} </td>
+                    <td> {{ sewing.style_no }} </td>
+                    <td> {{ sewing.order_no }} </td>
+                    <td> {{ sewing.remarks }} </td>
+                    <td> {{ sewing.required_date }} </td>
+                    <td> {{ sewing.order_accepted }} </td>
+                    <td> {{ sewing.order_progress }} </td>
+                    <td> {{ sewing.completed_date }} </td>                    
+                    <td> {{ sewing.release_date }} </td>
+                    <td> {{ sewing.reason }} </td>
+                    {% endfor %}
+                  </tr>
+                  <tr class="sewing__body">
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                  <tr class="sewing__body">
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>   
+                    <td>Larry</td>
+                </tbody>
+              </table>  
+            </div>
+
         </div>
         
     {% endblock %}

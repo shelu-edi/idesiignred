@@ -9,6 +9,6 @@ from .views import *
 app_name = 'fabric'
 
 urlpatterns = [
-    path('', fabric_main_view, name="fabric_view"),
+    path('', FabricMainView.as_view(), name="fabric_view"),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                            document_root=settings.STATIC_ROOT)

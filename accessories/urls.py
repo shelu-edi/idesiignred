@@ -9,6 +9,6 @@ from .views import *
 app_name = 'accessories'
 
 urlpatterns = [
-    path('', accessories_main_view, name="accessories_view"),
+    path('', AccessoriesMainView.as_view(), name="accessories_view"),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                            document_root=settings.STATIC_ROOT)

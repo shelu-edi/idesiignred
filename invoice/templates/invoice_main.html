@@ -20,6 +20,62 @@
     {% block content %}
         <div class="invoice__container">
             <h1> Invoice </h1>
+
+            <div class="invoice__add__button__container" >
+              <button class="invoice__add__button">
+                Add
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr class="invoice__tr">
+                    <th scope="col">Date</th>
+                    <th scope="col">Invoice No</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Order No</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Value</th>
+                    <th scope="col">Payment Method</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="invoice__body">
+                    {% for invoice in invoices %}
+                    <td> {{ invoice.date }} </td>
+                    <td> {{ invoice.invoice_no }} </td>
+                    <td> {{ invoice.style_no }} </td>
+                    <td> {{ invoice.order_no }}  </td>
+                    <td> {{ invoice.quantity }} </td>
+                    <td> {{ invoice.price }} </td>
+                    <td> {{ invoice.value }} </td>
+                    <td> {{ invoice.method_of_payment }} </td>
+                    {% endfor %}
+                  </tr>
+                  <tr class="invoice__body">
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                  </tr>
+                  <tr class="invoice__body">
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                </tbody>
+              </table>  
+            </div>
+
         </div>
         
     {% endblock %}

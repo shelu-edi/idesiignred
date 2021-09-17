@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class RecievedIn(models.Model):
-	order_received = models.DateField()
+	order_recieved = models.DateField()
 	date_order_delivered = models.DateField()
 	style_no = models.CharField(max_length=1000)
 	order_no = models.CharField(max_length=1000)
@@ -18,7 +18,7 @@ class RecievedIn(models.Model):
 	user_notes = models.CharField(max_length=10000)
 
 class SentOut(models.Model):
-	order_received = models.DateField()
+	order_recieved = models.DateField()
 	date_order_delivered = models.DateField()
 	style_no = models.CharField(max_length=1000)
 	order_no = models.CharField(max_length=1000)

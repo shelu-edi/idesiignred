@@ -9,6 +9,6 @@ from .views import *
 app_name = 'invoice'
 
 urlpatterns = [
-    path('', invoice_main_view, name="invoice_view"),
+    path('', InvoiceMainView.as_view(), name="invoice_view"),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                            document_root=settings.STATIC_ROOT)

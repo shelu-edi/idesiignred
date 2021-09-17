@@ -32,7 +32,7 @@ class OrderReceivingForm(forms.ModelForm):
 		'placeholder': 'Total Consumption'
 		}))
 	delivery_date = forms.DateField(label='Delivery Date')
-	order_status = forms.BooleanField(label='TouchScreen')
+	order_status = forms.BooleanField(label='Order Status')
 	order_progress = forms.CharField(label='Order Progress', widget=forms.TextInput(attrs={
 		'placeholder': 'Order Progress'
 		}))

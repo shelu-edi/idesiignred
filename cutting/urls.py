@@ -9,6 +9,7 @@ from .views import *
 app_name = 'cutting'
 
 urlpatterns = [
-    path('', cutting_main_view, name="cutting_view"),
-]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
+    path('', CuttingMainView.as_view(), name="cutting_view"),
+
+    ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                            document_root=settings.STATIC_ROOT)

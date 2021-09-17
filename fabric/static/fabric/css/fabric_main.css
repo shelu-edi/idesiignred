@@ -1,3 +1,42 @@
 .fabric__container {
 	margin: 100px 0 0 100px;
 }
+
+.fabric__container h1 {
+	text-align: center;
+}
+
+.fabric__container h2 {
+	text-align: center;
+	margin-top: 50px;
+}
+
+/* Add Button */
+.fabric__add__button__container{
+	display: flex;
+	float: right;
+	margin-bottom: 10px;
+}
+
+.fabric__add__button {
+	border: none;
+	outline: none;
+	border-radius: 4px;
+	background-color: #FF6600;
+	color: #fff;
+	width: 60px;
+	height: 40px;
+}
+
+.fabric__tr {
+	background-color: #002060;	
+	color: #fff;	
+}
+
+.fabric__tr th {
+	color: #fff;
+}
+
+.fabric__body {
+	background-color: #FF6600;
+}

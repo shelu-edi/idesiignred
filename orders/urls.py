@@ -9,6 +9,6 @@ from .views import *
 app_name = 'orders'
 
 urlpatterns = [
-    path('', order_main_view, name="order_view"),
+    path('', OrderMainView.as_view(), name="order_view"),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                            document_root=settings.STATIC_ROOT)

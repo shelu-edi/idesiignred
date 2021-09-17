@@ -9,6 +9,6 @@ from .views import *
 app_name = 'sewing'
 
 urlpatterns = [
-    path('', sewing_main_view, name="sewing_view"),
+    path('', SewingMainView.as_view(), name="sewing_view"),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                            document_root=settings.STATIC_ROOT)

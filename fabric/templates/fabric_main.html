@@ -20,6 +20,211 @@
     {% block content %}
         <div class="fabric__container">
             <h1> Fabric </h1>
+
+            <!-- Order In-->
+            <h2> Order In </h2>
+
+            <div class="fabric__add__button__container" >
+              <button class="fabric__add__button">
+                Add
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr class="fabric__tr">
+                    <th scope="col">Order Received</th>
+                    <th scope="col">Date Order Delivered</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Order No</th>
+                    <th scope="col">Remarks/Adjustment</th>
+                    <th scope="col">Required Date</th>
+                    <th scope="col">Price(LKR)</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Cutomer ID</th>
+                    <th scope="col">Consumption</th>
+                    <th scope="col">Total Consumption</th>
+                    <th scope="col">Delivery Date</th>
+                    <th scope="col">Order Status</th>
+                    <th scope="col">Order Progress</th>
+                    <th scope="col">Reason</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="fabric__body">
+                    {% for order_in in order_ins %}
+                    <td> {{ order_in.order_received }} </td>
+                    <td> {{ order_in.date_order_delivered }} </td>
+                    <td> {{ order_in.style_no }} </td>
+                    <td> {{ order_in.order_no }} </td>
+                    <td> {{ order_in.remarks }} </td>
+                    <td> {{ order_in.required_date }} </td>
+                    <td> {{ order_in.price }} </td>
+                    <td> {{ order_in.customer_name }} </td>
+                    <td> {{ order_in.customer_id }} </td>
+                    <td> {{ order_in.comsumption }}</td>
+                    <td> {{ order_in.total_consumption }} </td>
+                    <td> {{ order_in.delivery_date }} </td>
+                    <td> 
+                      {% if order_in.order_status == True %}
+                        Complete
+                      {% else %}
+                      Incomplete
+                      {% endif %} 
+                    </td>
+                    <td> {{ order_in.order_progress }} </td>
+                    <td> {{ order_in.reason }} </td>
+                    {% endfor %}  
+                  </tr>
+                  <tr class="fabric__body">
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                  </tr>
+                  <tr class="fabric__body">
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>                    
+                  </tr>
+                </tbody>
+              </table>  
+            </div>
+
+            <h1> Order In Form </h1>
+            <form class="form-group" action='.' method="POST"> {% csrf_token %}
+              {{ form_order_in.as_p}}
+
+            <input type="submit" name="" value="Save">  
+            </form>
+
+            <!-- Order Out-->
+            <h2> Order Out </h2>
+
+            <div class="fabric__add__button__container" >
+              <button class="fabric__add__button">
+                Add
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr class="fabric__tr">
+                    <th scope="col">Order Received</th>
+                    <th scope="col">Date Order Delivered</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Order No</th>
+                    <th scope="col">Remarks/Adjustment</th>
+                    <th scope="col">Required Date</th>
+                    <th scope="col">Qunatity</th>
+                    <th scope="col">Price(LKR)</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Cutomer ID</th>
+                    <th scope="col">Consumption</th>
+                    <th scope="col">Total Consumption</th>
+                    <th scope="col">Delivery Date</th>
+                    <th scope="col">Order Status</th>
+                    <th scope="col">Order Progress</th>
+                    <th scope="col">Reason</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="fabric__body">
+                    {% for order_out in order_outs %}
+                      <td> {{ order_out.order_received }} </td>
+                      <td> {{ order_out.date_order_delivered }} </td>
+                      <td> {{ order_out.style_no }} </td>
+                      <td> {{ order_out.order_no }} </td>
+                      <td> {{ order_out.remarks }} </td>
+                      <td> {{ order_out.required_date }} </td>
+                      <td> {{ order_out.quantity }} </td>
+                      <td> {{ order_out.price }} </td>
+                      <td> {{ order_out.customer_name }} </td>
+                      <td> {{ order_out.customer_id }} </td>
+                      <td> {{ order_out.comsumption }}</td>
+                      <td> {{ order_out.total_consumption }} </td>
+                      <td> {{ order_out.delivery_date }} </td>
+                      <td> 
+                        {% if order_out.order_status == True %}
+                          Complete
+                        {% else %}
+                        Incomplete
+                        {% endif %} 
+                      </td>
+                      <td> {{ order_out.order_progress }} </td>
+                      <td> {{ order_out.reason }} </td>
+                    {% endfor %}
+                  </tr>
+                  <tr class="fabric__body">
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                  </tr>
+                  <tr class="fabric__body">
+                    <th scope="row">3</th>
+                    <td>Jacob</td>
+                    <td>Jacob</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>                    
+                  </tr>
+                </tbody>
+              </table>  
+            </div>
+
+            <h1> Order Out Form </h1>
+            <form class="form-group" action='.' method="POST"> {% csrf_token %}
+              {{ form_order_out.as_p}}
+
+            <input type="submit" name="" value="Save">  
+            </form>
+
         </div>
         
     {% endblock %}

@@ -20,6 +20,182 @@
     {% block content %}
         <div class="cutting__container">
             <h1> Cutting </h1>
+
+            <!-- Recieved In-->
+            <h2> Recieved In </h2>
+
+            <div class="cutting__add__button__container" >
+              <button class="cutting__add__button">
+                Add
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr class="cutting__tr">
+                    <th scope="col">Order Received</th>
+                    <th scope="col">Date Order Delivered</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Order No</th>
+                    <th scope="col">Remarks/Adjustment</th>
+                    <th scope="col">Required Date</th>
+                    <th scope="col">Fabric Type</th>
+                    <th scope="col">Cutomer Name</th>
+                    <th scope="col">Consumption</th>
+                    <th scope="col">Total Consumption</th>
+                    <th scope="col">Delivery Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">User</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="cutting__body">
+                    {% for recieved_in in recieved_ins %}
+                    <td>  {{ recieved_in.order_recieved }} </td>
+                    <td> {{ recieved_in.date_order_delivered }} </td>
+                    <td>  {{ recieved_in.style_no }}</td>
+                    <td> {{ recieved_in.order_no }} </td>
+                    <td> {{ recieved_in.remarks }} </td>
+                    <td> {{ recieved_in.required_date }} </td>
+                    <td> {{ recieved_in.fabric_type }} </td>
+                    <td> {{ recieved_in.customer_name }} </td>
+                    <td> {{ recieved_in.consumption }} </td>
+                    <td> {{ recieved_in.total_consumption }} </td>
+                    <td> {{ recieved_in.delivery_date }} </td>
+                    <td> 
+                      {% if recieved_in.order_time == True %}
+                        Yes
+                      {% else %}
+                        No
+                      {% endif %}
+                    </td>
+                    <td> {{ recieved_in.user_notes }} </td>
+                    {% endfor %}
+                  </tr>
+                  <tr class="cutting__body">
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr class="cutting__body">
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>                   
+                  </tr>
+                </tbody>
+              </table>  
+            </div>
+
+            <!--Sent Out-->
+            <h2> Sent Out </h2>
+
+            <div class="cutting__add__button__container" >
+              <button class="cutting__add__button">
+                Add
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr class="cutting__tr">
+                    <th scope="col">Order Received</th>
+                    <th scope="col">Date Order Delivered</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Order No</th>
+                    <th scope="col">Remarks/Adjustment</th>
+                    <th scope="col">Required Date</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Fabric Type</th>
+                    <th scope="col">Cutomer Name</th>
+                    <th scope="col">Consumption</th>
+                    <th scope="col">Total Consumption</th>
+                    <th scope="col">Delivery Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">User</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="cutting__body">
+                    {% for sent_out in sent_outs %}
+                    <td>  {{ sent_out.order_recieved }} </td>
+                    <td> {{ sent_out.date_order_delivered }} </td>
+                    <td>  {{ sent_out.style_no }}</td>
+                    <td> {{ sent_out.order_no }} </td>
+                    <td> {{ sent_out.remarks }} </td>
+                    <td> {{ sent_out.required_date }} </td>
+                    <td> {{ sent_out.quantity }} </td>
+                    <td> {{ sent_out.fabric_type }} </td>
+                    <td> {{ sent_out.customer_name }} </td>
+                    <td> {{ sent_out.consumption }} </td>
+                    <td> {{ sent_out.total_consumption }} </td>
+                    <td> {{ sent_out.delivery_date }} </td>
+                    <td> 
+                      {% if sent_out.order_time == True %}
+                        Yes
+                      {% else %}
+                        No
+                      {% endif %}
+                    </td>
+                    <td> {{ sent_out.user_notes }} </td>
+                    {% endfor %}
+                  </tr>
+                  </tr>
+                  <tr class="cutting__body">
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Jacob</td>
+                  </tr>
+                  <tr class="cutting__body">
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>                    
+                  </tr>
+                </tbody>
+              </table>  
+            </div>
+
         </div>
         
     {% endblock %}
