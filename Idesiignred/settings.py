@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'sewing',
     'stock',
     'invoice',
+    'customers'
 ]
 
 MIDDLEWARE = [
