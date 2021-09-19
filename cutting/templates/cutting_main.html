@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
 
     {% block title %}
-    <title>Idesiignred | Fabric</title>
+    <title>Idesiignred | Cutting</title>
     {% endblock %} 
 
     {% block extra_css %}
@@ -49,16 +49,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="cutting__body">
-                    {% for recieved_in in recieved_ins %}
+                  {% for recieved_in in recieved_ins %}
+                  <tr class="cutting__body">                    
                     <td>  {{ recieved_in.order_recieved }} </td>
                     <td> {{ recieved_in.date_order_delivered }} </td>
                     <td>  {{ recieved_in.style_no }}</td>
-                    <td> {{ recieved_in.order_no }} </td>
+                    <td> {{ recieved_in.order.order_no }} </td>
                     <td> {{ recieved_in.remarks }} </td>
                     <td> {{ recieved_in.required_date }} </td>
                     <td> {{ recieved_in.fabric_type }} </td>
-                    <td> {{ recieved_in.customer_name }} </td>
+                    <td> {{ recieved_in.customer.customer_first_name }} 
+                         {{ recieved_in.customer.customer_last_name }}
+                    </td>
                     <td> {{ recieved_in.consumption }} </td>
                     <td> {{ recieved_in.total_consumption }} </td>
                     <td> {{ recieved_in.delivery_date }} </td>
@@ -69,39 +71,9 @@
                         No
                       {% endif %}
                     </td>
-                    <td> {{ recieved_in.user_notes }} </td>
-                    {% endfor %}
+                    <td> {{ recieved_in.user_notes }} </td>                    
                   </tr>
-                  <tr class="cutting__body">
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr class="cutting__body">
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>                   
-                  </tr>
+                  {% endfor %}
                 </tbody>
               </table>  
             </div>
@@ -140,12 +112,14 @@
                     <td>  {{ sent_out.order_recieved }} </td>
                     <td> {{ sent_out.date_order_delivered }} </td>
                     <td>  {{ sent_out.style_no }}</td>
-                    <td> {{ sent_out.order_no }} </td>
+                    <td> {{ sent_out.order.order_no }} </td>
                     <td> {{ sent_out.remarks }} </td>
                     <td> {{ sent_out.required_date }} </td>
                     <td> {{ sent_out.quantity }} </td>
                     <td> {{ sent_out.fabric_type }} </td>
-                    <td> {{ sent_out.customer_name }} </td>
+                    <td> {{ sent_out.customer.customer_first_name }} 
+                         {{ sent_out.customer.customer_last_name }} 
+                    </td>
                     <td> {{ sent_out.consumption }} </td>
                     <td> {{ sent_out.total_consumption }} </td>
                     <td> {{ sent_out.delivery_date }} </td>
@@ -159,38 +133,6 @@
                     <td> {{ sent_out.user_notes }} </td>
                     {% endfor %}
                   </tr>
-                  </tr>
-                  <tr class="cutting__body">
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Jacob</td>
-                  </tr>
-                  <tr class="cutting__body">
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>Larry</td>                    
                   </tr>
                 </tbody>
               </table>  

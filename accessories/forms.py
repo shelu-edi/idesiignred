@@ -7,18 +7,9 @@ from .models import AccRecievedIn, AccSentOut
 
 class AccRecievedInForm(forms.ModelForm):
 	date = forms.DateField(label='Date')
-	invoice_no = forms.CharField(label='Invoice No', widget=forms.TextInput(attrs={
-		'placeholder': 'Invoice No'
-		})) # change this once invoice model is completed
 	price = forms.DecimalField(label='Price')
 	quantity = forms.IntegerField(label='Quantity')
 	value = forms.IntegerField(label='value')
-	customer_name = forms.CharField(label='Customer Name', widget=forms.TextInput(attrs={
-		'placeholder': 'Customer Name'
-		}))
-	customer_id = forms.CharField(label='Customer ID', widget=forms.TextInput(attrs={
-		'placeholder': 'Customer ID'
-		}))
 	delivery_date = forms.DateField(label='Delivery Date')
 	time = forms.CharField(label='Time', widget=forms.TextInput(attrs={
 		'placeholder': 'Time'
@@ -31,30 +22,18 @@ class AccRecievedInForm(forms.ModelForm):
 		model = AccRecievedIn
 		fields = [
 			'date',
-			'invoice_no',
 			'price',
 			'quantity',
 			'value',
-			'customer_name',
-			'customer_id',
 			'delivery_date',
 			'time',
 			'user_notes']
 
 class AccSentOutForm(forms.ModelForm):
 	date = forms.DateField(label='Date')
-	invoice_no = forms.CharField(label='Invoice No', widget=forms.TextInput(attrs={
-		'placeholder': 'Invoice No'
-		})) # change this once invoice model is completed
 	price = forms.DecimalField(label='Price')
 	quantity = forms.IntegerField(label='Quantity')
 	value = forms.IntegerField(label='value')
-	customer_name = forms.CharField(label='Customer Name', widget=forms.TextInput(attrs={
-		'placeholder': 'Customer Name'
-		}))
-	customer_id = forms.CharField(label='Customer ID', widget=forms.TextInput(attrs={
-		'placeholder': 'Customer ID'
-		}))
 	delivery_date = forms.DateField(label='Delivery Date')
 	time = forms.CharField(label='Time', widget=forms.TextInput(attrs={
 		'placeholder': 'Time'
@@ -67,12 +46,9 @@ class AccSentOutForm(forms.ModelForm):
 		model = AccSentOut
 		fields = [
 			'date',
-			'invoice_no',
 			'price',
 			'quantity',
 			'value',
-			'customer_name',
-			'customer_id',
 			'delivery_date',
 			'time',
 			'user_notes']			

@@ -19,12 +19,12 @@ class OrderReceivingForm(forms.ModelForm):
 		}))
 	required_date = forms.DateField(label='Required Date')
 	price = forms.DecimalField(label='Price')
-	customer_name = forms.CharField(label='Customer Name', widget=forms.TextInput(attrs={
-		'placeholder': 'Customer Name'
-		}))
-	customer_id = forms.CharField(label='Customer ID', widget=forms.TextInput(attrs={
-		'placeholder': 'Customer ID'
-		}))
+	#customer_name = forms.CharField(label='Customer Name', widget=forms.TextInput(attrs={
+	#	'placeholder': 'Customer Name'
+	#	}))
+	#customer_id = forms.CharField(label='Customer ID', widget=forms.TextInput(attrs={
+	#	'placeholder': 'Customer ID'
+	#	}))
 	consumption = forms.CharField(label='Consumption', widget=forms.TextInput(attrs={
 		'placeholder': 'Consumption'
 		}))
@@ -50,8 +50,6 @@ class OrderReceivingForm(forms.ModelForm):
 			'remarks',
 			'required_date',
 			'price',
-			'customer_name',
-			'customer_id',
 			'consumption',
 			'total_consumption',
 			'delivery_date',

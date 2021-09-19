@@ -11,9 +11,6 @@ class SewingForm(forms.ModelForm):
 	style_no = forms.CharField(label='Style No', widget=forms.TextInput(attrs={
 		'placeholder': 'Style No'
 		}))
-	order_no = forms.CharField(label='Order No', widget=forms.TextInput(attrs={
-		'placeholder': 'Order No'
-		}))
 	remarks = forms.CharField(label='Remarks', widget=forms.TextInput(attrs={
 		'placeholder': 'Remarks'
 		}))
@@ -34,7 +31,6 @@ class SewingForm(forms.ModelForm):
 			'order_received',
 			'date_order_delivered',
 			'style_no',
-			'order_no',
 			'remarks',
 			'required_date',
 			'order_accepted',

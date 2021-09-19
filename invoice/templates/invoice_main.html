@@ -32,6 +32,7 @@
                   <tr class="invoice__tr">
                     <th scope="col">Date</th>
                     <th scope="col">Invoice No</th>
+                    <th scope="col"> Customer </th>
                     <th scope="col">Style No</th>
                     <th scope="col">Order No</th>
                     <th scope="col">Quantity</th>
@@ -41,37 +42,20 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="invoice__body">
-                    {% for invoice in invoices %}
+                  {% for invoice in invoices %}
+                  <tr class="invoice__body">                    
                     <td> {{ invoice.date }} </td>
                     <td> {{ invoice.invoice_no }} </td>
+                    <td> {{ invoice.customer.customer_first_name }} 
+                      {{ invoice.customer.customer_last_name }}</td>
                     <td> {{ invoice.style_no }} </td>
-                    <td> {{ invoice.order_no }}  </td>
+                    <td> {{ invoice.order.order_no }}  </td>
                     <td> {{ invoice.quantity }} </td>
                     <td> {{ invoice.price }} </td>
                     <td> {{ invoice.value }} </td>
-                    <td> {{ invoice.method_of_payment }} </td>
-                    {% endfor %}
+                    <td> {{ invoice.method_of_payment }} </td>                    
                   </tr>
-                  <tr class="invoice__body">
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Jacob</td>
-                  </tr>
-                  <tr class="invoice__body">
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>Larry</td>
+                  {% endfor %}
                 </tbody>
               </table>  
             </div>

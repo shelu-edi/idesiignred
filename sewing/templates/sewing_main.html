@@ -44,45 +44,21 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="sewing__body">
-                    {% for sewing in sewings %}
+                  {% for sewing in sewings %}
+                  <tr class="sewing__body">                    
                     <td> {{ sewing.order_received }} </td>
                     <td> {{ sewing.date_order_delivered }} </td>
                     <td> {{ sewing.style_no }} </td>
-                    <td> {{ sewing.order_no }} </td>
+                    <td> {{ sewing.order.order_no }} </td>
                     <td> {{ sewing.remarks }} </td>
                     <td> {{ sewing.required_date }} </td>
                     <td> {{ sewing.order_accepted }} </td>
                     <td> {{ sewing.order_progress }} </td>
                     <td> {{ sewing.completed_date }} </td>                    
                     <td> {{ sewing.release_date }} </td>
-                    <td> {{ sewing.reason }} </td>
-                    {% endfor %}
+                    <td> {{ sewing.reason }} </td>                    
                   </tr>
-                  <tr class="sewing__body">
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>Jacob</td>
-                  <tr class="sewing__body">
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>   
-                    <td>Larry</td>
+                  {% endfor %}                  
                 </tbody>
               </table>  
             </div>

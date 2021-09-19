@@ -31,3 +31,10 @@ class Customer(models.Model):
 	email_type = models.CharField(max_length=10, choices=email_type, default='Work')
 	address = models.CharField(max_length=1000)
 
+	"""def __str__(self):
+			    	return "%s %s" % (self.customer_first_name, self.customer_last_name)"""
+	
+	def __str__(self):
+		return self.customer_first_name + ' ' + self.customer_last_name			    	
+
+

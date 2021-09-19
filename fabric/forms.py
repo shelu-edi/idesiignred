@@ -11,20 +11,11 @@ class OrderInForm(forms.ModelForm):
 	style_no = forms.CharField(label='Style No', widget=forms.TextInput(attrs={
 		'placeholder': 'Style No'
 		}))
-	order_no = forms.CharField(label='Order No', widget=forms.TextInput(attrs={
-		'placeholder': 'Order No'
-		}))
 	remarks = forms.CharField(label='Remarks', widget=forms.TextInput(attrs={
 		'placeholder': 'Remarks'
 		}))
 	required_date = forms.DateField(label='Required Date')
 	price = forms.DecimalField(label='Price')
-	customer_name = forms.CharField(label='Customer Name', widget=forms.TextInput(attrs={
-		'placeholder': 'Customer Name'
-		}))
-	customer_id = forms.CharField(label='Customer ID', widget=forms.TextInput(attrs={
-		'placeholder': 'Customer ID'
-		}))
 	consumption = forms.CharField(label='Consumption', widget=forms.TextInput(attrs={
 		'placeholder': 'Consumption'
 		}))
@@ -46,12 +37,9 @@ class OrderInForm(forms.ModelForm):
 			'order_received',
 			'date_order_delivered',
 			'style_no',
-			'order_no',
 			'remarks',
 			'required_date',
 			'price',
-			'customer_name',
-			'customer_id',
 			'consumption',
 			'total_consumption',
 			'delivery_date',
@@ -67,21 +55,12 @@ class OrderOutForm(forms.ModelForm):
 	style_no = forms.CharField(label='Style No', widget=forms.TextInput(attrs={
 		'placeholder': 'Style No'
 		}))
-	order_no = forms.CharField(label='Order No', widget=forms.TextInput(attrs={
-		'placeholder': 'Order No'
-		}))
 	remarks = forms.CharField(label='Remarks', widget=forms.TextInput(attrs={
 		'placeholder': 'Remarks'
 		}))
 	required_date = forms.DateField(label='Required Date')
 	quantity = forms.IntegerField(label='Quantity')
 	price = forms.DecimalField(label='Price')
-	customer_name = forms.CharField(label='Customer Name', widget=forms.TextInput(attrs={
-		'placeholder': 'Customer Name'
-		}))
-	customer_id = forms.CharField(label='Customer ID', widget=forms.TextInput(attrs={
-		'placeholder': 'Customer ID'
-		}))
 	consumption = forms.CharField(label='Consumption', widget=forms.TextInput(attrs={
 		'placeholder': 'Consumption'
 		}))
@@ -103,13 +82,10 @@ class OrderOutForm(forms.ModelForm):
 			'order_received',
 			'date_order_delivered',
 			'style_no',
-			'order_no',
 			'remarks',
 			'required_date',
 			'quantity',
 			'price',
-			'customer_name',
-			'customer_id',
 			'consumption',
 			'total_consumption',
 			'delivery_date',

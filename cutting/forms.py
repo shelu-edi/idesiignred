@@ -11,18 +11,12 @@ class RecievedInForm(forms.ModelForm):
 	style_no = forms.CharField(label='Style No', widget=forms.TextInput(attrs={
 		'placeholder': 'Style No'
 		}))
-	order_no = forms.CharField(label='Order No', widget=forms.TextInput(attrs={
-		'placeholder': 'Order No'
-		}))
 	remarks = forms.CharField(label='Remarks', widget=forms.TextInput(attrs={
 		'placeholder': 'Remarks'
 		}))
 	required_date = forms.DateField(label='Required Date')
 	fabric_type = forms.CharField(label='Fabric Type', widget=forms.TextInput(attrs={
 		'placeholder': 'Fabric Type'
-		}))
-	customer_name = forms.CharField(label='Customer Name', widget=forms.TextInput(attrs={
-		'placeholder': 'Customer Name'
 		}))
 	consumption = forms.CharField(label='Consumption', widget=forms.TextInput(attrs={
 		'placeholder': 'Consumption'
@@ -42,11 +36,9 @@ class RecievedInForm(forms.ModelForm):
 			'order_received',
 			'date_order_delivered',
 			'style_no',
-			'order_no',
 			'remarks',
 			'required_date',
 			'fabric_type',
-			'customer_name',
 			'consumption',
 			'total_consumption',
 			'delivery_date',
@@ -60,9 +52,6 @@ class SentOutForm(forms.ModelForm):
 	style_no = forms.CharField(label='Style No', widget=forms.TextInput(attrs={
 		'placeholder': 'Style No'
 		}))
-	order_no = forms.CharField(label='Order No', widget=forms.TextInput(attrs={
-		'placeholder': 'Order No'
-		}))
 	remarks = forms.CharField(label='Remarks', widget=forms.TextInput(attrs={
 		'placeholder': 'Remarks'
 		}))
@@ -70,9 +59,6 @@ class SentOutForm(forms.ModelForm):
 	quantity = forms.IntegerField(label='Quantity')
 	fabric_type = forms.CharField(label='Fabric Type', widget=forms.TextInput(attrs={
 		'placeholder': 'Fabric Type'
-		}))
-	customer_name = forms.CharField(label='Customer Name', widget=forms.TextInput(attrs={
-		'placeholder': 'Customer Name'
 		}))
 	consumption = forms.CharField(label='Consumption', widget=forms.TextInput(attrs={
 		'placeholder': 'Consumption'
@@ -92,12 +78,10 @@ class SentOutForm(forms.ModelForm):
 			'order_received',
 			'date_order_delivered',
 			'style_no',
-			'order_no',
 			'remarks',
 			'required_date',
 			'Quantity',
 			'fabric_type',
-			'customer_name',
 			'consumption',
 			'total_consumption',
 			'delivery_date',
