@@ -24,9 +24,40 @@
 	border-radius: 4px;
 	background-color: #FF6600;
 	color: #fff;
-	width: 60px;
+	width: 80px;
 	height: 40px;
 }
+
+#order-in {
+	display: none;
+	position: fixed;
+}
+
+#order-out {
+	display: block;
+	position: fixed;
+}
+
+#order-in-table {
+	display: block;
+	position: fixed;
+}
+
+#order-out-table {
+	display: none;
+	position: fixed;
+}
+
+#order-out-title {
+	display: none;
+	position: fixed;
+}
+
+#order-in-title {
+	display: block;
+	position: fixed;
+}
+
 
 .fabric__tr {
 	background-color: #002060;	

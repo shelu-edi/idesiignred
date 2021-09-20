@@ -4,6 +4,7 @@ from django.views import View
 
 from .models import OrderReceiving
 from .forms import *
+from customers.models import Customer
 
 # Create your views here.
 
@@ -20,12 +21,13 @@ class OrderMainView(View):
 
 		return render(request, self.template_name, context)	
 
-	def post(self, request):
-		form = OrderReceivingForm(request.POST)
-		if form.is_valid:
-			form.save()
-			form = OrderReceivingForm()
-				
-			context = {'form': form}
-				
-		return render(request, self.template_name, context)
+	"""def post(self, request):
+					form = OrderReceivingForm(request.POST)
+					if form.is_valid():
+						customer_first_name = form.cleaned_date.get('customer_first_name')
+						form.save()
+						form = OrderReceivingForm()
+							
+						context = {'form': form}
+							
+					return render(request, self.template_name, context)"""

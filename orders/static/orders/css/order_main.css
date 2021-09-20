@@ -43,4 +43,11 @@
 	margin-left: 100px;
 	width: 400px;
 	display: none;
+	z-index: 9;
+	position: fixed;
+	background-color: white;
+}
+
+#order-table {
+	display: block;
 }

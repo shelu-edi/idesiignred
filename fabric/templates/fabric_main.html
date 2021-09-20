@@ -22,15 +22,24 @@
             <h1> Fabric </h1>
 
             <!-- Order In-->
-            <h2> Order In </h2>
+            <div id="order-in-title">
+              <h2> Order In </h2>
+            </div>            
 
             <div class="fabric__add__button__container" >
               <button class="fabric__add__button">
                 Add
               </button>
+
+              <button class="fabric__add__button" id="order-in" onclick="In()">
+                Order In
+              </button>
+              <button class="fabric__add__button" id="order-out" onclick="Out()">
+                Order Out
+              </button>
             </div>
             <div class="table-responsive">
-              <table class="table">
+              <table class="table" id="order-in-table">
                 <thead>
                   <tr class="fabric__tr">
                     <th scope="col">Order Received</th>
@@ -82,23 +91,25 @@
               </table>  
             </div>
 
-            <h1> Order In Form </h1>
+            <!-- <h1> Order In Form </h1>
             <form class="form-group" action='.' method="POST"> {% csrf_token %}
               {{ form_order_in.as_p}}
 
             <input type="submit" name="" value="Save">  
-            </form>
+            </form>-->
 
             <!-- Order Out-->
-            <h2> Order Out </h2>
+            <div id="order-out-title">
+              <h2> Order Out </h2>
+            </div>            
 
-            <div class="fabric__add__button__container" >
+            <!--<div class="fabric__add__button__container" >
               <button class="fabric__add__button">
                 Add
-              </button>
+              </button>-->
             </div>
             <div class="table-responsive">
-              <table class="table">
+              <table class="table" id="order-out-table">
                 <thead>
                   <tr class="fabric__tr">
                     <th scope="col">Order Received</th>
@@ -152,12 +163,12 @@
               </table>  
             </div>
 
-            <h1> Order Out Form </h1>
+            <!-- <h1> Order Out Form </h1>
             <form class="form-group" action='.' method="POST"> {% csrf_token %}
               {{ form_order_out.as_p}}
 
             <input type="submit" name="" value="Save">  
-            </form>
+            </form>-->
 
         </div>
         
@@ -165,6 +176,7 @@
 
     
     {% block extra_scripts %}
+      <script src="{% static 'fabric/js/fabric_main.js' %}" ></script>
     {% endblock %}
 </body>
 </html>    
