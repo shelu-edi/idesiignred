@@ -33,6 +33,7 @@ urlpatterns = [
     path('sewing/', include('sewing.urls')),
     path('stock/', include('stock.urls')),
     path('invoice/', include('invoice.urls')),
+    path('sample/', include('sample.urls')),
 
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                            document_root=settings.STATIC_ROOT)

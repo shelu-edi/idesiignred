@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+
+    {% block title %}
+    <title>Idesiignred | Orders</title>
+    {% endblock %} 
+
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'orders/css/order_main.css' %}">
+    {% endblock %}  
+
+</head>
+<body>
+
+    {% block content %}
+        <div class="order__container">
+            <h1> Samples </h1>
+        </div> 
+    {% endblock %}
+         
+</body>
+</html>                  

@@ -20,7 +20,7 @@ width:250px;
 overflow:visible;
 }
 
-.main-menu {
+.main-menu, .drop_btn {
 background:#002060;
 border-right:1px solid #e5e5e5;
 position:fixed;
@@ -76,7 +76,7 @@ position:relative;
 display:table-cell;
 vertical-align:middle;
 width:190px;
-  font-family: 'Titillium Web', sans-serif;
+font-family: 'Titillium Web', sans-serif;
 }
 
 .main-menu>ul.logout {
@@ -126,4 +126,10 @@ height: 100%;
   font-style: normal;
   font-weight: 300;
   src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+
+.dropdown__container {
+  display: none;
+  background-color: black;
+  padding-left: 8px;
 }

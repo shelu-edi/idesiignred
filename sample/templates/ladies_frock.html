@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+
+    {% block title %}
+    <title>Idesiignred | Orders</title>
+    {% endblock %} 
+
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'sample/css/ladies_frock.css' %}">
+    {% endblock %}  
+
+</head>
+<body>
+
+    {% block content %}
+        <div class="ladies__frock__container">
+            <h1> Ladies Frock </h1>
+        </div> 
+
+        {% for ladies_frock in ladies_frocks %}
+        <div class="ladies__frock__card">
+            <h3> {{ ladies_frock.style_no }} </h3>
+            <img class="ladies__frock__img" src="{{ ladies_frock.img.url }}" alt="">
+        </div>
+            
+        {% endfor %}
+
+    {% endblock %}
+         
+</body>
+</html>                  

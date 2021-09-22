@@ -25,3 +25,20 @@ function Out() {
 	document.getElementById('order-out-title').style.display = 'block';
 	document.getElementById('order-in-title').style.display = 'none';
 }
+
+function OrderInBtn() {
+	document.getElementById('order-in-btn').style.background = '#FF6600'
+	document.getElementById('order-out-btn').style.background = '#002060'
+
+	document.getElementById('order-in-table').style.display = 'block';
+	document.getElementById('order-out-table').style.display = 'none';
+
+}
+
+function OrderOutBtn() {
+	document.getElementById('order-out-btn').style.background = '#FF6600'
+	document.getElementById('order-in-btn').style.background = '#002060'
+
+	document.getElementById('order-out-table').style.display = 'block';
+	document.getElementById('order-in-table').style.display = 'none';
+}

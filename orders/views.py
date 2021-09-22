@@ -31,3 +31,13 @@ class OrderMainView(View):
 						context = {'form': form}
 							
 					return render(request, self.template_name, context)"""
+
+	def post(self, request):
+		form = OrderReceivingForm(request.POST)
+		if form.is_valid():
+			form.save()
+			form = OrderReceivingForm()
+
+		context = {'form': form}
+		
+		return render(request, self.template_name, context)					

@@ -48,6 +48,23 @@
 	background-color: white;
 }
 
+.form__container {
+	width: 400px;
+}
+
 #order-table {
 	display: block;
+}
+
+#order-form {
+	margin-left: 300px;
+	width: 50%;
+	height: auto;
+	overflow: auto;
+	bottom: 0;
+	display: none;
+	z-index: 9;
+	position: fixed;
+	background-color: white;
+	opacity: 0.8;
 }

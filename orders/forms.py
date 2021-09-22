@@ -26,7 +26,7 @@ class OrderReceivingForm(forms.ModelForm):
 	#customer_id = forms.CharField(label='Customer ID', widget=forms.TextInput(attrs={
 	#	'placeholder': 'Customer ID'
 	#	}))
-	customer_first_name = forms.ModelChoiceField(queryset=Customer.objects.all())
+	customer = forms.ModelChoiceField(queryset=Customer.objects.all())
 	#customer_last_name = forms.ModelChoiceField(queryset=Customer.objects.all())
 	#customer_id = forms.ModelChoiceField(queryset=Customer.objects.all())
 	consumption = forms.CharField(label='Consumption', widget=forms.TextInput(attrs={
@@ -54,7 +54,7 @@ class OrderReceivingForm(forms.ModelForm):
 			'remarks',
 			'required_date',
 			'price',
-			'customer_first_name',
+			'customer',
 			'consumption',
 			'total_consumption',
 			'delivery_date',

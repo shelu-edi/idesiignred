@@ -21,6 +21,15 @@
         <div class="fabric__container">
             <h1> Fabric </h1>
 
+            <div class="btn__container">
+              <div class="fabric__btn" id="order-in-btn" onclick="OrderInBtn()">
+                <h2> Order In </h2>
+              </div>
+              <div class="fabric__btn" id="order-out-btn" onclick="OrderOutBtn()">
+                <h2> Order Out </h2>
+              </div>
+            </div>
+
             <!-- Order In-->
             <div id="order-in-title">
               <h2> Order In </h2>
@@ -31,12 +40,12 @@
                 Add
               </button>
 
-              <button class="fabric__add__button" id="order-in" onclick="In()">
+              <!-- <button class="fabric__add__button" id="order-in" onclick="In()">
                 Order In
               </button>
               <button class="fabric__add__button" id="order-out" onclick="Out()">
                 Order Out
-              </button>
+              </button>-->
             </div>
             <div class="table-responsive">
               <table class="table" id="order-in-table">

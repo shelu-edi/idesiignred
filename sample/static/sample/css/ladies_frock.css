@@ -1,0 +1,23 @@
+.ladies__frock__container {
+	margin: 100px 0 0 100px;
+}
+
+.ladies__frock__container h1 {
+	text-align: center;
+}
+
+.ladies__frock__card {
+	width: 400px;
+	height: 100%;
+	/* border: 1px solid black; */
+	margin-left: 100px;
+}
+
+.ladies__frock__card h3 {
+	text-align: center;
+}
+
+.ladies__frock__img {
+	width: 400px;
+	height: 400px;
+}

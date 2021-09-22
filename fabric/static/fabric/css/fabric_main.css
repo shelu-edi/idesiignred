@@ -41,11 +41,14 @@
 #order-in-table {
 	display: block;
 	position: fixed;
+	overflow: scroll;
 }
 
 #order-out-table {
 	display: none;
 	position: fixed;
+	overflow: scroll;
+	margin-left: 100px;
 }
 
 #order-out-title {
@@ -70,4 +73,37 @@
 
 .fabric__body {
 	background-color: #FF6600;
+}
+
+.btn__container {
+	margin: 20px 0 20px 300px;
+	display: flex;
+	align-items: center;
+	width: 600px;
+	height: 200px;
+	/* border: 1px solid black; */
+}
+
+.fabric__btn {	
+	display: flex;
+	align-items: center;
+	width: 200px;
+	height: 80px;
+	/* border: 1px solid aqua; */
+	border-radius: 4px;
+	float: left;
+	cursor: pointer;
+	background-color: #002060;
+}
+
+.fabric__btn h2 {	
+	text-align: center;
+	color: #fff;
+	margin-bottom: 50px;
+	margin-left: 20px;
+}
+
+#order-in-btn {
+	margin-left: 100px;
+	margin-right: 10px;
 }
