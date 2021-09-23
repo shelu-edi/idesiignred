@@ -1,13 +1,23 @@
 .ladies__frock__container {
 	margin: 100px 0 0 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .ladies__frock__container h1 {
 	text-align: center;
 }
 
+.ladies__frock__wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-auto-rows: 1fr;
+}
+
 .ladies__frock__card {
-	width: 400px;
+	margin-top: 50px;
+	width: 200px;
 	height: 100%;
 	/* border: 1px solid black; */
 	margin-left: 100px;
@@ -18,6 +28,7 @@
 }
 
 .ladies__frock__img {
-	width: 400px;
-	height: 400px;
+	width: 200px;
+	height: 200px;
+	/* margin-left: 100px; */
 }

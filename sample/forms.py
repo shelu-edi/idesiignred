@@ -12,19 +12,21 @@ class LadiesFrockForm(forms.ModelForm):
 	style_no = forms.CharField(label='Style No', widget=forms.TextInput(attrs={
 		'placeholder'; 'Style No'
 		}))
-	fabric_id = forms.CharField(label='Fabric ID', widget=forms.TextInput(attrs={
-		'placeholder': 'Fabric ID'
-		}))
+	#fabric_id = forms.CharField(label='Fabric ID', widget=forms.TextInput(attrs={
+	#	'placeholder': 'Fabric ID'
+	#	}))
+	fabric = forms.ModelChoiceField(queryset=OrderOut.objects.all())
 	fabric_price = forms.DecimalField(label='Fabric Price')
 	consumption = forms.CharField(label='Consumption', widget=forms.TextInput(attrs={
 		'placeholder': 'Consumption'
 		}))
-	acc_name = forms.CharField(label='Accessories Name', widget=forms.TextInput(attrs={
-		'placeholder': 'Accessories Name'
-		}))
-	acc_id = forms.CharField(label='Accessories ID', widget=forms.TextInput(attrs={
-		'placeholder': 'Accessories ID'
-		}))
+	#acc_name = forms.CharField(label='Accessories Name', widget=forms.TextInput(attrs={
+	#	'placeholder': 'Accessories Name'
+	#	}))
+	#acc_id = forms.CharField(label='Accessories ID', widget=forms.TextInput(attrs={
+	#	'placeholder': 'Accessories ID'
+	#	}))
+	accessories = forms.ModelChoiceField(queryset=AccSentOut.objects.all())
 	acc_cost = forms.DecimalField(label='Accessories Cost')
 	sewing_cost = forms.DecimalField(label='Sewing Cost')
 	embroidery_cost = forms.DecimalField(label='Embroidery Cost')
@@ -32,6 +34,7 @@ class LadiesFrockForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -41,11 +44,13 @@ class LadiesFrockForm(forms.ModelForm):
 		'img',
 		'sample_manufactured_date',
 		'style_no',
-		'fabric_id',
+		#'fabric_id',
+		'fabric',
 		'fabric_price',
 		'consumption',
-		'acc_name',
-		'acc_id',
+		'accessories',
+		#'acc_name',
+		#'acc_id',
 		'acc_cost',
 		'sewing_cost',
 		'embroidery_cost',
@@ -53,6 +58,7 @@ class LadiesFrockForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -82,6 +88,7 @@ class LadiesBlouseForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -103,6 +110,7 @@ class LadiesBlouseForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]	
 
@@ -132,6 +140,7 @@ class LadiesSkirtForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -153,6 +162,7 @@ class LadiesSkirtForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -182,6 +192,7 @@ class LadiesPantForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -203,6 +214,7 @@ class LadiesPantForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -232,6 +244,7 @@ class MaternityFrockForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -253,6 +266,7 @@ class MaternityFrockForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -282,6 +296,7 @@ class KaftanForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -303,6 +318,7 @@ class KaftanForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -332,6 +348,7 @@ class LadiesTshirtForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -353,6 +370,7 @@ class LadiesTshirtForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -382,6 +400,7 @@ class NightwearForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -403,6 +422,7 @@ class NightwearForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -433,6 +453,7 @@ class ChildrensFrockForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -454,6 +475,7 @@ class ChildrensFrockForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -483,6 +505,7 @@ class ChildrensPantForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -504,6 +527,7 @@ class ChildrensPantForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -534,6 +558,7 @@ class InfantsFrockForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -555,6 +580,7 @@ class InfantsFrockForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -584,6 +610,7 @@ class InfantsPantForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -605,6 +632,7 @@ class InfantsPantForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -635,6 +663,7 @@ class GirlsFrockForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -656,6 +685,7 @@ class GirlsFrockForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -685,6 +715,7 @@ class GirlsPantForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -706,6 +737,7 @@ class GirlsPantForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -735,6 +767,7 @@ class GirlsTshirtForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -756,6 +789,7 @@ class GirlsTshirtForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -785,6 +819,7 @@ class GirlsShortForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -806,6 +841,7 @@ class GirlsShortForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -836,6 +872,7 @@ class BoysPantForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -857,6 +894,7 @@ class BoysPantForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]	
 
@@ -886,6 +924,7 @@ class BoysShirtForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -907,6 +946,7 @@ class BoysShirtForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -936,6 +976,7 @@ class BoysTshirtForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -957,6 +998,7 @@ class BoysTshirtForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]
 
@@ -986,6 +1028,7 @@ class BoysShortForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -1007,6 +1050,7 @@ class BoysShortForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]	
 
@@ -1037,6 +1081,7 @@ class TeenfrockForm(forms.ModelForm):
 	paint_cost = forms.DecimalField(label='Paint Cost')
 	factory_profit = forms.DecimalField(label='Fabric Profit')
 	total_value = forms.DecimalField(label='Total Value')
+	accepted = forms.BooleanField(label='Accepted')
 	description = forms.CharField(label='Description', widget=forms.TextInput(attrs={
 		'placeholder': 'Description'
 		}))
@@ -1058,5 +1103,6 @@ class TeenfrockForm(forms.ModelForm):
 		'paint_cost',
 		'factory_profit',
 		'total_price',
+		'accepted',
 		'description'
 		]																																					

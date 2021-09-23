@@ -6,6 +6,12 @@ from .models import AccRecievedIn, AccSentOut
 # forms
 
 class AccRecievedInForm(forms.ModelForm):
+	acc_name = forms.CharField(label='Accessories Name', widget=forms.TextInput(attrs={
+		'placeholder': 'Accessories Name'
+		}))
+	acc_id = forms.CharField(label='Accessories ID'. widget=forms.TextInput(attrs={
+		'placeholder': 'Accessories ID'
+		}))
 	date = forms.DateField(label='Date')
 	price = forms.DecimalField(label='Price')
 	quantity = forms.IntegerField(label='Quantity')
@@ -21,6 +27,8 @@ class AccRecievedInForm(forms.ModelForm):
 	class Meta:
 		model = AccRecievedIn
 		fields = [
+			'acc_name',
+			'acc_id'
 			'date',
 			'price',
 			'quantity',
@@ -30,6 +38,12 @@ class AccRecievedInForm(forms.ModelForm):
 			'user_notes']
 
 class AccSentOutForm(forms.ModelForm):
+	acc_name = forms.CharField(label='Accessories Name', widget=forms.TextInput(attrs={
+		'placeholder': 'Accessories Name'
+		}))
+	acc_id = forms.CharField(label='Accessories ID'. widget=forms.TextInput(attrs={
+		'placeholder': 'Accessories ID'
+		}))
 	date = forms.DateField(label='Date')
 	price = forms.DecimalField(label='Price')
 	quantity = forms.IntegerField(label='Quantity')
@@ -45,6 +59,8 @@ class AccSentOutForm(forms.ModelForm):
 	class Meta:
 		model = AccSentOut
 		fields = [
+			'acc_name',
+			'acc_id'
 			'date',
 			'price',
 			'quantity',

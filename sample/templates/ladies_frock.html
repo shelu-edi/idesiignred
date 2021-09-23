@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
 
     {% block title %}
-    <title>Idesiignred | Orders</title>
+    <title>Idesiignred | Sample- Ladies Frocks</title>
     {% endblock %} 
 
     {% block extra_css %}
@@ -22,14 +22,33 @@
             <h1> Ladies Frock </h1>
         </div> 
 
+        <div class="ladies__frock__wrapper">            
         {% for ladies_frock in ladies_frocks %}
         <div class="ladies__frock__card">
             <h3> {{ ladies_frock.style_no }} </h3>
             <img class="ladies__frock__img" src="{{ ladies_frock.img.url }}" alt="">
-        </div>
-            
+        </div>            
         {% endfor %}
 
+        {% for ladies_frock in ladies_frocks %}
+        <div class="ladies__frock__card">
+            <h3> {{ ladies_frock.style_no }} </h3>
+            <img class="ladies__frock__img" src="{{ ladies_frock.img.url }}" alt="">
+        </div>            
+        {% endfor %}
+        {% for ladies_frock in ladies_frocks %}
+        <div class="ladies__frock__card">
+            <h3> {{ ladies_frock.style_no }} </h3>
+            <img class="ladies__frock__img" src="{{ ladies_frock.img.url }}" alt="">
+        </div>            
+        {% endfor %}
+        {% for ladies_frock in ladies_frocks %}
+        <div class="ladies__frock__card">
+            <h3> {{ ladies_frock.style_no }} </h3>
+            <img class="ladies__frock__img" src="{{ ladies_frock.img.url }}" alt="">
+        </div>            
+        {% endfor %}
+        </div>
     {% endblock %}
          
 </body>

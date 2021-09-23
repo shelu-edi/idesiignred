@@ -2,16 +2,20 @@ from django.db import models
 
 # Create your models here.
 
+from accessories.models import *
+from fabric.models import *
+
 # Ladies
 class LadiesFrock(models.Model):
 	img = models.ImageField(upload_to='products/ladies/ladies-frock/img/')
 	sample_manufactured_date = models.DateField()
 	style_no = models.CharField(max_length=1000)
-	fabric_id = models.CharField(max_length=1000)
+	fabric = models.ForeignKey(OrderOut, on_delete=models.SET_NULL, null=True, blank=True)
 	fabric_price = models.DecimalField(decimal_places=2, max_digits=100000)
 	consumption = models.CharField(max_length=1000)
 	acc_name = models.CharField(max_length=1000)
-	acc_id = models.CharField(max_length=1000)
+	#acc_id = models.CharField(max_length=1000)
+	accessories = models.ForeignKey(AccSentOut, on_delete=models.SET_NULL, null=True, blank=True)
 	acc_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	sewing_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	embroidery_cost = models.DecimalField(decimal_places=2, max_digits=100000)
@@ -19,7 +23,11 @@ class LadiesFrock(models.Model):
 	paint_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)
+
+	def __str__(self):
+		return self.style_no
 
 class LadiesBlouse(models.Model):
 	img = models.ImageField(upload_to='products/ladies/ladies-blouse/img/')
@@ -37,6 +45,7 @@ class LadiesBlouse(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
 class LadiesSkirt(models.Model):
@@ -55,6 +64,7 @@ class LadiesSkirt(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
 class LadiesPant(models.Model):
@@ -73,6 +83,7 @@ class LadiesPant(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
 class MaternityFrock(models.Model):
@@ -91,6 +102,7 @@ class MaternityFrock(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
 class Kaftan(models.Model):
@@ -109,6 +121,7 @@ class Kaftan(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)		
 
 class LadiesTshirt(models.Model):
@@ -127,6 +140,7 @@ class LadiesTshirt(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
 class Nightwear(models.Model):
@@ -145,6 +159,7 @@ class Nightwear(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
 # Childrens	
@@ -164,6 +179,7 @@ class ChildrensFrock(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
 class ChildrensPant(models.Model):
@@ -182,6 +198,7 @@ class ChildrensPant(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
 # Infant
@@ -201,6 +218,7 @@ class InfantsFrock(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
 class InfantsPant(models.Model):
@@ -219,6 +237,7 @@ class InfantsPant(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
 # Girls
@@ -238,6 +257,7 @@ class GirlsFrock(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)	
 	description = models.CharField(max_length=1000)	
 
 class GirlsPant(models.Model):
@@ -256,6 +276,7 @@ class GirlsPant(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
 class GirlsTshirt(models.Model):
@@ -274,6 +295,7 @@ class GirlsTshirt(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
 class GirlsShort(models.Model):
@@ -292,6 +314,7 @@ class GirlsShort(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
 # Boys
@@ -311,6 +334,7 @@ class BoysPant(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)
 
 class BoysShirt(models.Model):
@@ -329,6 +353,7 @@ class BoysShirt(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
 class BoysTshirt(models.Model):
@@ -347,6 +372,7 @@ class BoysTshirt(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)
 
 class BoysShort(models.Model):
@@ -365,6 +391,7 @@ class BoysShort(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
 # Teen
@@ -384,6 +411,7 @@ class Teenfrock(models.Model):
 	pain_cost = models.DecimalField(decimal_places=2, max_digits=100000)
 	factory_profit = models.DecimalField(decimal_places=2, max_digits=100000)
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
+	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)		
 
 

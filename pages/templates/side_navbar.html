@@ -37,20 +37,9 @@
             <li class="has-subnav">
                 <a href="{% url 'sample:sample_view' %}">
                     <i class="fa fa-shirt fa-2x"></i>
-                    <span class="nav-text">
+                    <span class="nav-text sample">
                         Samples
                     </span>
-                    <i class="fa fa-caret-down"></i>
-                    </a>
-                    
-            </li>
-            <li class="has-subnav">
-                <a href="{% url 'sample:sample_view' %}">
-                    <i class="fa fa-shirt fa-2x"></i>
-                    <span class="nav-text .sample">
-                        Samples
-                    </span>
-                    <i class="fa fa-caret-down"></i>
                     </a>
                     
             </li>
@@ -121,6 +110,14 @@
                         </span>
                     </a>
                 </li>
+                <li class="has-subnav">
+                   <a href="{% url 'invoice:invoice_view' %}">
+                        <i class="fa fa-shirt"></i>
+                        <span class="nav-text">
+                            Sample
+                        </span>
+                    </a>
+                </li>
                 <li>
                     <a href="#">
                        <i class="fa fa-map-marker fa-2x"></i>
@@ -154,5 +151,6 @@
                 </li>  
             </ul>
         </nav>
+
 </body>
 </html>    

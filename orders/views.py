@@ -19,19 +19,8 @@ class OrderMainView(View):
 		form = OrderReceivingForm()
 		context = {'orders': self.get_query_set(), 'form': form}
 
-		return render(request, self.template_name, context)	
-
-	"""def post(self, request):
-					form = OrderReceivingForm(request.POST)
-					if form.is_valid():
-						customer_first_name = form.cleaned_date.get('customer_first_name')
-						form.save()
-						form = OrderReceivingForm()
-							
-						context = {'form': form}
-							
-					return render(request, self.template_name, context)"""
-
+		return render(request, self.template_name, context)
+		
 	def post(self, request):
 		form = OrderReceivingForm(request.POST)
 		if form.is_valid():

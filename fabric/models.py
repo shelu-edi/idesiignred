@@ -24,6 +24,7 @@ class OrderIn(models.Model):
 	reason = models.CharField(max_length=1000)
 
 class OrderOut(models.Model):
+	fabric_id = models.CharField(max_length=100)
 	order_received = models.DateField()
 	date_order_delivered = models.DateField()
 	style_no = models.CharField(max_length=1000)

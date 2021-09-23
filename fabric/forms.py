@@ -50,6 +50,9 @@ class OrderInForm(forms.ModelForm):
 
 
 class OrderOutForm(forms.ModelForm):
+	fabric_id = forms.CharField(label='Fabric ID', widget=forms.TextInput(attrs={
+		'placeholder': 'Fabric ID'
+		}))
 	order_received = forms.DateField(label='Order Received')
 	date_order_delivered = forms.DateField(label='Date Order Delivered')
 	style_no = forms.CharField(label='Style No', widget=forms.TextInput(attrs={
@@ -79,6 +82,7 @@ class OrderOutForm(forms.ModelForm):
 	class Meta:
 		model = OrderOut
 		fields = [
+			'fabric_id',
 			'order_received',
 			'date_order_delivered',
 			'style_no',

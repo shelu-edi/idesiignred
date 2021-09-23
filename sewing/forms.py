@@ -5,6 +5,7 @@ from .models import Sewing
 
 # forms
 
+
 class SewingForm(forms.ModelForm):
 	order_received = forms.DateField(label='Order Received')
 	date_order_delivered = forms.DateField(label='Date Order Delivered')
