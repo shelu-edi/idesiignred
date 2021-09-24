@@ -9,7 +9,7 @@ from .views import *
 app_name = 'sample'
 
 urlpatterns = [
-    path('', sample_main_view, name="sample_view"),
-    path('ladies-frock/', LadiesFrockView.as_view() , name="ladies_frock_view"),
-]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
+    path('', SampleMainView.as_view(), name="sample_view"),
+    path('ladies-frock/', LadiesFrockView.as_view(), name="ladies_frock_view"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                            document_root=settings.STATIC_ROOT)

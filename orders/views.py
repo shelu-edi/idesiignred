@@ -8,6 +8,7 @@ from customers.models import Customer
 
 # Create your views here.
 
+
 class OrderMainView(View):
 	template_name = 'order_main.html'
 	queryset = OrderReceiving.objects.all()

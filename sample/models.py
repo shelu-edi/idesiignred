@@ -6,6 +6,7 @@ from accessories.models import *
 from fabric.models import *
 
 # Ladies
+
 class LadiesFrock(models.Model):
 	img = models.ImageField(upload_to='products/ladies/ladies-frock/img/')
 	sample_manufactured_date = models.DateField()

@@ -7,21 +7,543 @@
     <meta charset="UTF-8">
 
     {% block title %}
-    <title>Idesiignred | Orders</title>
+    <title>Idesiignred | Samples</title>
     {% endblock %} 
 
     {% block extra_css %}
-        <link rel="stylesheet" href="{% static 'orders/css/order_main.css' %}">
+        <link rel="stylesheet" href="{% static 'sample/css/sample_main.css' %}">
     {% endblock %}  
 
 </head>
 <body>
 
     {% block content %}
-        <div class="order__container">
+        <div class="sample__container">
             <h1> Samples </h1>
-        </div> 
+
+            <!-- Main Categories -->
+            <div class="sample__main__cats">
+                <div class="sample__main" onclick="LadiesSub()" id="ladies-main">
+                    Ladies
+                </div>
+                <div class="sample__main" onclick="BoysSub()" id="boys-main">
+                    Boys
+                </div>
+                <div class="sample__main"  onclick="GirlsSub()" id="girls-main">
+                    Girls
+                </div>
+                <div class="sample__main" onclick="InfantsSub()" id="infants-main">
+                    Infants
+                </div>
+                <div class="sample__main" onclick="TeensSub()" id="teens-main">
+                    Teens
+                </div>
+            </div>
+
+            <!-- Ladies Sub Categories -->
+            <div class="sample__sub__main__cats" id="ladies-sub">
+                <div class="sample__main" onclick="LadiesFrock()" id="ladies-frock">
+                    Frock
+                </div>
+                <div class="sample__main" onclick="LadiesBlouse()" id="ladies-blouse">
+                    Blouse
+                </div>
+                <div class="sample__main" onclick="LadiesPant()" id="ladies-pant">
+                    Pant
+                </div>
+                <div class="sample__main" onclick="LadiesSkirt()" id="ladies-skirt">
+                    Skirt
+                </div>
+                <div class="sample__main" onclick="LadiesTshirt()" id="ladies-tshirt">
+                    T-shirt
+                </div>
+                <div class="sample__main" onclick="MaternityFrock()" id="maternity-frock">
+                    Maternity Frock
+                </div>
+                <div class="sample__main" onclick="Kaftan()" id="kaftan">
+                    Kaftan
+                </div>
+                <div class="sample__main" onclick="Nightwear()" id="nightwear">
+                    Nightwear
+                </div>
+            </div>
+
+            <!-- Boys Sub Categories -->
+            <div class="sample__sub__main__cats" id="boys-sub">
+                <div class="sample__main"  onclick="BoysPant()" id="boys-pant">
+                    Pant
+                </div>
+                <div class="sample__main" onclick="BoysShirt()" id="boys-shirt">
+                    Shirt
+                </div>
+                <div class="sample__main" onclick="BoysTshirt()" id="boys-tshirt">
+                    T-shirt
+                </div>
+                <div class="sample__main" onclick="BoysShort()" id="boys-short">
+                    Short
+                </div>
+            </div>
+
+            <!-- Girls Sub Categories -->
+            <div class="sample__sub__main__cats" id="girls-sub">
+                <div class="sample__main">
+                    Frock
+                </div>
+                <div class="sample__main">
+                    Pant
+                </div>
+                <div class="sample__main">
+                    T-shirt
+                </div>
+                <div class="sample__main">
+                    Short
+                </div>
+            </div>
+
+            <!-- Infants Sub Categories -->
+            <div class="sample__sub__main__cats" id="infants-sub">
+                <div class="sample__main">
+                    Frock
+                </div>
+                <div class="sample__main">
+                    Pant
+                </div>
+            </div>
+
+            <!-- Teens Sub Categories -->
+            <div class="sample__sub__main__cats" id="teens-sub">
+                <div class="sample__main">
+                    Frock
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="ladies__tables__wrapper" id="ladies-tables-wrapper">
+
+             <div class="table-responsive">
+              <table class="table" id="ladies-frock-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Img</th>
+                    <th scope="col">Sample Manufacture Date</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Fabric</th>
+                    <th scope="col">Factory Profit(LKR)</th>
+                    <th scope="col">Total Value(LKR)</th>
+                    <th scope="col">Accepted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for ladies_frock in ladies_frocks %}
+                    <tr>
+                    <td><img src="{{ ladies_frock.img.url }}" alt="sample" class="sample__img"></td>
+                    <td> {{ ladies_frock.sample_manufactured_date }} </td>
+                    <td> {{ ladies_frock.style_no }} </td>
+                    <td> {{ ladies_frock.fabric.fabric_id }} </td>
+                    <td> {{ ladies_frock.factory_profit }} </td>
+                    <td> {{ ladies_frock.total_value }} </td>
+                    <td> {% if ladies_frock.accepted == True %}
+                            Accepted
+                        {% else %}
+                            Not Accepted
+                        {% endif %}
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table" id="ladies-blouse-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Img</th>
+                    <th scope="col">Sample Manufacture Date</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Fabric</th>
+                    <th scope="col">Factory Profit(LKR)</th>
+                    <th scope="col">Total Value(LKR)</th>
+                    <th scope="col">Accepted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for ladies_blouse in ladies_blouses %}
+                    <tr>
+                    <td><img src="{{ ladies_blouse.img.url }}" alt="sample" class="sample__img"></td>
+                    <td> {{ ladies_blouse.sample_manufactured_date }} </td>
+                    <td> {{ ladies_blouse.style_no }} </td>
+                    <td> {{ ladies_blouse.fabric.fabric_id }} </td>
+                    <td> {{ ladies_blouse.factory_profit }} </td>
+                    <td> {{ ladies_blouse.total_value }} </td>
+                    <td> {% if ladies_blouse.accepted == True %}
+                            Accepted
+                        {% else %}
+                            Not Accepted
+                        {% endif %}
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table" id="ladies-pant-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Img</th>
+                    <th scope="col">Sample Manufacture Date</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Fabric</th>
+                    <th scope="col">Factory Profit(LKR)</th>
+                    <th scope="col">Total Value(LKR)</th>
+                    <th scope="col">Accepted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for ladies_pant in ladies_pants %}
+                    <tr>
+                    <td><img src="{{ ladies_pant.img.url }}" alt="sample" class="sample__img"></td>
+                    <td> {{ ladies_pant.sample_manufactured_date }} </td>
+                    <td> {{ ladies_pant.style_no }} </td>
+                    <td> {{ ladies_pant.fabric.fabric_id }} </td>
+                    <td> {{ ladies_pant.factory_profit }} </td>
+                    <td> {{ ladies_pant.total_value }} </td>
+                    <td> {% if ladies_pant.accepted == True %}
+                            Accepted
+                        {% else %}
+                            Not Accepted
+                        {% endif %}
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table" id="ladies-skirt-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Img</th>
+                    <th scope="col">Sample Manufacture Date</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Fabric</th>
+                    <th scope="col">Factory Profit(LKR)</th>
+                    <th scope="col">Total Value(LKR)</th>
+                    <th scope="col">Accepted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for ladies_skirt in ladies_skirts %}
+                    <tr>
+                    <td><img src="{{ ladies_skirt.img.url }}" alt="sample" class="sample__img"></td>
+                    <td> {{ ladies_skirt.sample_manufactured_date }} </td>
+                    <td> {{ ladies_skirt.style_no }} </td>
+                    <td> {{ ladies_skirt.fabric.fabric_id }} </td>
+                    <td> {{ ladies_skirt.factory_profit }} </td>
+                    <td> {{ ladies_skirt.total_value }} </td>
+                    <td> {% if ladies_skirt.accepted == True %}
+                            Accepted
+                        {% else %}
+                            Not Accepted
+                        {% endif %}
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table" id="ladies-tshirt-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Img</th>
+                    <th scope="col">Sample Manufacture Date</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Fabric</th>
+                    <th scope="col">Factory Profit(LKR)</th>
+                    <th scope="col">Total Value(LKR)</th>
+                    <th scope="col">Accepted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for ladies_tshirt in ladies_tshirts %}
+                    <tr>
+                    <td><img src="{{ ladies_tshirt.img.url }}" alt="sample" class="sample__img"></td>
+                    <td> {{ ladies_tshirt.sample_manufactured_date }} </td>
+                    <td> {{ ladies_tshirt.style_no }} </td>
+                    <td> {{ ladies_tshirt.fabric.fabric_id }} </td>
+                    <td> {{ ladies_tshirt.factory_profit }} </td>
+                    <td> {{ ladies_tshirt.total_value }} </td>
+                    <td> {% if ladies_tshirt.accepted == True %}
+                            Accepted
+                        {% else %}
+                            Not Accepted
+                        {% endif %}
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table" id="maternity-frock-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Img</th>
+                    <th scope="col">Sample Manufacture Date</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Fabric</th>
+                    <th scope="col">Factory Profit(LKR)</th>
+                    <th scope="col">Total Value(LKR)</th>
+                    <th scope="col">Accepted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for maternity_frock in maternity_frocks %}
+                    <tr>
+                    <td><img src="{{ maternity_frock.img.url }}" alt="sample" class="sample__img"></td>
+                    <td> {{ maternity_frock.sample_manufactured_date }} </td>
+                    <td> {{ maternity_frock.style_no }} </td>
+                    <td> {{ maternity_frock.fabric_id }} </td>
+                    <td> {{ maternity_frock.factory_profit }} </td>
+                    <td> {{ maternity_frock.total_value }} </td>
+                    <td> {% if maternity_frock.accepted == True %}
+                            Accepted
+                        {% else %}
+                            Not Accepted
+                        {% endif %}
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table" id="kaftan-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Img</th>
+                    <th scope="col">Sample Manufacture Date</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Fabric</th>
+                    <th scope="col">Factory Profit(LKR)</th>
+                    <th scope="col">Total Value(LKR)</th>
+                    <th scope="col">Accepted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for kaftan in kaftans %}
+                    <tr>
+                    <td><img src="{{ kaftan.img.url }}" alt="sample" class="sample__img"></td>
+                    <td> {{ kaftan.sample_manufactured_date }} </td>
+                    <td> {{ kaftan.style_no }} </td>
+                    <td> {{ kaftan.fabric_id }} </td>
+                    <td> {{ kaftan.factory_profit }} </td>
+                    <td> {{ kaftan.total_value }} </td>
+                    <td> {% if kaftan.accepted == True %}
+                            Accepted
+                        {% else %}
+                            Not Accepted
+                        {% endif %}
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table" id="nightwear-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Img</th>
+                    <th scope="col">Sample Manufacture Date</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Fabric</th>
+                    <th scope="col">Factory Profit(LKR)</th>
+                    <th scope="col">Total Value(LKR)</th>
+                    <th scope="col">Accepted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for nightwear in nightwears %}
+                    <tr>
+                    <td><img src="{{ nightwear.img.url }}" alt="sample" class="sample__img"></td>
+                    <td> {{ nightwear.sample_manufactured_date }} </td>
+                    <td> {{ nightwear.style_no }} </td>
+                    <td> {{ nightwear.fabric_id }} </td>
+                    <td> {{ nightwear.factory_profit }} </td>
+                    <td> {{ nightwear.total_value }} </td>
+                    <td> {% if nightwear.accepted == True %}
+                            Accepted
+                        {% else %}
+                            Not Accepted
+                        {% endif %}
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            </div>
+
+            <div class="boys__table__wrapper" id="boys-tables-wrapper">
+
+              <div class="table-responsive">
+              <table class="table" id="boys-pant-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Img</th>
+                    <th scope="col">Sample Manufacture Date</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Fabric</th>
+                    <th scope="col">Factory Profit(LKR)</th>
+                    <th scope="col">Total Value(LKR)</th>
+                    <th scope="col">Accepted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for boys_pant in boys_pants %}
+                    <tr>
+                    <td><img src="{{ boys_pant.img.url }}" alt="sample" class="sample__img"></td>
+                    <td> {{ boys_pant.sample_manufactured_date }} </td>
+                    <td> {{ boys_pant.style_no }} </td>
+                    <td> {{ boys_pant.fabric_id }} </td>
+                    <td> {{ boys_pant.factory_profit }} </td>
+                    <td> {{ boys_pant.total_value }} </td>
+                    <td> {% if boys_pant.accepted == True %}
+                            Accepted
+                        {% else %}
+                            Not Accepted
+                        {% endif %}
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table" id="boys-shirt-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Img</th>
+                    <th scope="col">Sample Manufacture Date</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Fabric</th>
+                    <th scope="col">Factory Profit(LKR)</th>
+                    <th scope="col">Total Value(LKR)</th>
+                    <th scope="col">Accepted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for boys_shirt in boys_shirts %}
+                    <tr>
+                    <td><img src="{{ boys_shirt.img.url }}" alt="sample" class="sample__img"></td>
+                    <td> {{ boys_shirt.sample_manufactured_date }} </td>
+                    <td> {{ boys_shirt.style_no }} </td>
+                    <td> {{ boys_shirt.fabric_id }} </td>
+                    <td> {{ boys_shirt.factory_profit }} </td>
+                    <td> {{ boys_shirt.total_value }} </td>
+                    <td> {% if boys_shirt.accepted == True %}
+                            Accepted
+                        {% else %}
+                            Not Accepted
+                        {% endif %}
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table" id="boys-tshirt-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Img</th>
+                    <th scope="col">Sample Manufacture Date</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Fabric</th>
+                    <th scope="col">Factory Profit(LKR)</th>
+                    <th scope="col">Total Value(LKR)</th>
+                    <th scope="col">Accepted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for boys_tshirt in boys_tshirts %}
+                    <tr>
+                    <td><img src="{{ boys_tshirt.img.url }}" alt="sample" class="sample__img"></td>
+                    <td> {{ boys_tshirt.sample_manufactured_date }} </td>
+                    <td> {{ boys_tshirt.style_no }} </td>
+                    <td> {{ boys_tshirt.fabric_id }} </td>
+                    <td> {{ boys_tshirt.factory_profit }} </td>
+                    <td> {{ boys_tshirt.total_value }} </td>
+                    <td> {% if boys_tshirt.accepted == True %}
+                            Accepted
+                        {% else %}
+                            Not Accepted
+                        {% endif %}
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table" id="boys-short-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Img</th>
+                    <th scope="col">Sample Manufacture Date</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Fabric</th>
+                    <th scope="col">Factory Profit(LKR)</th>
+                    <th scope="col">Total Value(LKR)</th>
+                    <th scope="col">Accepted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for boys_short in boys_shorts %}
+                    <tr>
+                    <td><img src="{{ boys_short.img.url }}" alt="sample" class="sample__img"></td>
+                    <td> {{ boys_short.sample_manufactured_date }} </td>
+                    <td> {{ boys_short.style_no }} </td>
+                    <td> {{ boys_short.fabric_id }} </td>
+                    <td> {{ boys_short.factory_profit }} </td>
+                    <td> {{ boys_short.total_value }} </td>
+                    <td> {% if boys_short.accepted == True %}
+                            Accepted
+                        {% else %}
+                            Not Accepted
+                        {% endif %}
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            </div>
+
+
+
+        </div>
+
+
     {% endblock %}
-         
+
+
+    {% block extra_scripts %}
+      <script src="{% static 'sample/js/sample_main.js' %}" ></script>
+    {% endblock %}
 </body>
 </html>                  

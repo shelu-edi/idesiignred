@@ -6,7 +6,6 @@ from orders.models import OrderReceiving
 # Create your models here.
 
 
-
 class OrderIn(models.Model):
 	order_received = models.DateField()
 	date_order_delivered = models.DateField()
@@ -22,6 +21,7 @@ class OrderIn(models.Model):
 	order_status = models.BooleanField(default=False)
 	order_progress = models.CharField(max_length=1000)
 	reason = models.CharField(max_length=1000)
+
 
 class OrderOut(models.Model):
 	fabric_id = models.CharField(max_length=100)

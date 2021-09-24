@@ -1,0 +1,164 @@
+.sample__container {
+    margin: 100px 0 0 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.sample__container h1 {
+    text-align: center;
+}
+
+.sample__main__cats {
+    display: flex;
+    margin: 50px 80px 0 50px;
+    text-align: center;
+    justify-content: space-between;
+    font-size: 2rem;
+    float: right;
+}
+
+.sample__main {
+    border-radius: 4px;
+    /*border: 1px solid blue;*/
+    background-color: whitesmoke;
+    color: #002060;
+    width: 200px;
+    cursor: pointer;
+}
+
+.sample__sub__main__cats {
+    margin: 50px 80px 0 50px;
+    text-align: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    float: right;
+}
+
+#ladies-main {
+    background: grey;
+}
+
+/* Sub Categories */
+#ladies-sub {
+    display: flex;
+}
+
+#boys-sub {
+    display: none;
+}
+
+#girls-sub {
+    display: none;
+}
+
+#infants-sub {
+    display: none;
+}
+
+#teens-sub {
+    display: none;
+}
+
+#ladies-frock {
+    background: grey;
+}
+
+/* Tables */
+
+/* Ladies */
+#ladies-frock-table {
+    margin-top: 50px;
+    display: inline-table;
+    position: fixed;
+    overflow: scroll;
+}
+
+#ladies-blouse-table {
+    margin-top: 50px;
+    display: none;
+    position: fixed;
+    overflow: scroll;
+}
+
+#ladies-pant-table {
+    margin-top: 50px;
+    display: none;
+    position: fixed;
+    overflow: scroll;
+}
+
+#ladies-skirt-table {
+    margin-top: 50px;
+    display: none;
+    position: fixed;
+    overflow: scroll;
+}
+
+#ladies-tshirt-table {
+    margin-top: 50px;
+    display: none;
+    position: fixed;
+    overflow: scroll;
+}
+
+#maternity-frock-table {
+    margin-top: 50px;
+    display: none;
+    position: fixed;
+    overflow: scroll;
+}
+
+#kaftan-table {
+    margin-top: 50px;
+    display: none;
+    position: fixed;
+    overflow: scroll;
+}
+
+#nightwear-table {
+    margin-top: 50px;
+    display: none;
+    position: fixed;
+    overflow: scroll;
+}
+
+/* Boys */
+#boys-tables-wrapper {
+    display: none;
+}
+
+#boys-pant-table {
+    margin-top: 50px;
+}
+
+#boys-shirt-table {
+    margin-top: 50px;
+    display: none;
+    position: fixed;
+    overflow: scroll;
+}
+
+#boys-tshirt-table {
+    margin-top: 50px;
+    display: none;
+    position: fixed;
+    overflow: scroll;
+}
+
+#boys-short-table {
+    margin-top: 50px;
+    display: none;
+    position: fixed;
+    overflow: scroll;
+}
+
+td {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.sample__img {
+    width: 80px;
+    height: 80px;
+}
