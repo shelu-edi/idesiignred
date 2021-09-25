@@ -31,7 +31,7 @@ class SampleMainView(View):
 		return self.ladies_blouse_queryset
 
 	def get_ladies_pant_queryset(self):
-		return self.ladies_blouse_queryset
+		return self.ladies_pant_queryset
 
 	def get_ladies_skirt_queryset(self):
 		return self.ladies_skirt_queryset
@@ -94,7 +94,11 @@ class SampleMainView(View):
 	def get_infants_pant_queryset(self):
 		return self.infants_pant_queryset
 
+	# Teens
+	teen_frock_queryset = Teenfrock.objects.all()
 
+	def get_teen_frock_queryset(self):
+		return self.teen_frock_queryset
 
 	def get(self, request):
 		context = {
@@ -110,7 +114,7 @@ class SampleMainView(View):
 
 			# Boys
 			'boys_pants': self.get_boys_pant_queryset(),
-			'boys_shirts': self.get_boys_short_queryset(),
+			'boys_shirts': self.get_boys_shirt_queryset(),
 			'boys_tshirts': self.get_boys_tshirt_queryset(),
 			'boys_shorts': self.get_boys_short_queryset(),
 
@@ -120,9 +124,12 @@ class SampleMainView(View):
 			'girls_tshirts': self.get_girls_tshirt_queryset(),
 			'girls_shorts': self.get_girls_short_queryset(),
 
-			# infants
+			# Infants
 			'infants_frocks': self.get_infants_frock_queryset(),
 			'infants_pants': self.get_infants_pant_queryset(),
+
+			# Teens
+			'teen_frocks': self.get_teen_frock_queryset(),
 		}
 		return render(request, self.template_name, context)
 

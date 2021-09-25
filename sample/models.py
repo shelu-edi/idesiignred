@@ -7,6 +7,7 @@ from fabric.models import *
 
 # Ladies
 
+
 class LadiesFrock(models.Model):
 	img = models.ImageField(upload_to='products/ladies/ladies-frock/img/')
 	sample_manufactured_date = models.DateField()
@@ -30,6 +31,7 @@ class LadiesFrock(models.Model):
 	def __str__(self):
 		return self.style_no
 
+
 class LadiesBlouse(models.Model):
 	img = models.ImageField(upload_to='products/ladies/ladies-blouse/img/')
 	sample_manufactured_date = models.DateField()
@@ -48,6 +50,7 @@ class LadiesBlouse(models.Model):
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
 	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
+
 
 class LadiesSkirt(models.Model):
 	img = models.ImageField(upload_to='products/ladies/ladies-skirt/img/')
@@ -68,6 +71,7 @@ class LadiesSkirt(models.Model):
 	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
+
 class LadiesPant(models.Model):
 	img = models.ImageField(upload_to='products/ladies/ladies-pant/img/')
 	sample_manufactured_date = models.DateField()
@@ -86,6 +90,7 @@ class LadiesPant(models.Model):
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
 	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
+
 
 class MaternityFrock(models.Model):
 	img = models.ImageField(upload_to='products/ladies/maternity-frock/img/')
@@ -106,6 +111,7 @@ class MaternityFrock(models.Model):
 	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)	
 
+
 class Kaftan(models.Model):
 	img = models.ImageField(upload_to='products/ladies/kaftan/img/')
 	sample_manufactured_date = models.DateField()
@@ -124,6 +130,7 @@ class Kaftan(models.Model):
 	total_value = models.DecimalField(decimal_places=2, max_digits=100000)
 	accepted = models.BooleanField(default=True)
 	description = models.CharField(max_length=1000)		
+
 
 class LadiesTshirt(models.Model):
 	img = models.ImageField(upload_to='products/ladies/ladies-tshirt/img/')

@@ -128,6 +128,10 @@
     display: none;
 }
 
+#girls-table-wrapper {
+    display: none;
+}
+
 #boys-pant-table {
     margin-top: 50px;
 }
@@ -147,6 +151,31 @@
 }
 
 #boys-short-table {
+    margin-top: 50px;
+    display: none;
+    position: fixed;
+    overflow: scroll;
+}
+
+#girls-frock-table {
+    margin-top: 50px;
+}
+
+#girls-pant-table {
+    margin-top: 50px;
+    display: none;
+    position: fixed;
+    overflow: scroll;
+}
+
+#girls-tshirt-table {
+    margin-top: 50px;
+    display: none;
+    position: fixed;
+    overflow: scroll;
+}
+
+#girls-short-table {
     margin-top: 50px;
     display: none;
     position: fixed;

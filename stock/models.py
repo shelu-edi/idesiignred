@@ -4,6 +4,7 @@ from customers.models import Customer
 from orders.models import OrderReceiving
 from sample.models import *
 
+
 # Create your models here.
 class Stock(models.Model):
 	stock_date = models.DateField()

@@ -19,6 +19,7 @@ function LadiesSub() {
     // Wrappers
     document.getElementById('ladies-tables-wrapper').style.display = 'block';
     document.getElementById('boys-tables-wrapper').style.display = 'none';
+    document.getElementById('girls-table-wrapper').style.display = 'none';
 }
 
 function BoysSub() {
@@ -42,6 +43,7 @@ function BoysSub() {
     // Wrappers
     document.getElementById('boys-tables-wrapper').style.display = 'block';
     document.getElementById('ladies-tables-wrapper').style.display = 'none';
+    document.getElementById('girls-table-wrapper').style.display = 'none';
 }
 
 function GirlsSub() {
@@ -59,8 +61,13 @@ function GirlsSub() {
     document.getElementById('infants-main').style.background = 'white';
     document.getElementById('teens-main').style.background = 'white';
 
+    // Girls Sub
+    document.getElementById('girls-frock').style.background = 'grey';
+
     // Wrappers
+    document.getElementById('girls-table-wrapper').style.display = 'block';
     document.getElementById('ladies-tables-wrapper').style.display = 'none';
+    document.getElementById('boys-tables-wrapper').style.display = 'none';
 }
 
 function InfantsSub() {
@@ -331,3 +338,61 @@ function BoysShort() {
     document.getElementById('boys-shirt').style.background = 'white';
 }
 
+function GirlsFrock() {
+    //table
+    document.getElementById('girls-frock-table').style.display = 'inline-table';
+    document.getElementById('girls-pant-table').style.display = 'none';
+    document.getElementById('girls-tshirt-table').style.display = 'none';
+    document.getElementById('girls-short-table').style.display = 'none';
+
+    //submenu
+    document.getElementById('girls-frock').style.background = 'grey';
+    document.getElementById('girls-pant').style.background = 'white';
+    document.getElementById('girls-tshirt').style.background = 'white';
+    document.getElementById('girls-short').style.background = 'white';
+}
+
+function GirlsPant() {
+    //table
+    document.getElementById('girls-pant-table').style.display = 'inline-table';
+    document.getElementById('girls-frock-table').style.display = 'none';
+    document.getElementById('girls-tshirt-table').style.display = 'none';
+    document.getElementById('girls-short-table').style.display = 'none';
+
+    //submenu
+    document.getElementById('girls-pant').style.background = 'grey';
+    document.getElementById('girls-frock').style.background = 'white';
+    document.getElementById('girls-tshirt').style.background = 'white';
+    document.getElementById('girls-short').style.background = 'white';
+
+}
+
+function GirlsTshirt() {
+    //table
+    document.getElementById('girls-tshirt-table').style.display = 'inline-table';
+    document.getElementById('girls-frock-table').style.display = 'none';
+    document.getElementById('girls-pant-table').style.display = 'none';
+    document.getElementById('girls-short-table').style.display = 'none';
+
+    //submenu
+    document.getElementById('girls-tshirt').style.background = 'grey';
+    document.getElementById('girls-frock').style.background = 'white';
+    document.getElementById('girls-pant').style.background = 'white';
+    document.getElementById('girls-short').style.background = 'white';
+
+}
+
+function GirlsShort() {
+    //table
+    document.getElementById('girls-short-table').style.display = 'inline-table';
+    document.getElementById('girls-frock-table').style.display = 'none';
+    document.getElementById('girls-pant-table').style.display = 'none';
+    document.getElementById('girls-tshirt-table').style.display = 'none';
+
+    //submenu
+    document.getElementById('girls-short').style.background = 'grey';
+    document.getElementById('girls-frock').style.background = 'white';
+    document.getElementById('girls-pant').style.background = 'white';
+    document.getElementById('girls-short').style.background = 'grey';
+
+}
