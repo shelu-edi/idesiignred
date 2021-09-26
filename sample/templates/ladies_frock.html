@@ -2,6 +2,7 @@
 <html lang="en">
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
     <meta charset="UTF-8">
@@ -20,35 +21,59 @@
     {% block content %}
         <div class="ladies__frock__container">
             <h1> Ladies Frock </h1>
+
+
+            <div class="ladies__frock__btn">
+                <button>
+                    <a href="{% url 'sample:ladies_frock_print_view' object.id %}" target="_blank"> Print  </a>
+                </button>
+                <button onclick="FormDisplay()" id="edit-btn"> Edit </button>
+            </div>
+            <div class="ladies__frock__wrapper">
+                    <div class="form__container">
+                        <form class="form-group" action='.' method="POST" id="ladies-frock-form">
+                                {% csrf_token %}
+                                {{ form| crispy}}
+                            <input type="submit" name="" value="Save" id="save" onclick="FormClose()">
+                        </form>
+                    </div>
+
+                <img src="{{ object.img.url }}" alt="img" class="ladies__frock__img">
+
+                <div class="ladies__frock__details">
+
+                    <p> Sample Manufacture Date: {{ object.sample_manufactured_date }} </p>
+                    <p> Style No: {{ object.style_no }} </p>
+                    <p> Fabric Id: {{ object.fabric_id }} </p>
+                    <p> Fabric Price {{ object.fabric_price }} </p>
+                    <p> Consumption: {{ object.consumption }} </p>
+                    <p> Accessories Name: {{ object.acc_name }} </p>
+                    <p> Accessories Cost: LKR {{ object.acc_cost }} </p>
+                    <p> Sewing Cost: LKR {{ object.sewing_cost }} </p>
+                    <p> Embroidery Cost: LKR {{ object.embroidery_cost}} </p>
+                    <p> Washed Cost: LKR {{ object.washed_cost }} </p>
+                    <p> Paint Cost: LKR {{ object.pain_cost}} </p>
+                    <p> Factory Profit: LKR {{ object.factory_profit }} </p>
+                    <p> Total Value: LKR {{ object.total_value }} </p>
+                    <p> {% if object.accepted == True %}
+                        Sample Accepted
+                        {% else %}
+                        Sample Rejected
+                        {% endif %}
+                    </p>
+                    <p> Description: {{ object.description }} </p>
+
+                </div>
+            </div>
+
+
         </div> 
 
-        <div class="ladies__frock__wrapper">            
-        {% for ladies_frock in ladies_frocks %}
-        <div class="ladies__frock__card">
-            <h3> {{ ladies_frock.style_no }} </h3>
-            <img class="ladies__frock__img" src="{{ ladies_frock.img.url }}" alt="">
-        </div>            
-        {% endfor %}
 
-        {% for ladies_frock in ladies_frocks %}
-        <div class="ladies__frock__card">
-            <h3> {{ ladies_frock.style_no }} </h3>
-            <img class="ladies__frock__img" src="{{ ladies_frock.img.url }}" alt="">
-        </div>            
-        {% endfor %}
-        {% for ladies_frock in ladies_frocks %}
-        <div class="ladies__frock__card">
-            <h3> {{ ladies_frock.style_no }} </h3>
-            <img class="ladies__frock__img" src="{{ ladies_frock.img.url }}" alt="">
-        </div>            
-        {% endfor %}
-        {% for ladies_frock in ladies_frocks %}
-        <div class="ladies__frock__card">
-            <h3> {{ ladies_frock.style_no }} </h3>
-            <img class="ladies__frock__img" src="{{ ladies_frock.img.url }}" alt="">
-        </div>            
-        {% endfor %}
-        </div>
+    {% endblock %}
+
+    {% block extra_scripts %}
+        <script src="{% static 'sample/js/ladies_frock.js' %}" ></script>  >
     {% endblock %}
          
 </body>

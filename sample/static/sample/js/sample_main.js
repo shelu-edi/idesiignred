@@ -20,6 +20,8 @@ function LadiesSub() {
     document.getElementById('ladies-tables-wrapper').style.display = 'block';
     document.getElementById('boys-tables-wrapper').style.display = 'none';
     document.getElementById('girls-table-wrapper').style.display = 'none';
+    document.getElementById('infant-table-wrapper').style.display = 'none';
+    document.getElementById('teens-tables-wrapper').style.display = 'none';
 }
 
 function BoysSub() {
@@ -38,12 +40,14 @@ function BoysSub() {
     document.getElementById('teens-main').style.background = 'white';
 
     //boys sub
-    document.getElementById('boys-pant').style.background = 'grey';
+    //document.getElementById('boys-pant').style.background = 'grey';
 
     // Wrappers
     document.getElementById('boys-tables-wrapper').style.display = 'block';
     document.getElementById('ladies-tables-wrapper').style.display = 'none';
     document.getElementById('girls-table-wrapper').style.display = 'none';
+    document.getElementById('infant-table-wrapper').style.display = 'none';
+    document.getElementById('teens-tables-wrapper').style.display = 'none';
 }
 
 function GirlsSub() {
@@ -68,6 +72,8 @@ function GirlsSub() {
     document.getElementById('girls-table-wrapper').style.display = 'block';
     document.getElementById('ladies-tables-wrapper').style.display = 'none';
     document.getElementById('boys-tables-wrapper').style.display = 'none';
+    document.getElementById('infant-table-wrapper').style.display = 'none';
+    document.getElementById('teens-tables-wrapper').style.display = 'none';
 }
 
 function InfantsSub() {
@@ -85,8 +91,15 @@ function InfantsSub() {
     document.getElementById('girls-main').style.background = 'white';
     document.getElementById('teens-main').style.background = 'white';
 
+    // Infant Sub
+    document.getElementById('infants-frock').style.background = 'grey';
+
     // Wrappers
+    document.getElementById('infant-table-wrapper').style.display = 'block';
     document.getElementById('ladies-tables-wrapper').style.display = 'none';
+    document.getElementById('girls-table-wrapper').style.display = 'none';
+    document.getElementById('boys-tables-wrapper').style.display = 'none';
+    document.getElementById('teens-tables-wrapper').style.display = 'none';
 }
 
 function TeensSub() {
@@ -104,8 +117,15 @@ function TeensSub() {
     document.getElementById('girls-main').style.background = 'white';
     document.getElementById('infants-main').style.background = 'white';
 
+    // Teens Sub
+    document.getElementById('teens-frock').style.background = 'grey';
+
     // Wrappers
+    document.getElementById('teens-tables-wrapper').style.display = 'flex';
     document.getElementById('ladies-tables-wrapper').style.display = 'none';
+    document.getElementById('girls-table-wrapper').style.display = 'none';
+    document.getElementById('boys-tables-wrapper').style.display = 'none';
+    document.getElementById('infant-table-wrapper').style.display = 'none';
 }
 
 function LadiesFrock() {
@@ -394,5 +414,26 @@ function GirlsShort() {
     document.getElementById('girls-frock').style.background = 'white';
     document.getElementById('girls-pant').style.background = 'white';
     document.getElementById('girls-short').style.background = 'grey';
+
+}
+
+function InfantsFrock() {
+    //table
+    document.getElementById('infant-frock-table').style.display = 'inline-table';
+    document.getElementById('infant-pant-table').style.display = 'none';
+
+    // submenu
+    document.getElementById('infants-frock').style.background = 'grey';
+    document.getElementById('infants-pant').style.background = 'white';
+}
+
+function InfantsPant() {
+    //table
+    document.getElementById('infant-pant-table').style.display = 'inline-table';
+    document.getElementById('infant-frock-table').style.display = 'none';
+
+    // submenu
+    document.getElementById('infants-pant').style.background = 'grey';
+    document.getElementById('infants-frock').style.background = 'white';
 
 }

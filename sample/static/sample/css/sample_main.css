@@ -128,10 +128,6 @@
     display: none;
 }
 
-#girls-table-wrapper {
-    display: none;
-}
-
 #boys-pant-table {
     margin-top: 50px;
 }
@@ -157,6 +153,11 @@
     overflow: scroll;
 }
 
+/* Girls */
+#girls-table-wrapper {
+    display: none;
+}
+
 #girls-frock-table {
     margin-top: 50px;
 }
@@ -180,6 +181,31 @@
     display: none;
     position: fixed;
     overflow: scroll;
+}
+
+/* Infants */
+#infant-table-wrapper {
+    display: none;
+}
+
+#infant-frock-table {
+    margin-top: 50px;
+}
+
+#infant-pant-table {
+    margin-top: 50px;
+    display: none;
+    position: fixed;
+    overflow: scroll;
+}
+
+/* Teens */
+#teens-table-wrapper {
+    display: none;
+}
+
+#teens-frock-table {
+    margin-top: 50px;
 }
 
 td {
