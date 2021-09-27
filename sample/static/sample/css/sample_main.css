@@ -1,5 +1,5 @@
 .sample__container {
-    margin: 100px 0 0 100px;
+    margin: 100px 0 100px 100px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -35,6 +35,13 @@
     float: right;
 }
 
+#close-form {
+    color: #002060;
+    cursor: pointer;
+    display: flex;
+	float: right;
+}
+
 #ladies-main {
     background: grey;
 }
@@ -67,146 +74,576 @@
 /* Tables */
 
 /* Ladies */
+#ladies-tables-wrapper {
+    margin-left: 50px;
+    overflow: auto;
+}
+
+/* links */
+#ladies-frock-table a, #ladies-blouse-table a, #ladies-pant-table a, #ladies-skirt-table a, #ladies-tshirt-table a,
+#maternity-frock-table a, #kaftan-table a , #nightwear-table a{
+    text-decoration: none;
+    color: black;
+}
+
+/* Ladies Frock */
 #ladies-frock-table {
     margin-top: 50px;
-    display: inline-table;
+    display: block;
+    width: 100%;
     position: fixed;
-    overflow: scroll;
 }
+
+#ladies-frock-form{
+    margin-left: 200px;
+    height: 100%;
+	width: 60%;
+    border-radius: 2px;
+	/*height: auto;*/
+	overflow: auto;
+	bottom: 0;
+	display: none;
+	z-index: 800;
+	position: fixed;
+	background-color: white;
+	opacity: 1;
+    transition: .8s ease-in-out;
+}
+
+/* Ladies Blouse */
 
 #ladies-blouse-table {
     margin-top: 50px;
     display: none;
     position: fixed;
-    overflow: scroll;
 }
+
+#ladies-blouse-top {
+    display: none;
+}
+
+#ladies-blouse-form{
+    margin-left: 200px;
+    height: 100%;
+	width: 60%;
+	/*height: auto;*/
+	overflow: auto;
+	bottom: 0;
+	display: none;
+	z-index: 800;
+	position: fixed;
+	background-color: white;
+	opacity: 1;
+}
+
+/* Ladies Pant */
 
 #ladies-pant-table {
     margin-top: 50px;
     display: none;
     position: fixed;
-    overflow: scroll;
 }
+
+#ladies-pant-top {
+    display: none;
+}
+
+#ladies-pant-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
+}
+
+/* Ladies Skirt */
 
 #ladies-skirt-table {
     margin-top: 50px;
     display: none;
     position: fixed;
-    overflow: scroll;
 }
+
+#ladies-skirt-top {
+    display: none;
+}
+
+#ladies-skirt-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
+}
+
+/* Ladies T-shirt */
 
 #ladies-tshirt-table {
     margin-top: 50px;
     display: none;
     position: fixed;
-    overflow: scroll;
 }
+
+#ladies-tshirt-top {
+    display: none;
+}
+
+#ladies-tshirt-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
+}
+
+/* Maternity Frock */
 
 #maternity-frock-table {
     margin-top: 50px;
     display: none;
     position: fixed;
-    overflow: scroll;
 }
+
+#maternity-frock-top {
+    display: none;
+}
+
+#maternity-frock-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
+}
+
+/* Kaftan */
 
 #kaftan-table {
     margin-top: 50px;
     display: none;
     position: fixed;
-    overflow: scroll;
 }
+
+#kaftan-top {
+    display: none;
+}
+
+#kaftan-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
+}
+
+/* Nightwear */
 
 #nightwear-table {
     margin-top: 50px;
     display: none;
     position: fixed;
-    overflow: scroll;
+}
+
+#nightwear-top {
+    display: none;
+}
+
+#nightwear-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
 }
 
 /* Boys */
 #boys-tables-wrapper {
+    margin-left: 50px;
     display: none;
 }
+
+/* Links */
+#boys-pant-table a, #boys-shirt-table a, #boys-tshirt-table a, #boys-short-table a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Boys Pant */
 
 #boys-pant-table {
     margin-top: 50px;
 }
 
+#boys-pant-top {
+    display: none;
+}
+
+#boys-pant-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
+}
+
+/* Boys Shirt */
+
 #boys-shirt-table {
     margin-top: 50px;
     display: none;
     position: fixed;
-    overflow: scroll;
 }
+
+#boys-shirt-top {
+    display: none;
+}
+
+#boys-shirt-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
+}
+
+/* Boys T-shirt */
 
 #boys-tshirt-table {
     margin-top: 50px;
     display: none;
     position: fixed;
-    overflow: scroll;
 }
+
+#boys-tshirt-top {
+    display: none;
+}
+
+#boys-tshirt-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
+}
+
+/* Boys Short */
 
 #boys-short-table {
     margin-top: 50px;
     display: none;
     position: fixed;
-    overflow: scroll;
+}
+
+#boys-short-top {
+    display: none;
+}
+
+#boys-short-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
 }
 
 /* Girls */
 #girls-table-wrapper {
+    margin-left: 50px;
     display: none;
 }
+
+/* Links */
+#girls-frock-table a, #girls-pant-table a, #girls-tshirt-table a, #girls-short-table a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Girls Frock */
 
 #girls-frock-table {
     margin-top: 50px;
 }
 
+#girls-frock-top {
+    display: none;
+}
+
+#girls-frock-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
+}
+
+/* Girls Pant */
+
 #girls-pant-table {
     margin-top: 50px;
     display: none;
     position: fixed;
-    overflow: scroll;
 }
+
+#girls-pant-top {
+    display: none;
+}
+
+#girls-pant-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
+}
+
+/* Girls T-shirt */
 
 #girls-tshirt-table {
     margin-top: 50px;
     display: none;
     position: fixed;
-    overflow: scroll;
 }
+
+#girls-tshirt-top {
+    display: none;
+}
+
+#girls-tshirt-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
+}
+
+/* Girls Short */
 
 #girls-short-table {
     margin-top: 50px;
     display: none;
     position: fixed;
-    overflow: scroll;
 }
+
+#girls-short-top {
+    display: none;
+}
+
+#girls-short-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
+}
+
 
 /* Infants */
 #infant-table-wrapper {
+    margin-left: 50px;
     display: none;
 }
+
+/* Links */
+#infant-frock-table a, #infant-pant-table a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Infants frock */
 
 #infant-frock-table {
     margin-top: 50px;
 }
 
+#infants-frock-top {
+    display: none;
+}
+
+#infants-frock-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
+}
+
+/* Infants Pant */
+
 #infant-pant-table {
     margin-top: 50px;
     display: none;
     position: fixed;
-    overflow: scroll;
+}
+
+#infants-pant-top {
+    display: none;
+}
+
+#infants-pant-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
 }
 
 /* Teens */
 #teens-table-wrapper {
     display: none;
+    margin-left: 50px;
 }
 
+/* Links */
+#teens-frock-table a {
+    text-decoration: none;
+    color: black;
+}
+
+ /* Teens Frock */
+
 #teens-frock-table {
+    margin-left: 50px;
+    display: none;
     margin-top: 50px;
 }
+
+#teens-frock-top {
+    display: none;
+}
+
+#teens-frock-form {
+    margin-left: 200px;
+    height: 100%;
+    width: 60%;
+    /*height: auto;*/
+    overflow: auto;
+    bottom: 0;
+    display: none;
+    z-index: 800;
+    position: fixed;
+    background-color: white;
+    opacity: 1;
+}
+
+.add__btn__container{
+    display: flex;
+	float: right;
+    margin: 20px 140px 0 0;
+}
+
+#add-btn, #save-btn {
+    border: none;
+	outline: none;
+	border-radius: 4px;
+	background-color: #1C2331;
+	color: #fff;
+	width: 80px;
+    text-align: center;
+	height: 40px;
+}
+
+.select__container {
+    margin: 25px 20px 0 0 ;
+    display: flex;
+    float: right;
+}
+
 
 td {
     text-align: center;

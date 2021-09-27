@@ -13,7 +13,7 @@
 
     {% block extra_css %}
         <link rel="stylesheet" href="{% static 'sample/css/sample_main.css' %}">
-    {% endblock %}  
+    {% endblock %}
 
 </head>
 <body>
@@ -123,6 +123,33 @@
             <!--  Ladies -->
             <div class="ladies__tables__wrapper" id="ladies-tables-wrapper">
 
+            <!-- Ladies Frock-->
+            <div id="ladies-frock-top">
+                <div class="add__btn__container" id="ladies-frock-add-container">
+                <button  onclick="LadiesFrockDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="ladies__frock__form" id="ladies-frock-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="LadiesFrockCloseForm()"></i>
+                        <h1> Ladies Frock </h1>
+                        {{ ladies_frock_form| crispy}}
+                        <input type="submit" name=""  onclick="LadiesFrockCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="ShowLadiesFrockTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
              <div class="table-responsive">
               <table class="table" id="ladies-frock-table">
                 <thead>
@@ -130,6 +157,7 @@
                     <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                      <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -139,22 +167,66 @@
                 <tbody>
                     {% for ladies_frock in ladies_frocks %}
                     <tr>
-                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}"><img src="{{ ladies_frock.img.url }}" alt="sample" class="sample__img"></a></td>
-                    <td> {{ ladies_frock.sample_manufactured_date }} </td>
-                    <td> {{ ladies_frock.style_no }} </td>
-                    <td> {{ ladies_frock.fabric.fabric_id }} </td>
-                    <td> {{ ladies_frock.factory_profit }} </td>
-                    <td> {{ ladies_frock.total_value }} </td>
-                    <td> {% if ladies_frock.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                        <img src="{{ ladies_frock.img.url }}" alt="sample" class="sample__img"></a>
+                    </td>
+                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                        {{ ladies_frock.sample_manufactured_date }}</a>
+                    </td>
+                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                        {{ ladies_frock.style_no }}</a>
+                    </td>
+                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                        {{ ladies_frock.acc_name }}</a>
+                    </td>
+                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                        {{ ladies_frock.fabric.fabric_id }} </a>
+                    </td>
+                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                        {{ ladies_frock.factory_profit }}</a>
+                    </td>
+                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                        {{ ladies_frock.total_value }}</a>
+                    </td>
+                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                            {% if ladies_frock.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                        </a>
                     </td>
                     </tr>
                     {% endfor %}
                 </tbody>
               </table>
+            </div>
+
+            <!-- Ladies Blouse-->
+            <div id="ladies-blouse-top">
+                <div class="add__btn__container" id="ladies-blouse-add-container">
+                <button  onclick="LadiesBlouseDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="ladies__blouse__form" id="ladies-blouse-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="LadiesBlouseCloseForm()"></i>
+                        <h1> Ladies Blouse </h1>
+                        {{ ladies_blouse_form| crispy}}
+                        <input type="submit" name=""  onclick="LadiesBlouseCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="ShowLadiesBlouseTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
             </div>
 
             <div class="table-responsive">
@@ -164,6 +236,7 @@
                     <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                    <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -173,9 +246,13 @@
                 <tbody>
                     {% for ladies_blouse in ladies_blouses %}
                     <tr>
-                    <td><img src="{{ ladies_blouse.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ ladies_blouse.sample_manufactured_date }} </td>
+                    <td><a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %}">
+                        <img src="{{ ladies_blouse.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td><a href=""> {{ ladies_blouse.sample_manufactured_date }} </a> </td>
                     <td> {{ ladies_blouse.style_no }} </td>
+                    <td> {{ ladies_blouse.acc_name }} </td>
                     <td> {{ ladies_blouse.fabric.fabric_id }} </td>
                     <td> {{ ladies_blouse.factory_profit }} </td>
                     <td> {{ ladies_blouse.total_value }} </td>
@@ -191,6 +268,34 @@
               </table>
             </div>
 
+            <!-- Ladies Pant-->
+
+            <div id="ladies-pant-top">
+                <div class="add__btn__container" id="ladies-pant-add-container">
+                <button  onclick="LadiesPantDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="ladies__pant__form" id="ladies-pant-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="LadiesPantCloseForm()"></i>
+                        <h1> Ladies Pant </h1>
+                        {{ ladies_pant_form| crispy}}
+                        <input type="submit" name=""  onclick="LadiesPantCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="ShowLadiesPantTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
             <div class="table-responsive">
               <table class="table" id="ladies-pant-table">
                 <thead>
@@ -198,6 +303,7 @@
                     <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                    <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -210,6 +316,7 @@
                     <td><img src="{{ ladies_pant.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ ladies_pant.sample_manufactured_date }} </td>
                     <td> {{ ladies_pant.style_no }} </td>
+                    <td> {{ ladies_pant.acc_name }} </td>
                     <td> {{ ladies_pant.fabric.fabric_id }} </td>
                     <td> {{ ladies_pant.factory_profit }} </td>
                     <td> {{ ladies_pant.total_value }} </td>
@@ -225,6 +332,34 @@
               </table>
             </div>
 
+            <!-- Ladies Skirt -->
+
+            <div id="ladies-skirt-top">
+                <div class="add__btn__container" id="ladies-skirt-add-container">
+                <button  onclick="LadiesSkirtDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="ladies__skirt__form" id="ladies-skirt-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="LadiesSkirtCloseForm()"></i>
+                        <h1> Ladies Skirt </h1>
+                        {{ ladies_skirt_form| crispy}}
+                        <input type="submit" name=""  onclick="LadiesSkirtCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="ShowLadiesSkirtTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
             <div class="table-responsive">
               <table class="table" id="ladies-skirt-table">
                 <thead>
@@ -232,6 +367,7 @@
                     <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                      <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -244,6 +380,7 @@
                     <td><img src="{{ ladies_skirt.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ ladies_skirt.sample_manufactured_date }} </td>
                     <td> {{ ladies_skirt.style_no }} </td>
+                    <td> {{ ladies_skirt.acc_name }} </td>
                     <td> {{ ladies_skirt.fabric.fabric_id }} </td>
                     <td> {{ ladies_skirt.factory_profit }} </td>
                     <td> {{ ladies_skirt.total_value }} </td>
@@ -259,6 +396,34 @@
               </table>
             </div>
 
+            <!-- Ladies T-shirt -->
+
+            <div id="ladies-tshirt-top">
+                <div class="add__btn__container" id="ladies-tshirt-add-container">
+                <button  onclick="LadiesTshirtDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="ladies__tshirt__form" id="ladies-tshirt-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="LadiesTshirtCloseForm()"></i>
+                        <h1> Ladies T-shirt </h1>
+                        {{ ladies_tshirt_form| crispy}}
+                        <input type="submit" name=""  onclick="LadiesTshirtCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="ShowLadiesTshirtTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
             <div class="table-responsive">
               <table class="table" id="ladies-tshirt-table">
                 <thead>
@@ -266,6 +431,7 @@
                     <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                      <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -278,6 +444,7 @@
                     <td><img src="{{ ladies_tshirt.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ ladies_tshirt.sample_manufactured_date }} </td>
                     <td> {{ ladies_tshirt.style_no }} </td>
+                    <td> {{ ladies_tshirt.acc_name }} </td>
                     <td> {{ ladies_tshirt.fabric.fabric_id }} </td>
                     <td> {{ ladies_tshirt.factory_profit }} </td>
                     <td> {{ ladies_tshirt.total_value }} </td>
@@ -293,6 +460,34 @@
               </table>
             </div>
 
+            <!-- Maternity Frock -->
+
+            <div id="maternity-frock-top">
+                <div class="add__btn__container" id="maternity-frock-add-container">
+                <button  onclick="MaternityFrockDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="maternity__frock__form" id="maternity-frock-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="MaternityFrockCloseForm()"></i>
+                        <h1> Maternity Frock </h1>
+                        {{ maternity_frock_form| crispy}}
+                        <input type="submit" name=""  onclick="MaternityFrockCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="MaternityFrockTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
             <div class="table-responsive">
               <table class="table" id="maternity-frock-table">
                 <thead>
@@ -300,6 +495,7 @@
                     <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                    <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -312,6 +508,7 @@
                     <td><img src="{{ maternity_frock.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ maternity_frock.sample_manufactured_date }} </td>
                     <td> {{ maternity_frock.style_no }} </td>
+                    <td> {{ maternity_frock.acc_name }} </td>
                     <td> {{ maternity_frock.fabric_id }} </td>
                     <td> {{ maternity_frock.factory_profit }} </td>
                     <td> {{ maternity_frock.total_value }} </td>
@@ -327,6 +524,34 @@
               </table>
             </div>
 
+            <!-- Kaftan -->
+
+            <div id="kaftan-top">
+                <div class="add__btn__container" id="kaftan-add-container">
+                <button  onclick="KaftanDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="kaftan__form" id="kaftan-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="KaftanCloseForm()"></i>
+                        <h1> Kaftan </h1>
+                        {{ kaftan_form| crispy}}
+                        <input type="submit" name=""  onclick="KaftanCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="KaftanTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
             <div class="table-responsive">
               <table class="table" id="kaftan-table">
                 <thead>
@@ -334,6 +559,7 @@
                     <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                    <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -346,6 +572,7 @@
                     <td><img src="{{ kaftan.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ kaftan.sample_manufactured_date }} </td>
                     <td> {{ kaftan.style_no }} </td>
+                    <td> {{ kaftan.acc_name }} </td>
                     <td> {{ kaftan.fabric_id }} </td>
                     <td> {{ kaftan.factory_profit }} </td>
                     <td> {{ kaftan.total_value }} </td>
@@ -361,6 +588,34 @@
               </table>
             </div>
 
+            <!-- Nightwear -->
+
+            <div id="nightwear-top">
+                <div class="add__btn__container" id="nightwear-add-container">
+                <button  onclick="NightwearDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="nightwear__form" id="nightwear-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="NightwearCloseForm()"></i>
+                        <h1> Nightwear </h1>
+                        {{ nightwear_form| crispy}}
+                        <input type="submit" name=""  onclick="NightwearCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="NightwearTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
             <div class="table-responsive">
               <table class="table" id="nightwear-table">
                 <thead>
@@ -368,6 +623,7 @@
                     <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                      <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -380,6 +636,7 @@
                     <td><img src="{{ nightwear.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ nightwear.sample_manufactured_date }} </td>
                     <td> {{ nightwear.style_no }} </td>
+                    <td> {{ nightwear.acc_name }} </td>
                     <td> {{ nightwear.fabric_id }} </td>
                     <td> {{ nightwear.factory_profit }} </td>
                     <td> {{ nightwear.total_value }} </td>
@@ -400,6 +657,33 @@
             <!-- Boys -->
             <div class="boys__table__wrapper" id="boys-tables-wrapper">
 
+            <!-- Boys Pants -->
+            <div id="boys-pant-top">
+                <div class="add__btn__container" id="boys-pant-add-container">
+                <button  onclick="BoysPantDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="boys__pant__form" id="boys-pant-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="BoysPantCloseForm()"></i>
+                        <h1> Boys Pant </h1>
+                        {{ boys_pant_form| crispy}}
+                        <input type="submit" name=""  onclick="BoysPantCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="ShowBoysPantTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
               <div class="table-responsive">
               <table class="table" id="boys-pant-table">
                 <thead>
@@ -407,6 +691,7 @@
                     <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                    <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -419,6 +704,7 @@
                     <td><img src="{{ boys_pant.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ boys_pant.sample_manufactured_date }} </td>
                     <td> {{ boys_pant.style_no }} </td>
+                    <td> {{ boys_pant.acc_name }} </td>
                     <td> {{ boys_pant.fabric_id }} </td>
                     <td> {{ boys_pant.factory_profit }} </td>
                     <td> {{ boys_pant.total_value }} </td>
@@ -434,6 +720,34 @@
               </table>
             </div>
 
+            <!-- Boys Shirt -->
+
+            <div id="boys-shirt-top">
+                <div class="add__btn__container" id="boys-shirt-add-container">
+                <button  onclick="BoysShirtDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="boys__shirt__form" id="boys-shirt-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="BoysShirtCloseForm()"></i>
+                        <h1> Boys Shirt </h1>
+                        {{ boys_shirt_form| crispy}}
+                        <input type="submit" name=""  onclick="BoysShirtCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="ShowBoysShirtTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
             <div class="table-responsive">
               <table class="table" id="boys-shirt-table">
                 <thead>
@@ -441,6 +755,7 @@
                     <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                    <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -453,6 +768,7 @@
                     <td><img src="{{ boys_shirt.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ boys_shirt.sample_manufactured_date }} </td>
                     <td> {{ boys_shirt.style_no }} </td>
+                    <td> {{ boys_shirt.acc_name }} </td>
                     <td> {{ boys_shirt.fabric_id }} </td>
                     <td> {{ boys_shirt.factory_profit }} </td>
                     <td> {{ boys_shirt.total_value }} </td>
@@ -468,6 +784,34 @@
               </table>
             </div>
 
+            <!-- Boys T-Shirt -->
+
+            <div id="boys-tshirt-top">
+                <div class="add__btn__container" id="boys-tshirt-add-container">
+                <button  onclick="BoysTshirtDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="boys__tshirt__form" id="boys-tshirt-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="BoysTshirtCloseForm()"></i>
+                        <h1> Boys T-Shirt </h1>
+                        {{ boys_tshirt_form| crispy}}
+                        <input type="submit" name=""  onclick="BoysTshirtCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="ShowBoysShirtTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="table" id="boys-tshirt-table">
                 <thead>
@@ -475,6 +819,7 @@
                     <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                      <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -487,6 +832,7 @@
                     <td><img src="{{ boys_tshirt.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ boys_tshirt.sample_manufactured_date }} </td>
                     <td> {{ boys_tshirt.style_no }} </td>
+                    <td> {{ boys_tshirt.acc_name }}  </td>
                     <td> {{ boys_tshirt.fabric_id }} </td>
                     <td> {{ boys_tshirt.factory_profit }} </td>
                     <td> {{ boys_tshirt.total_value }} </td>
@@ -502,6 +848,34 @@
               </table>
             </div>
 
+            <!-- Boys Short -->
+
+            <div id="boys-short-top">
+                <div class="add__btn__container" id="boys-short-add-container">
+                <button  onclick="BoysShortDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="boys__short__form" id="boys-short-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="BoysShortCloseForm()"></i>
+                        <h1> Boys Short </h1>
+                        {{ boys_short_form| crispy}}
+                        <input type="submit" name=""  onclick="BoysShortCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="ShowBoysShorttTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="table" id="boys-short-table">
                 <thead>
@@ -509,6 +883,7 @@
                     <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                      <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -518,9 +893,10 @@
                 <tbody>
                     {% for boys_short in boys_shorts %}
                     <tr>
-                    <td><img src="{{ boys_short.img.url }}" alt="sample" class="sample__img"></td>
+                    <td><img src="{{ boys_short.img.url }}" alt="sample"></td>
                     <td> {{ boys_short.sample_manufactured_date }} </td>
                     <td> {{ boys_short.style_no }} </td>
+                    <td> {{ boys_short.acc_name }} </td>
                     <td> {{ boys_short.fabric_id }} </td>
                     <td> {{ boys_short.factory_profit }} </td>
                     <td> {{ boys_short.total_value }} </td>
@@ -541,13 +917,42 @@
             <!-- Girls -->
             <div class="girls__table__wrapper" id="girls-table-wrapper">
 
+                <!-- Girls Frock -->
+
+                <div id="girls-frock-top">
+                <div class="add__btn__container" id="girls-frock-add-container">
+                <button  onclick="GirlsFrockDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="girls__frock__form" id="girls-frock-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="GirlsFrockCloseForm()"></i>
+                        <h1> Girls Frock </h1>
+                        {{ girls_frock_form| crispy}}
+                        <input type="submit" name=""  onclick="GirlsFrockCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="ShowGirlsFrockTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+                </div>
+
                 <div class="table-responsive">
                 <table class="table" id="girls-frock-table">
                 <thead>
                   <tr>
-                    <th scope="col">Img Girls</th>
+                    <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                      <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -560,6 +965,7 @@
                     <td><img src="{{ girls_frock.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ girls_frock.sample_manufactured_date }} </td>
                     <td> {{ girls_frock.style_no }} </td>
+                    <td> {{ girls_frock.acc_name }} </td>
                     <td> {{ girls_frock.fabric_id }} </td>
                     <td> {{ girls_frock.factory_profit }} </td>
                     <td> {{ girls_frock.total_value }} </td>
@@ -575,13 +981,42 @@
               </table>
             </div>
 
+            <!-- Girls Pant -->
+
+            <div id="girls-pant-top">
+                <div class="add__btn__container" id="girls-pant-add-container">
+                <button  onclick="GirlsPantDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="girls__pant__form" id="girls-pant-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="GirlsPantCloseForm()"></i>
+                        <h1> Girls Pant </h1>
+                        {{ girls_pant_form| crispy}}
+                        <input type="submit" name=""  onclick="GirlsPantCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="ShowGirlsPantTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="table" id="girls-pant-table">
                 <thead>
                   <tr>
-                    <th scope="col">Img Girls Pant</th>
+                    <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                    <th scope="col"> Accessories Name </th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -594,6 +1029,7 @@
                     <td><img src="{{ girls_pant.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ girls_pant.sample_manufactured_date }} </td>
                     <td> {{ girls_pant.style_no }} </td>
+                    <td> {{ girls_pant.acc_name }} </td>
                     <td> {{ girls_pant.fabric_id }} </td>
                     <td> {{ girls_pant.factory_profit }} </td>
                     <td> {{ girls_pant.total_value }} </td>
@@ -609,13 +1045,42 @@
               </table>
             </div>
 
+            <!-- Girls T-shirt -->
+
+            <div id="girls-tshirt-top">
+                <div class="add__btn__container" id="girls-tshirt-add-container">
+                <button  onclick="GirlsTshirtDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="girls__tshirt__form" id="girls-tshirt-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="GirlsTshirtCloseForm()"></i>
+                        <h1> Girls T-shirt </h1>
+                        {{ girls_tshirt_form| crispy}}
+                        <input type="submit" name=""  onclick="GirlsTshirtCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="ShowGirlsTshirtTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="table" id="girls-tshirt-table">
                 <thead>
                   <tr>
-                    <th scope="col">Img Girls Tee</th>
+                    <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                    <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -628,6 +1093,7 @@
                     <td><img src="{{ girls_tshirt.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ girls_tshirt.sample_manufactured_date }} </td>
                     <td> {{ girls_tshirt.style_no }} </td>
+                    <td> {{ girls_tshirt.acc_name }} </td>
                     <td> {{ girls_tshirt.fabric_id }} </td>
                     <td> {{ girls_tshirt.factory_profit }} </td>
                     <td> {{ girls_tshirt.total_value }} </td>
@@ -643,13 +1109,42 @@
               </table>
             </div>
 
+            <!-- Girls Short -->
+
+            <div id="girls-short-top">
+                <div class="add__btn__container" id="girls-short-add-container">
+                <button  onclick="GirlsShortDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="girls__short__form" id="girls-short-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="GirlsShortCloseForm()"></i>
+                        <h1> Girls Short </h1>
+                        {{ girls_short_form| crispy}}
+                        <input type="submit" name=""  onclick="GirlsShortCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="ShowGirlsShortTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="table" id="girls-short-table">
                 <thead>
                   <tr>
-                    <th scope="col">Img Girls Short</th>
+                    <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                    <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -662,6 +1157,7 @@
                     <td><img src="{{ girls_short.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ girls_short.sample_manufactured_date }} </td>
                     <td> {{ girls_short.style_no }} </td>
+                    <td> {{ girls_short.acc_name }} </td>
                     <td> {{ girls_short.fabric_id }} </td>
                     <td> {{ girls_short.factory_profit }} </td>
                     <td> {{ girls_short.total_value }} </td>
@@ -680,15 +1176,44 @@
             </div>
 
             <!-- Infants -->
+
             <div class="infant__table__wrapper" id="infant-table-wrapper">
+
+                <!-- Infants Frock -->
+                <div id="infants-frock-top">
+                    <div class="add__btn__container" id="infants-frock--add-container">
+                    <button  onclick="InfantsFrockDisplayForm()" id="add-btn"> Add </button>
+                    </div>
+
+                    <div class="infants__frock__form" id="infants-frock-form">
+                        <form class="form-group" action='.' method="POST" id="order-form">
+                            {% csrf_token %}
+                            <i class="fa fa-close" id="close-form" onclick="InfantsFrockCloseForm()"></i>
+                            <h1> Infants Frock </h1>
+                            {{ infants_frock_form| crispy}}
+                            <input type="submit" name=""  onclick="InfantsFrockCloseForm()" value="Save" id="save-btn" >
+                         </form>
+                    </div>
+
+                    <div class="select__container" onclick="ShowInfantsFrockTable()">
+                        <label>
+                            <select class="custom-select custom-select-sm">
+                              <option value="0">All</option>
+                              <option value="1">Accepted</option>
+                              <option value="2">Rejected</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
 
                 <div class="table-responsive">
                 <table class="table" id="infant-frock-table">
                 <thead>
                   <tr>
-                    <th scope="col">Img Infant Frock</th>
+                    <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                    <th scope="col"> Accessories Name </th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -701,6 +1226,7 @@
                     <td><img src="{{ infants_frock.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ infants_frock.sample_manufactured_date }} </td>
                     <td> {{ infants_frock.style_no }} </td>
+                    <td> {{ infants_frock.acc_no }} </td>
                     <td> {{ infants_frock.fabric_id }} </td>
                     <td> {{ infants_frock.factory_profit }} </td>
                     <td> {{ infants_frock.total_value }} </td>
@@ -716,6 +1242,34 @@
               </table>
             </div>
 
+            <!-- Infants Pant -->
+
+            <div id="infants-pant-top">
+                <div class="add__btn__container" id="infants-pant--add-container">
+                <button  onclick="InfantsPantDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="infants__pant__form" id="infants-pant-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="InfantsPantCloseForm()"></i>
+                        <h1> Infants Pant </h1>
+                        {{ infants_pant_form| crispy}}
+                        <input type="submit" name=""  onclick="InfantsPantCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="ShowInfantsPantTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="table" id="infant-pant-table">
                 <thead>
@@ -723,6 +1277,7 @@
                     <th scope="col">Img Infant Pant</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                    <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -735,6 +1290,7 @@
                     <td><img src="{{ infants_frock.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ infants_frock.sample_manufactured_date }} </td>
                     <td> {{ infants_frock.style_no }} </td>
+                    <td> {{ infants_frock.acc_no }} </td>
                     <td> {{ infants_frock.fabric_id }} </td>
                     <td> {{ infants_frock.factory_profit }} </td>
                     <td> {{ infants_frock.total_value }} </td>
@@ -755,13 +1311,40 @@
             <!-- Teens -->
             <div class="teens__table__wrapper" id="teens-tables-wrapper">
 
-                <div class="table-responsive">
+                <div id="teens-frock-top">
+                <div class="add__btn__container" id="teens-frock-add-container">
+                <button  onclick="TeensFrockDisplayForm()" id="add-btn"> Add </button>
+                </div>
+
+                <div class="teens__frock-top__form" id="teens-frock-form">
+                    <form class="form-group" action='.' method="POST">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="TeensFrockCloseForm()"></i>
+                        <h1> Teens Frock </h1>
+                        {{ teens_frock_form| crispy}}
+                        <input type="submit" name=""  onclick="TeensFrockCloseForm()" value="Save" id="save-btn" >
+                     </form>
+                </div>
+
+                <div class="select__container" onclick="ShowTeensFrockTable()">
+                    <label>
+                        <select class="custom-select custom-select-sm">
+                          <option value="0">All</option>
+                          <option value="1">Accepted</option>
+                          <option value="2">Rejected</option>
+                        </select>
+                    </label>
+                </div>
+                </div>
+
+                <div class="table">
                 <table class="table" id="teens-frock-table">
                 <thead>
                   <tr>
                     <th scope="col">Img Teens Frock</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
+                    <th scope="col">Accessories Name</th>
                     <th scope="col">Fabric</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
@@ -774,6 +1357,7 @@
                     <td><img src="{{ teen_frock.img.url }}" alt="sample" class="sample__img"></td>
                     <td> {{ teen_frock.sample_manufactured_date }} </td>
                     <td> {{ teen_frock.style_no }} </td>
+                    <td> {{ teen_frock.acc_name }} </td>
                     <td> {{ teen_frock.fabric_id }} </td>
                     <td> {{ teen_frock.factory_profit }} </td>
                     <td> {{ teen_frock.total_value }} </td>
@@ -787,8 +1371,6 @@
                     {% endfor %}
                 </tbody>
               </table>
-            </div>
-
             </div>
 
         </div>

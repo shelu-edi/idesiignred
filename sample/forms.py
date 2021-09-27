@@ -70,7 +70,7 @@ class LadiesBlouseForm(forms.ModelForm):
 	sample_manufactured_date = forms.DateField(label='Sample Manufactured Date')
 	style_no = forms.CharField(label='Style No', widget=forms.TextInput(attrs={
 		'placeholder': 'Style No'
-		}))
+	}))
 	fabric_id = forms.CharField(label='Fabric ID', widget=forms.TextInput(attrs={
 		'placeholder': 'Fabric ID'
 		}))

@@ -176,7 +176,7 @@ class SampleMainView(View):
 			'infants_pants': self.get_infants_pant_queryset(),
 
 			'infants_frock_form': infants_frock_form,
-			'infants+pant_form': infants_pant_form,
+			'infants_pant_form': infants_pant_form,
 
 			# Teens
 			'teen_frocks': self.get_teen_frock_queryset(),
@@ -330,7 +330,7 @@ class SampleMainView(View):
 
 			# Infants
 			'infants_frock_form': infants_frock_form,
-			'infants+pant_form': infants_pant_form,
+			'infants_pant_form': infants_pant_form,
 
 			# Teens
 			'teens_frock_form': teens_frock_form,
@@ -376,6 +376,24 @@ def ladies_frock_print_view(request, id):
 	}
 
 	return render(request, template_name, context)
+
+
+def ladies_blouse_view(request, id):
+	template = 'ladies/ladies_blouse.html'
+
+	try:
+		obj = LadiesBlouse.objects.get(id=id)
+	except LadiesBlouse.DoesNotExist:
+		raise Http404
+
+	context = {
+		'object': obj,
+	}
+
+	return render(request, template, context)
+
+
+
 
 
 

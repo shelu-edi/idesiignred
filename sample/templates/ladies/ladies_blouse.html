@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+
+    {% block title %}
+    <title>Idesiignred | Sample- Ladies Blouse</title>
+    {% endblock %}
+
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'sample/css/ladies_frock.css' %}">
+    {% endblock %}
+
+</head>
+<body>
+
+    {% block content %}
+        <div class="ladies__blouse__container">
+            <h1> Ladies Frock </h1>
+
+
+        </div>
+
+
+    {% endblock %}
+
+    {% block extra_scripts %}
+        <script src="{% static 'sample/js/ladies_frock.js' %}" ></script>  >
+    {% endblock %}
+
+</body>
+</html>
