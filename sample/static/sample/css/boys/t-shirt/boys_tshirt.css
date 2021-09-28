@@ -1,0 +1,88 @@
+.boys__tshirt__container {
+	margin: 100px 0 50px 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.boys__tshirt__container h1 {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.boys__tshirt__wrapper {
+	display: flex;
+	float: left;
+	/*grid-template-columns: 1fr 1fr;*/
+}
+
+.boys__tshirt__img {
+	width: 30%;
+	height: 450px;
+	/* margin-left: 100px; */
+
+}
+
+.boys__tshirt__details {
+	margin-left: 50px;
+	width: 70%;
+}
+
+.boys__tshirt__details p {
+	font-size: 20px;
+	font-family: Helvetica;
+}
+
+/* Button */
+.boys__tshirt__btn {
+	display: flex;
+	float: right;
+	margin-bottom: 50px;
+}
+
+.boys__tshirt__btn button {
+	outline: none;
+	border: none;
+	height: 40px;
+	width: 60px;
+	background: #1C2331;
+	border-radius: 5px;
+	color: #fff;
+	margin-left: 20px;
+}
+
+.boys__tshirt__btn a{
+	text-decoration: none;
+	color: #fff;
+}
+
+.boys__tshirt__btn a:hover {
+	color: #535c5f;
+	transition: 0.2s ease;
+}
+
+#save {
+	outline: none;
+	border: none;
+	height: 40px;
+	width: 60px;
+	background: #1C2331;
+	border-radius: 5px;
+	color: #fff;
+	margin-left: 20px;
+}
+
+/* form */
+#boys-tshirt-form {
+	margin-top: 200px;
+    margin-left: 200px;
+    height: 100%;
+	width: 60%;
+	overflow: auto;
+	bottom: 0;
+	display: none;
+	z-index: 9;
+	position: fixed;
+	background-color: white;
+	/*opacity: 0.8;*/
+}

@@ -340,7 +340,7 @@ class SampleMainView(View):
 
 
 def ladies_frock_view(request, id):
-	template_name = 'ladies_frock.html'
+	template_name = 'ladies/frock/ladies_frock.html'
 	# queryset = LadiesFrock.objects.all()
 
 	try:
@@ -364,7 +364,7 @@ def ladies_frock_view(request, id):
 
 
 def ladies_frock_print_view(request, id):
-	template_name = 'ladies_frock_print.html'
+	template_name = 'ladies/frock/ladies_frock_print.html'
 
 	try:
 		obj = LadiesFrock.objects.get(id=id)
@@ -379,7 +379,30 @@ def ladies_frock_print_view(request, id):
 
 
 def ladies_blouse_view(request, id):
-	template = 'ladies/ladies_blouse.html'
+	template = 'ladies/blouse/ladies_blouse.html'
+
+	try:
+		obj = LadiesBlouse.objects.get(id=id)
+	except LadiesBlouse.DoesNotExist:
+		raise Http404
+
+	if request.method == 'POST':
+		form = LadiesBlouseForm(data=request.POST, instance=obj)
+		if form.is_valid():
+			form.save()
+	else:
+		form = LadiesBlouseForm(instance=obj)
+
+	context = {
+		'object': obj,
+		'form': form,
+	}
+
+	return render(request, template, context)
+
+
+def ladies_blouse_print_view(request, id):
+	template = 'ladies/blouse/ladies_blouse_print.html'
 
 	try:
 		obj = LadiesBlouse.objects.get(id=id)
@@ -393,7 +416,382 @@ def ladies_blouse_view(request, id):
 	return render(request, template, context)
 
 
+def ladies_pant_view(request, id):
+	template = 'ladies/pant/ladies_pant.html'
+
+	try:
+		obj = LadiesPant.objects.get(id=id)
+	except LadiesPant.DoesNotExist:
+		raise Http404
+
+	if request.method == 'POST':
+		form = LadiesPantForm(data=request.POST, instance=obj)
+		if form.is_valid():
+			form.save()
+	else:
+		form = LadiesPantForm(instance=obj)
+
+	context = {
+		'object': obj,
+		'form': form,
+	}
+
+	return render(request, template, context)
 
 
+def ladies_pant_print_view(request, id):
+	template = 'ladies/pant/ladies_pant_print.html'
 
+	try:
+		obj = LadiesPant.objects.get(id=id)
+	except LadiesPant.DoesNotExist:
+		raise Http404
+
+	context = {
+		'object': obj,
+	}
+
+	return render(request, template, context)
+
+
+def ladies_skirt_view(request, id):
+	template = 'ladies/skirt/ladies_skirt.html'
+
+	try:
+		obj = LadiesSkirt.objects.get(id=id)
+	except LadiesSkirt.DoesNotExist:
+		raise Http404
+
+	if request.method == 'POST':
+		form = LadiesSkirtForm(data=request.POST, instance=obj)
+		if form.is_valid():
+			form.save()
+	else:
+		form = LadiesSkirtForm(instance=obj)
+
+	context = {
+		'object': obj,
+		'form': form,
+	}
+
+	return render(request, template, context)
+
+
+def ladies_skirt_print_view(request, id):
+	template = 'ladies/skirt/ladies_skirt_print.html'
+
+	try:
+		obj = LadiesSkirt.objects.get(id=id)
+	except LadiesSkirt.DoesNotExist:
+		raise Http404
+
+	context = {
+		'object': obj,
+	}
+
+	return render(request, template, context)
+
+
+def ladies_tshirt_view(request, id):
+	template = 'ladies/t-shirt/ladies_tshirt.html'
+
+	try:
+		obj = LadiesTshirt.objects.get(id=id)
+	except LadiesTshirt.DoesNotExist:
+		raise Http404
+
+	if request.method == 'POST':
+		form = LadiesTshirtForm(data=request.POST, instance=obj)
+		if form.is_valid():
+			form.save()
+	else:
+		form = LadiesTshirtForm(instance=obj)
+
+	context = {
+		'object': obj,
+		'form': form,
+	}
+
+	return render(request, template, context)
+
+
+def ladies_tshirt_print_view(request, id):
+	template = 'ladies/t-shirt/ladies_tshirt_print.html'
+
+	try:
+		obj = LadiesTshirt.objects.get(id=id)
+	except LadiesTshirt.DoesNotExist:
+		raise Http404
+
+	context = {
+		'object': obj,
+	}
+
+	return render(request, template, context)
+
+
+def maternity_frock_view(request, id):
+	template = 'ladies/maternity-frock/maternity_frock.html'
+
+	try:
+		obj = MaternityFrock.objects.get(id=id)
+	except MaternityFrock.DoesNotExist:
+		raise Http404
+
+	if request.method == 'POST':
+		form = MaternityFrockForm(data=request.POST, instance=obj)
+		if form.is_valid():
+			form.save()
+	else:
+		form = MaternityFrockForm(instance=obj)
+
+	context = {
+		'object': obj,
+		'form': form,
+	}
+
+	return render(request, template, context)
+
+
+def maternity_frock_print_view(request, id):
+	template = 'ladies/maternity-frock/maternity_frock_print.html'
+
+	try:
+		obj = MaternityFrock.objects.get(id=id)
+	except MaternityFrock.DoesNotExist:
+		raise Http404
+
+	context = {
+		'object': obj,
+	}
+
+	return render(request, template, context)
+
+
+def kaftan_view(request, id):
+	template = 'ladies/kaftan/kaftan.html'
+
+	try:
+		obj = Kaftan.objects.get(id=id)
+	except Kaftan.DoesNotExist:
+		raise Http404
+
+	if request.method == 'POST':
+		form = KaftanForm(data=request.POST, instance=obj)
+		if form.is_valid():
+			form.save()
+	else:
+		form = KaftanForm(instance=obj)
+
+	context = {
+		'object': obj,
+		'form': form,
+	}
+
+	return render(request, template, context)
+
+
+def kaftan_print_view(request, id):
+	template = 'ladies/kaftan/kaftan_print.html'
+
+	try:
+		obj = Kaftan.objects.get(id=id)
+	except Kaftan.DoesNotExist:
+		raise Http404
+
+	context = {
+		'object': obj
+	}
+
+	return render(request, template, context)
+
+
+def nightwear_view(request, id):
+	template = 'ladies/nightwear/nightwear.html'
+
+	try:
+		obj = Nightwear.objects.get(id=id)
+	except Nightwear.DoesNotExist:
+		raise Http404
+
+	if request.method == 'POST':
+		form = NightwearForm(data=request.POST, instance=obj)
+		if form.is_valid():
+			form.save()
+	else:
+		form = NightwearForm(instance=obj)
+
+	context = {
+		'object': obj,
+		'form': form,
+	}
+
+	return render(request, template, context)
+
+
+def nightwear_print_view(request, id):
+	template = 'ladies/nightwear/nightwear_print.html'
+
+	try:
+		obj = Nightwear.objects.get(id=id)
+	except Nightwear.DoesNotExist:
+		raise Http404
+
+	context = {
+		'object': obj
+	}
+
+	return render(request, template, context)
+
+
+def boys_pant_view(request, id):
+	template = 'boys/pant/boys_pant.html'
+
+	try:
+		obj = BoysPant.objects.get(id=id)
+	except BoysPant.DoesNotExist:
+		raise Http404
+
+	if request.method == 'POST':
+		form = BoysPantForm(data=request.POST, instance=obj)
+		if form.is_valid():
+			form.save()
+	else:
+		form = BoysPantForm(instance=obj)
+
+	context = {
+		'object': obj,
+		'form': form,
+	}
+
+	return render(request, template, context)
+
+
+def boys_pant_print_view(request, id):
+	template = 'boys/pant/boys_pant_print.html'
+
+	try:
+		obj = BoysPant.objects.get(id=id)
+	except BoysPant.DoesNotExist:
+		raise Http404
+
+	context = {
+		'object': obj
+	}
+
+	return render(request, template, context)
+
+
+def boys_shirt_view(request, id):
+	template = 'boys/shirt/boys_shirt.html'
+
+	try:
+		obj = BoysShirt.objects.get(id=id)
+	except BoysShirt.DoesNotExist:
+		raise Http404
+
+	if request.method == 'POST':
+		form = BoysShirtForm(data=request.POST, instance=obj)
+		if form.is_valid():
+			form.save()
+	else:
+		form = BoysShirtForm(instance=obj)
+
+	context = {
+		'object': obj,
+		'form': form,
+	}
+
+	return render(request, template, context)
+
+
+def boys_shirt_print_view(request, id):
+	template = 'boys/shirt/boys_shirt_print.html'
+
+	try:
+		obj = BoysShirt.objects.get(id=id)
+	except BoysShirt.DoesNotExist:
+		raise Http404
+
+	context = {
+		'object': obj
+	}
+
+	return render(request, template, context)
+
+
+def boys_tshirt_view(request, id):
+	template = 'boys/t-shirt/boys_tshirt.html'
+
+	try:
+		obj = BoysTshirt.objects.get(id=id)
+	except BoysTshirt.DoesNotExist:
+		raise Http404
+
+	if request.method == 'POST':
+		form = BoysTshirtForm(data=request.POST, instance=obj)
+		if form.is_valid():
+			form.save()
+	else:
+		form = BoysTshirtForm(instance=obj)
+
+	context = {
+		'object': obj,
+		'form': form,
+	}
+
+	return render(request, template, context)
+
+
+def boys_tshirt_print_view(request, id):
+	template = 'boys/shirt/boys_shirt_print.html'
+
+	try:
+		obj = BoysTshirt.objects.get(id=id)
+	except BoysTshirt.DoesNotExist:
+		raise Http404
+
+	context = {
+		'object': obj
+	}
+
+	return render(request, template, context)
+
+
+def boys_short_view(request, id):
+	template = 'boys/short/boys_short.html'
+
+	try:
+		obj = BoysShort.objects.get(id=id)
+	except BoysShort.DoesNotExist:
+		raise Http404
+
+	if request.method == 'POST':
+		form = BoysShortForm(data=request.POST, instance=obj)
+		if form.is_valid():
+			form.save()
+	else:
+		form = BoysShortForm(instance=obj)
+
+	context = {
+		'object': obj,
+		'form': form,
+	}
+
+	return render(request, template, context)
+
+
+def boys_short_print_view(request, id):
+	template = 'boys/short/boys_short_print.html'
+
+	try:
+		obj = BoysShort.objects.get(id=id)
+	except BoysShortForm.DoesNotExist:
+		raise Http404
+
+	context = {
+		'object': obj
+	}
+
+	return render(request, template, context)
 

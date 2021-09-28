@@ -1,0 +1,35 @@
+.nightwear__container {
+	margin: 100px 0 50px 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.nightwear__container h1 {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.nightwear__wrapper {
+	display: flex;
+	float: left;
+	/*grid-template-columns: 1fr 1fr;*/
+}
+
+.nightwear__img {
+    margin-top: 22px;
+	width: 40%;
+	height: 450px;
+	/* margin-left: 100px; */
+
+}
+
+.nightwear__details {
+	margin-left: 50px;
+	width: 60%;
+}
+
+.nightwear__details p {
+	font-size: 20px;
+	font-family: Helvetica;
+}

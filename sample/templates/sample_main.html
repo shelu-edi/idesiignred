@@ -1,6 +1,7 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
 <!DOCTYPE html>
 <html lang="en">
-{% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
 <head>
@@ -167,28 +168,43 @@
                 <tbody>
                     {% for ladies_frock in ladies_frocks %}
                     <tr>
-                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
-                        <img src="{{ ladies_frock.img.url }}" alt="sample" class="sample__img"></a>
+                    <td>
+                        <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                        <img src="{{ ladies_frock.img.url }}" alt="sample" class="sample__img">
+                        </a>
                     </td>
-                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
-                        {{ ladies_frock.sample_manufactured_date }}</a>
+                    <td>
+                        <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                        {{ ladies_frock.sample_manufactured_date }}
+                        </a>
                     </td>
-                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
-                        {{ ladies_frock.style_no }}</a>
+                    <td>
+                        <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                        {{ ladies_frock.style_no }}
+                        </a>
                     </td>
-                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
-                        {{ ladies_frock.acc_name }}</a>
+                    <td>
+                        <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                        {{ ladies_frock.acc_name }}
+                        </a>
                     </td>
-                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
-                        {{ ladies_frock.fabric.fabric_id }} </a>
+                    <td>
+                        <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                        {{ ladies_frock.fabric.fabric_id }}
+                        </a>
                     </td>
-                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
-                        {{ ladies_frock.factory_profit }}</a>
+                    <td>
+                        <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                        {{ ladies_frock.factory_profit }}
+                        </a>
                     </td>
-                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
-                        {{ ladies_frock.total_value }}</a>
+                    <td>
+                        <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                        {{ ladies_frock.total_value }}
+                        </a>
                     </td>
-                    <td><a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                    <td>
+                        <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
                             {% if ladies_frock.accepted == True %}
                                 Accepted
                             {% else %}
@@ -247,20 +263,46 @@
                     {% for ladies_blouse in ladies_blouses %}
                     <tr>
                     <td><a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %}">
-                        <img src="{{ ladies_blouse.img.url }}" alt="sample" class="sample__img">
+                            <img src="{{ ladies_blouse.img.url }}" alt="sample" class="sample__img">
                         </a>
                     </td>
-                    <td><a href=""> {{ ladies_blouse.sample_manufactured_date }} </a> </td>
-                    <td> {{ ladies_blouse.style_no }} </td>
-                    <td> {{ ladies_blouse.acc_name }} </td>
-                    <td> {{ ladies_blouse.fabric.fabric_id }} </td>
-                    <td> {{ ladies_blouse.factory_profit }} </td>
-                    <td> {{ ladies_blouse.total_value }} </td>
-                    <td> {% if ladies_blouse.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %}"> 
+                        {{ ladies_blouse.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %}">
+                            {{ ladies_blouse.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %}">
+                            {{ ladies_blouse.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %} ">
+                            {{ ladies_blouse.fabric.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %} ">
+                            {{ ladies_blouse.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %} ">
+                             {{ ladies_blouse.total_value }}
+                        </a>
+                    </td>
+                    <td><a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %} ">
+                            {% if ladies_blouse.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                     </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -313,18 +355,49 @@
                 <tbody>
                     {% for ladies_pant in ladies_pants %}
                     <tr>
-                    <td><img src="{{ ladies_pant.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ ladies_pant.sample_manufactured_date }} </td>
-                    <td> {{ ladies_pant.style_no }} </td>
-                    <td> {{ ladies_pant.acc_name }} </td>
-                    <td> {{ ladies_pant.fabric.fabric_id }} </td>
-                    <td> {{ ladies_pant.factory_profit }} </td>
-                    <td> {{ ladies_pant.total_value }} </td>
-                    <td> {% if ladies_pant.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                            <img src="{{ ladies_pant.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                            {{ ladies_pant.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                            {{ ladies_pant.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                            {{ ladies_pant.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                            {{ ladies_pant.fabric.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                            {{ ladies_pant.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                            {{ ladies_pant.total_value }}
+                        </a>
+                    </td>
+                     <td>
+                         <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                            {% if ladies_pant.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                         </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -377,18 +450,49 @@
                 <tbody>
                     {% for ladies_skirt in ladies_skirts %}
                     <tr>
-                    <td><img src="{{ ladies_skirt.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ ladies_skirt.sample_manufactured_date }} </td>
-                    <td> {{ ladies_skirt.style_no }} </td>
-                    <td> {{ ladies_skirt.acc_name }} </td>
-                    <td> {{ ladies_skirt.fabric.fabric_id }} </td>
-                    <td> {{ ladies_skirt.factory_profit }} </td>
-                    <td> {{ ladies_skirt.total_value }} </td>
-                    <td> {% if ladies_skirt.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                            <img src="{{ ladies_skirt.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                            {{ ladies_skirt.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                            {{ ladies_skirt.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                            {{ ladies_skirt.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                            {{ ladies_skirt.fabric.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                            {{ ladies_skirt.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                            {{ ladies_skirt.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                            {% if ladies_skirt.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                        </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -441,18 +545,48 @@
                 <tbody>
                     {% for ladies_tshirt in ladies_tshirts %}
                     <tr>
-                    <td><img src="{{ ladies_tshirt.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ ladies_tshirt.sample_manufactured_date }} </td>
-                    <td> {{ ladies_tshirt.style_no }} </td>
-                    <td> {{ ladies_tshirt.acc_name }} </td>
-                    <td> {{ ladies_tshirt.fabric.fabric_id }} </td>
-                    <td> {{ ladies_tshirt.factory_profit }} </td>
-                    <td> {{ ladies_tshirt.total_value }} </td>
-                    <td> {% if ladies_tshirt.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td><a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                            <img src="{{ ladies_tshirt.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                            {{ ladies_tshirt.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                            {{ ladies_tshirt.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                            {{ ladies_tshirt.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                            {{ ladies_tshirt.fabric.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                            {{ ladies_tshirt.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                            {{ ladies_tshirt.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                            {% if ladies_tshirt.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                        </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -505,18 +639,49 @@
                 <tbody>
                     {% for maternity_frock in maternity_frocks %}
                     <tr>
-                    <td><img src="{{ maternity_frock.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ maternity_frock.sample_manufactured_date }} </td>
-                    <td> {{ maternity_frock.style_no }} </td>
-                    <td> {{ maternity_frock.acc_name }} </td>
-                    <td> {{ maternity_frock.fabric_id }} </td>
-                    <td> {{ maternity_frock.factory_profit }} </td>
-                    <td> {{ maternity_frock.total_value }} </td>
-                    <td> {% if maternity_frock.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                            <img src="{{ maternity_frock.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                            {{ maternity_frock.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                            {{ maternity_frock.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                            {{ maternity_frock.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                            {{ maternity_frock.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                            {{ maternity_frock.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                            {{ maternity_frock.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                            {% if maternity_frock.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                        </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -569,18 +734,49 @@
                 <tbody>
                     {% for kaftan in kaftans %}
                     <tr>
-                    <td><img src="{{ kaftan.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ kaftan.sample_manufactured_date }} </td>
-                    <td> {{ kaftan.style_no }} </td>
-                    <td> {{ kaftan.acc_name }} </td>
-                    <td> {{ kaftan.fabric_id }} </td>
-                    <td> {{ kaftan.factory_profit }} </td>
-                    <td> {{ kaftan.total_value }} </td>
-                    <td> {% if kaftan.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                            <img src="{{ kaftan.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                            {{ kaftan.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                            {{ kaftan.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                            {{ kaftan.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                            {{ kaftan.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                            {{ kaftan.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                            {{ kaftan.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                            {% if kaftan.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                        </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -633,18 +829,49 @@
                 <tbody>
                     {% for nightwear in nightwears %}
                     <tr>
-                    <td><img src="{{ nightwear.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ nightwear.sample_manufactured_date }} </td>
-                    <td> {{ nightwear.style_no }} </td>
-                    <td> {{ nightwear.acc_name }} </td>
-                    <td> {{ nightwear.fabric_id }} </td>
-                    <td> {{ nightwear.factory_profit }} </td>
-                    <td> {{ nightwear.total_value }} </td>
-                    <td> {% if nightwear.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                            <img src="{{ nightwear.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                            {{ nightwear.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                            {{ nightwear.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                            {{ nightwear.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                            {{ nightwear.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                            {{ nightwear.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                            {{ nightwear.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                            {% if nightwear.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                        </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -701,18 +928,49 @@
                 <tbody>
                     {% for boys_pant in boys_pants %}
                     <tr>
-                    <td><img src="{{ boys_pant.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ boys_pant.sample_manufactured_date }} </td>
-                    <td> {{ boys_pant.style_no }} </td>
-                    <td> {{ boys_pant.acc_name }} </td>
-                    <td> {{ boys_pant.fabric_id }} </td>
-                    <td> {{ boys_pant.factory_profit }} </td>
-                    <td> {{ boys_pant.total_value }} </td>
-                    <td> {% if boys_pant.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                            <img src="{{ boys_pant.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                            {{ boys_pant.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                            {{ boys_pant.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                            {{ boys_pant.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                            {{ boys_pant.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                            {{ boys_pant.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                            {{ boys_pant.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                            {% if boys_pant.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                        </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -765,18 +1023,49 @@
                 <tbody>
                     {% for boys_shirt in boys_shirts %}
                     <tr>
-                    <td><img src="{{ boys_shirt.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ boys_shirt.sample_manufactured_date }} </td>
-                    <td> {{ boys_shirt.style_no }} </td>
-                    <td> {{ boys_shirt.acc_name }} </td>
-                    <td> {{ boys_shirt.fabric_id }} </td>
-                    <td> {{ boys_shirt.factory_profit }} </td>
-                    <td> {{ boys_shirt.total_value }} </td>
-                    <td> {% if boys_shirt.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                            <img src="{{ boys_shirt.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                            {{ boys_shirt.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                            {{ boys_shirt.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                            {{ boys_shirt.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                            {{ boys_shirt.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                            {{ boys_shirt.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                            {{ boys_shirt.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                            {% if boys_shirt.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                        </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -829,18 +1118,49 @@
                 <tbody>
                     {% for boys_tshirt in boys_tshirts %}
                     <tr>
-                    <td><img src="{{ boys_tshirt.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ boys_tshirt.sample_manufactured_date }} </td>
-                    <td> {{ boys_tshirt.style_no }} </td>
-                    <td> {{ boys_tshirt.acc_name }}  </td>
-                    <td> {{ boys_tshirt.fabric_id }} </td>
-                    <td> {{ boys_tshirt.factory_profit }} </td>
-                    <td> {{ boys_tshirt.total_value }} </td>
-                    <td> {% if boys_tshirt.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                            <img src="{{ boys_tshirt.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                            {{ boys_tshirt.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                            {{ boys_tshirt.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                            {{ boys_tshirt.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                            {{ boys_tshirt.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                            {{ boys_tshirt.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                            {{ boys_tshirt.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                            {% if boys_tshirt.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                        </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -893,25 +1213,54 @@
                 <tbody>
                     {% for boys_short in boys_shorts %}
                     <tr>
-                    <td><img src="{{ boys_short.img.url }}" alt="sample"></td>
-                    <td> {{ boys_short.sample_manufactured_date }} </td>
-                    <td> {{ boys_short.style_no }} </td>
-                    <td> {{ boys_short.acc_name }} </td>
-                    <td> {{ boys_short.fabric_id }} </td>
-                    <td> {{ boys_short.factory_profit }} </td>
-                    <td> {{ boys_short.total_value }} </td>
-                    <td> {% if boys_short.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                            <img src="{{ boys_short.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                            {{ boys_short.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                            {{ boys_short.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                            {{ boys_short.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                            {{ boys_short.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                            {{ boys_short.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                            {{ boys_short.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                            {% if boys_short.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                        </a>
                     </td>
                     </tr>
                     {% endfor %}
                 </tbody>
               </table>
-            </div>
-
             </div>
 
             <!-- Girls -->
@@ -1374,6 +1723,9 @@
             </div>
 
         </div>
+
+    </div>
+    </div>
 
 
     {% endblock %}

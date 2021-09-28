@@ -1,0 +1,35 @@
+.boys__short__container {
+	margin: 100px 0 50px 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.boys__short__container h1 {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.boys__short__wrapper {
+	display: flex;
+	float: left;
+	/*grid-template-columns: 1fr 1fr;*/
+}
+
+.boys__short__img {
+    margin-top: 22px;
+	width: 40%;
+	height: 450px;
+	/* margin-left: 100px; */
+
+}
+
+.boys__short__details {
+	margin-left: 50px;
+	width: 60%;
+}
+
+.boys__short__details p {
+	font-size: 20px;
+	font-family: Helvetica;
+}

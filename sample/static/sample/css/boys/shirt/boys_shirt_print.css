@@ -1,0 +1,35 @@
+.boys__shirt__container {
+	margin: 100px 0 50px 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.boys__shirt__container h1 {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.boys__shirt__wrapper {
+	display: flex;
+	float: left;
+	/*grid-template-columns: 1fr 1fr;*/
+}
+
+.boys__shirt__img {
+    margin-top: 22px;
+	width: 40%;
+	height: 450px;
+	/* margin-left: 100px; */
+
+}
+
+.boys__shirt__details {
+	margin-left: 50px;
+	width: 60%;
+}
+
+.boys__shirt__details p {
+	font-size: 20px;
+	font-family: Helvetica;
+}

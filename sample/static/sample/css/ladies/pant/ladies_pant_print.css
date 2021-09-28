@@ -1,0 +1,35 @@
+.ladies__pant__container {
+	margin: 100px 0 50px 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.ladies__pant__container h1 {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.ladies__pant__wrapper {
+	display: flex;
+	float: left;
+	/*grid-template-columns: 1fr 1fr;*/
+}
+
+.ladies__pant__img {
+    margin-top: 22px;
+	width: 40%;
+	height: 450px;
+	/* margin-left: 100px; */
+
+}
+
+.ladies__pant___details {
+	margin-left: 50px;
+	width: 60%;
+}
+
+.ladies__pant___details p {
+	font-size: 20px;
+	font-family: Helvetica;
+}

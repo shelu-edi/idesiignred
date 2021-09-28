@@ -3,19 +3,19 @@
 {% load static %}
 <head>
     <meta charset="UTF-8">
-    <title> Idesiignred | Frock: {{ object.style_no }} </title>
+    <title> Idesiignred | Ladies Blouse: {{ object.style_no }} </title>
 
-    <link rel="stylesheet" href="{% static 'sample/css/ladies_frock_print.css' %}">
+    <link rel="stylesheet" href="{% static 'sample/css/ladies/blouse/ladies_blouse_print.css' %}">
 
 </head>
 <body>
 
-    <div class="ladies__frock__container">
-        <div class="ladies__frock__wrapper">
+    <div class="ladies__blouse__container">
+        <div class="ladies__blouse__wrapper">
 
-            <img src="{{ object.img.url }}" alt="img" class="ladies__frock__img">
+            <img src="{{ object.img.url }}" alt="img" class="ladies__blouse__img">
 
-            <div class="ladies__frock__details">
+            <div class="ladies__blouse__details">
 
                 <p> Sample Manufacture Date: {{ object.sample_manufactured_date }} </p>
                 <p> Style No: {{ object.style_no }} </p>

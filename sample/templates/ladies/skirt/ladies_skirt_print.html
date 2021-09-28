@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title> Idesiignred | Ladies Skirt: {{ object.style_no }} </title>
+
+    <link rel="stylesheet" href="{% static 'sample/css/ladies/skirt/ladies_skirt_print.css' %}">
+
+</head>
+<body>
+
+    <div class="ladies__skirt__container">
+        <div class="ladies__skirt__wrapper">
+
+            <img src="{{ object.img.url }}" alt="img" class="ladies__skirt__img">
+
+            <div class="ladies__skirt__details">
+
+                <p> Sample Manufacture Date: {{ object.sample_manufactured_date }} </p>
+                <p> Style No: {{ object.style_no }} </p>
+                <p> Fabric Id: {{ object.fabric_id }} </p>
+                <p> Fabric Price {{ object.fabric_price }} </p>
+                <p> Consumption: {{ object.consumption }} </p>
+                <p> Accessories Name: {{ object.acc_name }} </p>
+                <p> Accessories Cost: LKR {{ object.acc_cost }} </p>
+                <p> Sewing Cost: LKR {{ object.sewing_cost }} </p>
+                <p> Embroidery Cost: LKR {{ object.embroidery_cost}} </p>
+                <p> Washed Cost: LKR {{ object.washed_cost }} </p>
+                <p> Paint Cost: LKR {{ object.pain_cost}} </p>
+                <p> Factory Profit: LKR {{ object.factory_profit }} </p>
+                <p> Total Value: LKR {{ object.total_value }} </p>
+                <p> {% if object.accepted == True %}
+                    Sample Accepted
+                    {% else %}
+                    Sample Rejected
+                    {% endif %}
+                </p>
+                <p> Description: {{ object.description }} </p>
+
+            </div>
+        </div>
+
+
+        </div>
+
+</body>
+</html>

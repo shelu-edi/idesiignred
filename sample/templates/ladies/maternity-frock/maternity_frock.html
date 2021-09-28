@@ -8,39 +8,38 @@
     <meta charset="UTF-8">
 
     {% block title %}
-    <title>Idesiignred | Sample- Ladies Frocks</title>
-    {% endblock %} 
+    <title>Idesiignred | Sample- Maternity Frock</title>
+    {% endblock %}
 
     {% block extra_css %}
-        <link rel="stylesheet" href="{% static 'sample/css/ladies_frock.css' %}">
-    {% endblock %}  
+        <link rel="stylesheet" href="{% static 'sample/css/ladies/maternity-frock/maternity_frock.css' %}">
+    {% endblock %}
 
 </head>
 <body>
 
     {% block content %}
-        <div class="ladies__frock__container">
-            <h1> Ladies Frock </h1>
+        <div class="maternity__frock__container">
+            <h1> Maternity Frock </h1>
 
-
-            <div class="ladies__frock__btn">
+            <div class="maternity__frock__btn">
                 <button>
-                    <a href="{% url 'sample:ladies_frock_print_view' object.id %}" target="_blank"> Print  </a>
+                    <a href="{% url 'sample:maternity_frock_print_view' object.id %}" target="_blank"> Print  </a>
                 </button>
                 <button onclick="FormDisplay()" id="edit-btn"> Edit </button>
             </div>
-            <div class="ladies__frock__wrapper">
+            <div class="maternity__frock__wrapper">
                     <div class="form__container">
-                        <form class="form-group" action='.' method="POST" id="ladies-frock-form">
+                        <form class="form-group" action='.' method="POST" id="maternity-frock-form">
                                 {% csrf_token %}
                                 {{ form| crispy}}
                             <input type="submit" name="" value="Save" id="save" onclick="FormClose()">
                         </form>
                     </div>
 
-                <img src="{{ object.img.url }}" alt="img" class="ladies__frock__img">
+                <img src="{{ object.img.url }}" alt="img" class="maternity__frock__img">
 
-                <div class="ladies__frock__details">
+                <div class="maternity__frock__details">
 
                     <p> Sample Manufacture Date: {{ object.sample_manufactured_date }} </p>
                     <p> Style No: {{ object.style_no }} </p>
@@ -66,15 +65,14 @@
                 </div>
             </div>
 
-
-        </div> 
+        </div>
 
 
     {% endblock %}
 
     {% block extra_scripts %}
-        <script src="{% static 'sample/js/ladies_frock.js' %}" ></script>  >
+        <script src="{% static 'sample/js/ladies/maternity-frock/maternity_frock.js' %}" ></script>  >
     {% endblock %}
-         
+
 </body>
-</html>                  
+</html>
