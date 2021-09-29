@@ -30,7 +30,7 @@
             </div>
             <div class="ladies__pant__wrapper">
                     <div class="form__container">
-                        <form class="form-group" action='../..' method="POST" id="ladies-pant-form">
+                        <form class="form-group" action='.' method="POST" id="ladies-pant-form">
                                 {% csrf_token %}
                                 {{ form| crispy}}
                             <input type="submit" name="" value="Save" id="save" onclick="FormClose()">

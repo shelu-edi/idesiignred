@@ -92,6 +92,7 @@
     display: block;
     width: 100%;
     position: fixed;
+    height: 100%;
 }
 
 #ladies-frock-form{
@@ -636,6 +637,10 @@
 	width: 80px;
     text-align: center;
 	height: 40px;
+}
+
+.del__btn {
+    display: none;
 }
 
 .select__container {

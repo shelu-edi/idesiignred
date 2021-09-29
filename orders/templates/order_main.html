@@ -24,7 +24,7 @@
 
             <!-- Form -->           
             <div class="form__container">
-              <form class="form-group" action='.' method="POST" id="order-form"> 
+              <form class="form-group" method="POST" id="order-form">
                 {% csrf_token %}
               <h1> Order Form </h1>  
               {{ form| crispy}}

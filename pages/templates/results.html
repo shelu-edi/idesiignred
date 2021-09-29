@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+
+    {% block title %}
+    <title>Idesiignred | Results</title>
+    {% endblock %}
+
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'pages/css/results.css' %}">
+    {% endblock %}
+
+</head>
+<body>
+
+    {% block content %}
+        <div class="results__container" id="results-container">
+            <div><h1> Results </h1></div>
+
+            {% if searched %}
+                {{ searched }}
+                <br>
+                {% for customer in customers %}
+                    {{ customer.customer_first_name }} {{ customer.customer_last_name }}
+                {% endfor %}
+            {% endif %}
+            <br>
+            {% if searched %}
+                {{ searched }}
+                <br>
+                {% for accessories_received_in in accessories_received_ins %}
+                   Name: {{ accessories_received_in.acc_name }} - ID:{{ accessories_received_in.id }} {{ accessories_received_in.date }}
+                {% endfor %}
+            {% endif %}
+            <br>
+            {% if searched %}
+                {{ searched }}
+                <br>
+                {% for accessories_sent_out in accessories_sent_outs %}
+                   Name: {{ accessories_sent_out.acc_name }} - ID:{{ accessories_sent_out.id }} {{ accessories_sent_out.date }}
+                {% endfor %}
+            {% endif %}
+            <br>
+            {% if searched %}
+                {{ searched }}
+                <br>
+                {% for fabric_order_in in fabric_order_ins %}
+                   Order: {{ fabric_order_in.order_received }} - Style No:{{ fabric_order_in.style_no }} Price: {{ fabric_order_in.price }}
+                {% endfor %}
+            {% endif %}
+            {% if searched %}
+                {{ searched }}
+                <br>
+                {% for fabric_order_out in fabric_order_outs %}
+                   Order: {{ fabric_order_out.order_received }} - Style No:{{ fabric_order_out.style_no }} Price: {{ fabric_order_out.price }}
+                {% endfor %}
+            {% endif %}
+            {% if searched %}
+                {{ searched }}
+                <br>
+                {% for invoice in invoices %}
+                   Invoice No: {{ invoice.invoice_no }} - Style No:{{ invoice.style_no }} Price: {{ invoice.price }}
+                {% endfor %}
+            {% endif %}
+        </div>
+
+
+    {% endblock %}
+
+
+    {% block extra_scripts %}
+        <script src="{% static 'pages/js/home.js' %}"></script>
+    {% endblock %}
+</body>
+</html>

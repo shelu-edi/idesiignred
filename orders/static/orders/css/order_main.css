@@ -57,14 +57,17 @@
 }
 
 #order-form {
-	margin-left: 300px;
-	width: 50%;
-	height: auto;
+	margin-left: 200px;
+	height: 100%;
+	width: 60%;
+	border-radius: 2px;
+	/*height: auto;*/
 	overflow: auto;
 	bottom: 0;
 	display: none;
-	z-index: 9;
+	z-index: 800;
 	position: fixed;
 	background-color: white;
-	opacity: 0.8;
+	opacity: 1;
+	transition: .8s ease-in-out;
 }

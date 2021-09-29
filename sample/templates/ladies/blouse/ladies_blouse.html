@@ -3,7 +3,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% load crispy_forms_filters %}
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
     <meta charset="UTF-8">
@@ -31,7 +30,7 @@
             </div>
             <div class="ladies__blouse__wrapper">
                     <div class="form__container">
-                        <form class="form-group" action='../..' method="POST" id="ladies-blouse-form">
+                        <form class="form-group" action='.' method="POST" id="ladies-blouse-form">
                                 {% csrf_token %}
                                 {{ form| crispy}}
                             <input type="submit" name="" value="Save" id="save" onclick="FormClose()">

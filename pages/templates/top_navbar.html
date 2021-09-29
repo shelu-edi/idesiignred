@@ -54,8 +54,11 @@
           {% endif %}
           <li class="navbar__item">
             <div class="search-box">
-              <button class="btn-search"><i class="fa fa-search"></i></button>
-              <input type="text" class="input-search" placeholder="Type to Search...">
+                <form method="post" action="{% url 'search-results' %}">
+                    {% csrf_token %}
+                    <button type="button" class="btn-search"><i class="fa fa-search"></i></button>
+                    <input type="search" class="input-search" placeholder="Type to Search..." name="searched" id="search-input">
+                </form>
             </div>  
           </li>  
         </ul>
@@ -64,7 +67,7 @@
   
 
 
-    <script src="{% static 'pages/js/navbar.js' %}" ></script>
+
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
     </script>      

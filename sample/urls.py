@@ -41,5 +41,28 @@ urlpatterns = [
     path('boys-tshirt/print/<int:id>/', boys_tshirt_print_view, name="boys_tshirt_print_view"),
     path('boys-short/print/<int:id>/', boys_short_print_view, name="boys_short_print_view"),
 
+    # girls
+    path('girls-frock/<int:id>/', girls_frock_view, name="girls_frock_view"),
+    path('girls-pant/<int:id>/', girls_pant_view, name="girls_pant_view"),
+    path('girls-tshirt/<int:id>/', girls_tshirt_view, name="girls_tshirt_view"),
+    path('girls-short/<int:id>/', girls_short_view, name="girls_short_view"),
+
+    path('girls-frock/print/<int:id>/', girls_frock_print_view, name="girls_frock_print_view"),
+    path('girls-pant/print/<int:id>/', girls_pant_print_view, name="girls_pant_print_view"),
+    path('girls-tshirt/print/<int:id>/', girls_tshirt_print_view, name="girls_tshirt_print_view"),
+    path('girls-short/print/<int:id>/', girls_short_print_view, name="girls_short_print_view"),
+
+    # infants
+    path('infant-frock/<int:id>/', infant_frock_view, name="infant_frock_view"),
+    path('infant-pant/<int:id>/', infant_pant_view, name="infant_pant_view"),
+
+    path('infant-frock/print/<int:id>/', infant_frock_print_view, name="infant_frock_print_view"),
+    path('infant-pant/print/<int:id>/', infant_pant_print_view, name="infant_pant_print_view"),
+
+    # teens
+    path('teens-frock/<int:id>/', teens_frock_view, name="teens_frock_view"),
+
+    path('teens-frock/print/<int:id>/', teens_frock_print_view, name="teens_frock_print_view"),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                            document_root=settings.STATIC_ROOT)

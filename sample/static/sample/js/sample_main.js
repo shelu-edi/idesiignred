@@ -1,5 +1,3 @@
-console.log('blah')
-
 function LadiesSub() {
 
     // Sub Categories
@@ -60,6 +58,9 @@ function BoysSub() {
 
     //top
     document.getElementById('boys-pant-top').style.display = 'block';
+    document.getElementById('boys-shirt-top').style.display = 'none';
+    document.getElementById('boys-tshirt-top').style.display = 'none';
+    document.getElementById('boys-short-top').style.display = 'none';
 }
 
 function GirlsSub() {
@@ -98,6 +99,9 @@ function GirlsSub() {
 
     //top
     document.getElementById('girls-frock-top').style.display = 'block';
+    document.getElementById('girls-pant-top').style.display = 'none';
+    document.getElementById('girls-tshirt-top').style.display = 'none';
+    document.getElementById('girls-short-top').style.display = 'none';
 }
 
 function InfantsSub() {
@@ -132,6 +136,7 @@ function InfantsSub() {
 
     // top
     document.getElementById('infants-frock-top').style.display = 'block';
+    document.getElementById('infants-pant-top').style.display = 'none';
 }
 
 function TeensSub() {
@@ -203,6 +208,21 @@ function LadiesFrockDisplayForm() {
 
 function LadiesFrockCloseForm() {
     document.getElementById('ladies-frock-form').style.display = 'none';
+}
+
+function Del_Itm() {
+    let checkBox = document.getElementById('chbx');
+    let div = document.getElementById('del-div')
+    let top = document.getElementById('ladies-frock-top')
+
+    if (checkBox.checked === true) {
+        console.log('blah')
+        div.style.display = 'block';
+        top.style.display = 'none';
+    } else {
+        top.style.display = 'block';
+        div.style.display = 'none';
+    }
 }
 
 function LadiesBlouse() {
@@ -284,7 +304,6 @@ function LadiesPantDisplayForm() {
 function LadiesPantCloseForm() {
     document.getElementById('ladies-pant-form').style.display = 'none';
 }
-
 
 function LadiesSkirt() {
     //table
@@ -766,7 +785,7 @@ function TeensFrockCloseForm() {
 
 // Accept/ Reject
 function ShowLadiesFrockTable(select) {
-    if (select.value == 0){
+    if (select.value === 0){
         document.getElementById('ladies-frock-table').style.display = 'block';
     } else {
          document.getElementById('ladies-frock-table').style.display = 'none';

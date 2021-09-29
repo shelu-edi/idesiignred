@@ -130,8 +130,8 @@
                 <button  onclick="LadiesFrockDisplayForm()" id="add-btn"> Add </button>
                 </div>
 
-                <div class="ladies__frock__form" id="ladies-frock-form">
-                    <form class="form-group" action='.' method="POST">
+                <div class="ladies__frock__form" >
+                    <form class="form-group" action="." method="POST" id="ladies-frock-form">
                         {% csrf_token %}
                         <i class="fa fa-close" id="close-form" onclick="LadiesFrockCloseForm()"></i>
                         <h1> Ladies Frock </h1>
@@ -151,10 +151,16 @@
                 </div>
             </div>
 
+            <div class="del__btn" id="del-div">
+                <button class="button is-danger" onclick="Del_Itm()" id="del-btn"> Delete </button>
+                <div> {% for ladies_frock in ladies_frocks %} {{ ladies_frock.id }} {% endfor %} </div>
+            </div>
+
              <div class="table-responsive">
               <table class="table" id="ladies-frock-table">
                 <thead>
                   <tr>
+                    <th scope="col">  </th>
                     <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
@@ -168,6 +174,7 @@
                 <tbody>
                     {% for ladies_frock in ladies_frocks %}
                     <tr>
+                    <td><input type="checkbox" aria-label="Checkbox for following text input" id="chbx"></td>
                     <td>
                         <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
                         <img src="{{ ladies_frock.img.url }}" alt="sample" class="sample__img">
@@ -346,7 +353,7 @@
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
                     <th scope="col">Accessories Name</th>
-                    <th scope="col">Fabric</th>
+                    <th scope="col">Fabric ID</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
                     <th scope="col">Accepted</th>
@@ -377,7 +384,7 @@
                     </td>
                     <td>
                         <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
-                            {{ ladies_pant.fabric.fabric_id }}
+                            {{ ladies_pant.fabric_id }}
                         </a>
                     </td>
                     <td>
@@ -441,7 +448,7 @@
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
                       <th scope="col">Accessories Name</th>
-                    <th scope="col">Fabric</th>
+                    <th scope="col">Fabric ID</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
                     <th scope="col">Accepted</th>
@@ -472,7 +479,7 @@
                     </td>
                     <td>
                         <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
-                            {{ ladies_skirt.fabric.fabric_id }}
+                            {{ ladies_skirt.fabric_id }}
                         </a>
                     </td>
                     <td>
@@ -536,7 +543,7 @@
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
                       <th scope="col">Accessories Name</th>
-                    <th scope="col">Fabric</th>
+                    <th scope="col">Fabric Id</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
                     <th scope="col">Accepted</th>
@@ -566,7 +573,7 @@
                     </td>
                     <td>
                         <a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
-                            {{ ladies_tshirt.fabric.fabric_id }}
+                            {{ ladies_tshirt.fabric_id }}
                         </a>
                     </td>
                     <td>
@@ -1262,6 +1269,7 @@
                 </tbody>
               </table>
             </div>
+            </div>
 
             <!-- Girls -->
             <div class="girls__table__wrapper" id="girls-table-wrapper">
@@ -1311,18 +1319,49 @@
                 <tbody>
                     {% for girls_frock in girls_frocks %}
                     <tr>
-                    <td><img src="{{ girls_frock.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ girls_frock.sample_manufactured_date }} </td>
-                    <td> {{ girls_frock.style_no }} </td>
-                    <td> {{ girls_frock.acc_name }} </td>
-                    <td> {{ girls_frock.fabric_id }} </td>
-                    <td> {{ girls_frock.factory_profit }} </td>
-                    <td> {{ girls_frock.total_value }} </td>
-                    <td> {% if girls_frock.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                            <img src="{{ girls_frock.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                            {{ girls_frock.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                            {{ girls_frock.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                            {{ girls_frock.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                            {{ girls_frock.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                            {{ girls_frock.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                            {{ girls_frock.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                            {% if girls_frock.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                            </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -1375,18 +1414,49 @@
                 <tbody>
                     {% for girls_pant in girls_pants %}
                     <tr>
-                    <td><img src="{{ girls_pant.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ girls_pant.sample_manufactured_date }} </td>
-                    <td> {{ girls_pant.style_no }} </td>
-                    <td> {{ girls_pant.acc_name }} </td>
-                    <td> {{ girls_pant.fabric_id }} </td>
-                    <td> {{ girls_pant.factory_profit }} </td>
-                    <td> {{ girls_pant.total_value }} </td>
-                    <td> {% if girls_pant.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                            <img src="{{ girls_pant.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                            {{ girls_pant.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                            {{ girls_pant.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                            {{ girls_pant.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                            {{ girls_pant.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                            {{ girls_pant.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                            {{ girls_pant.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                            {% if girls_pant.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                        </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -1439,18 +1509,49 @@
                 <tbody>
                     {% for girls_tshirt in girls_tshirts %}
                     <tr>
-                    <td><img src="{{ girls_tshirt.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ girls_tshirt.sample_manufactured_date }} </td>
-                    <td> {{ girls_tshirt.style_no }} </td>
-                    <td> {{ girls_tshirt.acc_name }} </td>
-                    <td> {{ girls_tshirt.fabric_id }} </td>
-                    <td> {{ girls_tshirt.factory_profit }} </td>
-                    <td> {{ girls_tshirt.total_value }} </td>
-                    <td> {% if girls_tshirt.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                            <img src="{{ girls_tshirt.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                            {{ girls_tshirt.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                            {{ girls_tshirt.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                            {{ girls_tshirt.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                            {{ girls_tshirt.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                            {{ girls_tshirt.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                            {{ girls_tshirt.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                            {% if girls_tshirt.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                        </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -1503,18 +1604,49 @@
                 <tbody>
                     {% for girls_short in girls_shorts %}
                     <tr>
-                    <td><img src="{{ girls_short.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ girls_short.sample_manufactured_date }} </td>
-                    <td> {{ girls_short.style_no }} </td>
-                    <td> {{ girls_short.acc_name }} </td>
-                    <td> {{ girls_short.fabric_id }} </td>
-                    <td> {{ girls_short.factory_profit }} </td>
-                    <td> {{ girls_short.total_value }} </td>
-                    <td> {% if girls_short.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                            <img src="{{ girls_short.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                            {{ girls_short.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                            {{ girls_short.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                            {{ girls_short.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                            {{ girls_short.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                            {{ girls_short.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                            {{ girls_short.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                            {% if girls_short.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                        </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -1563,7 +1695,7 @@
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
                     <th scope="col"> Accessories Name </th>
-                    <th scope="col">Fabric</th>
+                    <th scope="col">Fabric ID</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
                     <th scope="col">Accepted</th>
@@ -1572,18 +1704,48 @@
                 <tbody>
                     {% for infants_frock in infants_frocks %}
                     <tr>
-                    <td><img src="{{ infants_frock.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ infants_frock.sample_manufactured_date }} </td>
-                    <td> {{ infants_frock.style_no }} </td>
-                    <td> {{ infants_frock.acc_no }} </td>
-                    <td> {{ infants_frock.fabric_id }} </td>
-                    <td> {{ infants_frock.factory_profit }} </td>
-                    <td> {{ infants_frock.total_value }} </td>
-                    <td> {% if infants_frock.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                            <img src="{{ infants_frock.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td><a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                        {{ infants_frock.sample_manufactured_date }}
+                    </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                            {{ infants_frock.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                            {{ infants_frock.acc_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                            {{ infants_frock.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                            {{ infants_frock.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                            {{ infants_frock.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                            {% if infants_frock.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                        </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -1623,31 +1785,62 @@
                 <table class="table" id="infant-pant-table">
                 <thead>
                   <tr>
-                    <th scope="col">Img Infant Pant</th>
+                    <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
                     <th scope="col">Accessories Name</th>
-                    <th scope="col">Fabric</th>
+                    <th scope="col">Fabric ID</th>
                     <th scope="col">Factory Profit(LKR)</th>
                     <th scope="col">Total Value(LKR)</th>
                     <th scope="col">Accepted</th>
                   </tr>
                 </thead>
                 <tbody>
-                    {% for infants_frock in infants_frocks %}
+                    {% for infants_pant in infants_pants %}
                     <tr>
-                    <td><img src="{{ infants_frock.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ infants_frock.sample_manufactured_date }} </td>
-                    <td> {{ infants_frock.style_no }} </td>
-                    <td> {{ infants_frock.acc_no }} </td>
-                    <td> {{ infants_frock.fabric_id }} </td>
-                    <td> {{ infants_frock.factory_profit }} </td>
-                    <td> {{ infants_frock.total_value }} </td>
-                    <td> {% if infants_frock.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td>
+                        <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                            <img src="{{ infants_pant.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                            {{ infants_pant.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                            {{ infants_pant.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                            {{ infants_pant.acc_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                            {{ infants_pant.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                            {{ infants_pant.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                            {{ infants_pant.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                            {% if infants_pant.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                        </a>
                     </td>
                     </tr>
                     {% endfor %}
@@ -1690,7 +1883,8 @@
                 <table class="table" id="teens-frock-table">
                 <thead>
                   <tr>
-                    <th scope="col">Img Teens Frock</th>
+                    <th>  </th>
+                    <th scope="col">Img</th>
                     <th scope="col">Sample Manufacture Date</th>
                     <th scope="col">Style No</th>
                     <th scope="col">Accessories Name</th>
@@ -1703,29 +1897,58 @@
                 <tbody>
                     {% for teen_frock in teen_frocks %}
                     <tr>
-                    <td><img src="{{ teen_frock.img.url }}" alt="sample" class="sample__img"></td>
-                    <td> {{ teen_frock.sample_manufactured_date }} </td>
-                    <td> {{ teen_frock.style_no }} </td>
-                    <td> {{ teen_frock.acc_name }} </td>
-                    <td> {{ teen_frock.fabric_id }} </td>
-                    <td> {{ teen_frock.factory_profit }} </td>
-                    <td> {{ teen_frock.total_value }} </td>
-                    <td> {% if teen_frock.accepted == True %}
-                            Accepted
-                        {% else %}
-                            Not Accepted
-                        {% endif %}
+                    <td><input type="checkbox" aria-label="Checkbox for following text input"></td>
+                    <td>
+                        <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                            <img src="{{ teen_frock.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                            {{ teen_frock.sample_manufactured_date }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                            {{ teen_frock.style_no }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                            {{ teen_frock.acc_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                            {{ teen_frock.fabric_id }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                            {{ teen_frock.factory_profit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                            {{ teen_frock.total_value }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                            {% if teen_frock.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}
+                            </a>
                     </td>
                     </tr>
                     {% endfor %}
                 </tbody>
               </table>
             </div>
-
+            </div>
         </div>
-
-    </div>
-    </div>
 
 
     {% endblock %}

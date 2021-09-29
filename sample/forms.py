@@ -11,22 +11,13 @@ class LadiesFrockForm(forms.ModelForm):
 	img = forms.ImageField(label='Image')
 	sample_manufactured_date = forms.DateField(label='Sample Manufactured Date')
 	style_no = forms.CharField(label='Style No', widget=forms.TextInput(attrs={
-		'placeholder':'Style No'
+		'placeholder': 'Style No'
 		}))
-	# fabric_id = forms.CharField(label='Fabric ID', widget=forms.TextInput(attrs={
-	#	'placeholder': 'Fabric ID'
-	#	}))
 	fabric = forms.ModelChoiceField(queryset=OrderOut.objects.all())
 	fabric_price = forms.DecimalField(label='Fabric Price')
 	consumption = forms.CharField(label='Consumption', widget=forms.TextInput(attrs={
 		'placeholder': 'Consumption'
 		}))
-	#acc_name = forms.CharField(label='Accessories Name', widget=forms.TextInput(attrs={
-	#	'placeholder': 'Accessories Name'
-	#	}))
-	#acc_id = forms.CharField(label='Accessories ID', widget=forms.TextInput(attrs={
-	#	'placeholder': 'Accessories ID'
-	#	}))
 	accessories = forms.ModelChoiceField(queryset=AccSentOut.objects.all())
 	acc_cost = forms.DecimalField(label='Accessories Cost')
 	sewing_cost = forms.DecimalField(label='Sewing Cost')
@@ -46,13 +37,10 @@ class LadiesFrockForm(forms.ModelForm):
 			'img',
 			'sample_manufactured_date',
 			'style_no',
-			# 'fabric_id',
 			'fabric',
 			'fabric_price',
 			'consumption',
 			'accessories',
-			# 'acc_name',
-			# 'acc_id',
 			'acc_cost',
 			'sewing_cost',
 			'embroidery_cost',
