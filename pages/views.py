@@ -586,7 +586,7 @@ def search_results(request):
                                                    )
 
         # teens
-        teens_frocks = Teenfrock.objects.filter(Q(sample_manufactured_date__contains=searched) |
+        teen_frocks = Teenfrock.objects.filter(Q(sample_manufactured_date__contains=searched) |
                                                 Q(style_no__contains=searched) |
                                                 Q(fabric_id__contains=searched) |
                                                 Q(fabric_price__contains=searched) |
@@ -1112,7 +1112,7 @@ def search_results(request):
         'infants_frocks': infants_frocks,
         'infants_pants': infants_pants,
 
-        'teens_frocks': teens_frocks,
+        'teen_frocks': teen_frocks,
 
         'sewings': sewings,
 

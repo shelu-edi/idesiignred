@@ -240,7 +240,7 @@
             </div>
 
             <div class="fabric__wrapper" id="fabric-order-in-wrapper">
-                <h3> Order Out Fabrics </h3>
+                <h3> Order In Fabrics </h3>
 
                 <div class="table-responsive">
                     <table class="table">
@@ -370,11 +370,1350 @@
                 </div>
             </div>
 
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Ladies Frock </h3>
 
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for ladies_frock in ladies_frocks %}
+                        <tr class="invoice__body">
+                            <td>
+                                <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                                <img src="{{ ladies_frock.img.url }}" alt="sample" class="sample__img">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                                {{ ladies_frock.sample_manufactured_date }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                                {{ ladies_frock.style_no }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                                {{ ladies_frock.acc_name }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                                {{ ladies_frock.fabric.fabric_id }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                                {{ ladies_frock.factory_profit }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                                {{ ladies_frock.total_value }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_frock_view' ladies_frock.id %}">
+                                    {% if ladies_frock.accepted == True %}
+                                        Accepted
+                                    {% else %}
+                                        Not Accepted
+                                    {% endif %}
+                                </a>
+                            </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+            </div>
 
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Ladies Blouse </h3>
 
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for ladies_blouse in ladies_blouses %}
+                        <tr class="invoice__body">
+                            <td><a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %}">
+                                    <img src="{{ ladies_blouse.img.url }}" alt="sample" class="sample__img">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %}">
+                                {{ ladies_blouse.sample_manufactured_date }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %}">
+                                    {{ ladies_blouse.style_no }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %}">
+                                    {{ ladies_blouse.acc_name }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %} ">
+                                    {{ ladies_blouse.fabric.fabric_id }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %} ">
+                                    {{ ladies_blouse.factory_profit }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %} ">
+                                     {{ ladies_blouse.total_value }}
+                                </a>
+                            </td>
+                            <td><a href="{% url 'sample:ladies_blouse_view' ladies_blouse.id %} ">
+                                    {% if ladies_blouse.accepted == True %}
+                                        Accepted
+                                    {% else %}
+                                        Not Accepted
+                                    {% endif %}
+                             </a>
+                            </td>
+                                {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
 
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Ladies Pant </h3>
 
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for ladies_pant in ladies_pants %}
+                        <tr class="invoice__body">
+                            <td>
+                                <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                                    <img src="{{ ladies_pant.img.url }}" alt="sample" class="sample__img">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                                    {{ ladies_pant.sample_manufactured_date }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                                    {{ ladies_pant.style_no }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                                    {{ ladies_pant.acc_name }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                                    {{ ladies_pant.fabric_id }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                                    {{ ladies_pant.factory_profit }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                                    {{ ladies_pant.total_value }}
+                                </a>
+                            </td>
+                             <td>
+                                 <a href="{% url 'sample:ladies_pant_view' ladies_pant.id %}">
+                                    {% if ladies_pant.accepted == True %}
+                                        Accepted
+                                    {% else %}
+                                        Not Accepted
+                                    {% endif %}
+                                 </a>
+                            </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Ladies Skirt </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for ladies_skirt in ladies_skirts %}
+                        <tr class="invoice__body">
+                        <td>
+                            <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                                <img src="{{ ladies_skirt.img.url }}" alt="sample" class="sample__img">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                                {{ ladies_skirt.sample_manufactured_date }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                                {{ ladies_skirt.style_no }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                                {{ ladies_skirt.acc_name }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                                {{ ladies_skirt.fabric_id }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                                {{ ladies_skirt.factory_profit }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                                {{ ladies_skirt.total_value }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:ladies_skirt_view' ladies_skirt.id %}">
+                                {% if ladies_skirt.accepted == True %}
+                                    Accepted
+                                {% else %}
+                                    Not Accepted
+                                {% endif %}
+                            </a>
+                        </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Ladies T-shirt </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for ladies_tshirt in ladies_tshirts %}
+                        <tr class="invoice__body">
+                           <td><a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                            <img src="{{ ladies_tshirt.img.url }}" alt="sample" class="sample__img">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                                {{ ladies_tshirt.sample_manufactured_date }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                                {{ ladies_tshirt.style_no }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                                {{ ladies_tshirt.acc_name }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                                {{ ladies_tshirt.fabric_id }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                                {{ ladies_tshirt.factory_profit }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                                {{ ladies_tshirt.total_value }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:ladies_tshirt_view' ladies_tshirt.id%}">
+                                {% if ladies_tshirt.accepted == True %}
+                                    Accepted
+                                {% else %}
+                                    Not Accepted
+                                {% endif %}
+                            </a>
+                        </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Maternity Frock </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for maternity_frock in maternity_frocks %}
+                        <tr class="invoice__body">
+                            <td>
+                                <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                                    <img src="{{ maternity_frock.img.url }}" alt="sample" class="sample__img">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                                    {{ maternity_frock.sample_manufactured_date }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                                    {{ maternity_frock.style_no }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                                    {{ maternity_frock.acc_name }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                                    {{ maternity_frock.fabric_id }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                                    {{ maternity_frock.factory_profit }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                                    {{ maternity_frock.total_value }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:maternity_frock_view' maternity_frock.id%}">
+                                    {% if maternity_frock.accepted == True %}
+                                        Accepted
+                                    {% else %}
+                                        Not Accepted
+                                    {% endif %}
+                                </a>
+                            </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Kaftan </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for kaftan in kaftans %}
+                        <tr class="invoice__body">
+                           <td>
+                                <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                                    <img src="{{ kaftan.img.url }}" alt="sample" class="sample__img">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                                    {{ kaftan.sample_manufactured_date }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                                    {{ kaftan.style_no }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                                    {{ kaftan.acc_name }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                                    {{ kaftan.fabric_id }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                                    {{ kaftan.factory_profit }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                                    {{ kaftan.total_value }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:kaftan_view' kaftan.id%}">
+                                    {% if kaftan.accepted == True %}
+                                        Accepted
+                                    {% else %}
+                                        Not Accepted
+                                    {% endif %}
+                                </a>
+                            </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Nightwear </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for nightwear in nightwears %}
+                        <tr class="invoice__body">
+                            <td>
+                                <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                                    <img src="{{ nightwear.img.url }}" alt="sample" class="sample__img">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                                    {{ nightwear.sample_manufactured_date }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                                    {{ nightwear.style_no }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                                    {{ nightwear.acc_name }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                                    {{ nightwear.fabric_id }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                                    {{ nightwear.factory_profit }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                                    {{ nightwear.total_value }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:nightwear_view' nightwear.id%}">
+                                    {% if nightwear.accepted == True %}
+                                        Accepted
+                                    {% else %}
+                                        Not Accepted
+                                    {% endif %}
+                                </a>
+                            </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Boys Pant </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for boys_pant in boys_pants %}
+                        <tr class="invoice__body">
+                            <td>
+                                <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                                    <img src="{{ boys_pant.img.url }}" alt="sample" class="sample__img">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                                    {{ boys_pant.sample_manufactured_date }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                                    {{ boys_pant.style_no }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                                    {{ boys_pant.acc_name }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                                    {{ boys_pant.fabric_id }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                                    {{ boys_pant.factory_profit }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                                    {{ boys_pant.total_value }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_pant_view' boys_pant.id%}">
+                                    {% if boys_pant.accepted == True %}
+                                        Accepted
+                                    {% else %}
+                                        Not Accepted
+                                    {% endif %}
+                                </a>
+                            </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Boys Shirt </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for boys_shirt in boys_shirts %}
+                        <tr class="invoice__body">
+                            <td>
+                                <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                                    <img src="{{ boys_shirt.img.url }}" alt="sample" class="sample__img">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                                    {{ boys_shirt.sample_manufactured_date }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                                    {{ boys_shirt.style_no }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                                    {{ boys_shirt.acc_name }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                                    {{ boys_shirt.fabric_id }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                                    {{ boys_shirt.factory_profit }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                                    {{ boys_shirt.total_value }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_shirt_view' boys_shirt.id%}">
+                                    {% if boys_shirt.accepted == True %}
+                                        Accepted
+                                    {% else %}
+                                        Not Accepted
+                                    {% endif %}
+                                </a>
+                            </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Boys T-Shirt </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for boys_tshirt in boys_tshirts %}
+                        <tr class="invoice__body">
+                            <td>
+                                <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                                    <img src="{{ boys_tshirt.img.url }}" alt="sample" class="sample__img">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                                    {{ boys_tshirt.sample_manufactured_date }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                                    {{ boys_tshirt.style_no }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                                    {{ boys_tshirt.acc_name }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                                    {{ boys_tshirt.fabric_id }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                                    {{ boys_tshirt.factory_profit }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                                    {{ boys_tshirt.total_value }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'sample:boys_tshirt_view' boys_tshirt.id %}">
+                                    {% if boys_tshirt.accepted == True %}
+                                        Accepted
+                                    {% else %}
+                                        Not Accepted
+                                    {% endif %}
+                                </a>
+                            </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Boys Short </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for boys_short in boys_shorts %}
+                        <tr class="invoice__body">
+                        <td>
+                            <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                                <img src="{{ boys_short.img.url }}" alt="sample" class="sample__img">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                                {{ boys_short.sample_manufactured_date }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                                {{ boys_short.style_no }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                                {{ boys_short.acc_name }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                                {{ boys_short.fabric_id }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                                {{ boys_short.factory_profit }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                                {{ boys_short.total_value }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:boys_short_view' boys_short.id%}">
+                                {% if boys_short.accepted == True %}
+                                    Accepted
+                                {% else %}
+                                    Not Accepted
+                                {% endif %}
+                            </a>
+                        </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Girls Frock </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for girls_frock in girls_frocks %}
+                        <tr class="invoice__body">
+                        <td>
+                        <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                            <img src="{{ girls_frock.img.url }}" alt="sample" class="sample__img">
+                        </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                                {{ girls_frock.sample_manufactured_date }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                                {{ girls_frock.style_no }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                                {{ girls_frock.acc_name }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                                {{ girls_frock.fabric_id }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                                {{ girls_frock.factory_profit }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                                {{ girls_frock.total_value }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_frock_view' girls_frock.id%}">
+                                {% if girls_frock.accepted == True %}
+                                    Accepted
+                                {% else %}
+                                    Not Accepted
+                                {% endif %}
+                                </a>
+                        </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Girls Pant </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for girls_pant in girls_pants %}
+                        <tr class="invoice__body">
+                        <td>
+                            <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                                <img src="{{ girls_pant.img.url }}" alt="sample" class="sample__img">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                                {{ girls_pant.sample_manufactured_date }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                                {{ girls_pant.style_no }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                                {{ girls_pant.acc_name }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                                {{ girls_pant.fabric_id }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                                {{ girls_pant.factory_profit }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                                {{ girls_pant.total_value }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_pant_view' girls_pant.id%}">
+                                {% if girls_pant.accepted == True %}
+                                    Accepted
+                                {% else %}
+                                    Not Accepted
+                                {% endif %}
+                            </a>
+                        </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Girls T-shirt </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for girls_tshirt in girls_tshirts %}
+                        <tr class="invoice__body">
+                        <td>
+                            <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                                <img src="{{ girls_tshirt.img.url }}" alt="sample" class="sample__img">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                                {{ girls_tshirt.sample_manufactured_date }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                                {{ girls_tshirt.style_no }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                                {{ girls_tshirt.acc_name }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                                {{ girls_tshirt.fabric_id }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                                {{ girls_tshirt.factory_profit }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                                {{ girls_tshirt.total_value }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_tshirt_view' girls_tshirt.id%}">
+                                {% if girls_tshirt.accepted == True %}
+                                    Accepted
+                                {% else %}
+                                    Not Accepted
+                                {% endif %}
+                            </a>
+                        </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Girls Short </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for girls_short in girls_shorts %}
+                        <tr class="invoice__body">
+                        <td>
+                            <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                                <img src="{{ girls_short.img.url }}" alt="sample" class="sample__img">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                                {{ girls_short.sample_manufactured_date }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                                {{ girls_short.style_no }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                                {{ girls_short.acc_name }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                                {{ girls_short.fabric_id }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                                {{ girls_short.factory_profit }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                                {{ girls_short.total_value }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:girls_short_view' girls_short.id %}">
+                                {% if girls_short.accepted == True %}
+                                    Accepted
+                                {% else %}
+                                    Not Accepted
+                                {% endif %}
+                            </a>
+                        </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Infants Frock </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for infants_frock in infants_frocks %}
+                        <tr class="invoice__body">
+                        <td>
+                            <a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                                <img src="{{ infants_frock.img.url }}" alt="sample" class="sample__img">
+                            </a>
+                        </td>
+                        <td><a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                            {{ infants_frock.sample_manufactured_date }}
+                        </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                                {{ infants_frock.style_no }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                                {{ infants_frock.acc_id }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                                {{ infants_frock.fabric_id }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                                {{ infants_frock.factory_profit }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                                {{ infants_frock.total_value }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:infant_frock_view' infants_frock.id%}">
+                                {% if infants_frock.accepted == True %}
+                                    Accepted
+                                {% else %}
+                                    Not Accepted
+                                {% endif %}
+                            </a>
+                        </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Infants Pant </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for infants_pant in infants_pants %}
+                        <tr class="invoice__body">
+                        <td>
+                            <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                                <img src="{{ infants_pant.img.url }}" alt="sample" class="sample__img">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                                {{ infants_pant.sample_manufactured_date }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                                {{ infants_pant.style_no }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                                {{ infants_pant.acc_id }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                                {{ infants_pant.fabric_id }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                                {{ infants_pant.factory_profit }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                                {{ infants_pant.total_value }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:infant_pant_view' infants_pant.id%}">
+                                {% if infants_pant.accepted == True %}
+                                    Accepted
+                                {% else %}
+                                    Not Accepted
+                                {% endif %}
+                            </a>
+                        </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="sample__wrapper" id="sample-wrapper">
+                <h3> Teens Frock </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Image</th>
+                            <th scope="col">Sample Manufactured Date</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Fabric ID</th>
+                            <th scope="col">Factory Profit(LKR)</th>
+                            <th scope="col">Total Value</th>
+                            <th scope="col">Accepted</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for teen_frock in teen_frocks %}
+                        <tr class="invoice__body">
+                        <td>
+                            <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                                <img src="{{ teen_frock.img.url }}" alt="sample" class="sample__img">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                                {{ teen_frock.sample_manufactured_date }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                                {{ teen_frock.style_no }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                                {{ teen_frock.acc_name }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                                {{ teen_frock.fabric_id }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                                {{ teen_frock.factory_profit }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                                {{ teen_frock.total_value }}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'sample:teens_frock_view' teen_frock.id%}">
+                                {% if teen_frock.accepted == True %}
+                                    Accepted
+                                {% else %}
+                                    Not Accepted
+                                {% endif %}
+                                </a>
+                        </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
 
         </div>
 

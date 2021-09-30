@@ -7,13 +7,44 @@ body {
 }
 
 /* Customers */
-.customer__wrapper, .accessories__wrapper, .fabric__wrapper, .invoice__wrapper, .order__receiving__wrapper {
+.customer__wrapper, .accessories__wrapper, .fabric__wrapper, .invoice__wrapper, .order__receiving__wrapper,
+.sample__wrapper {
     display: block;
     overflow: auto;
     margin: 10px 0 50px 0;
 }
 
-.customer__wrapper h3, .accessories__wrapper h3 , .fabric__wrapper h3, .invoice__wrapper h3, .order__receiving__wrapper h3 {
+.customer__wrapper h3, .accessories__wrapper h3 , .fabric__wrapper h3, .invoice__wrapper h3, .order__receiving__wrapper h3,
+.sample__wrapper h3 {
     text-align: center;
     color: #1C2331;
+}
+
+/* Sample */
+/*.sample__wrapper {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    height: 100%;*/
+/*    margin: 10px 0 10px 0;*/
+/*}*/
+
+/*.sample__card {*/
+/*    border-radius: 4px;*/
+/*    margin: 0 10px 0 10px;*/
+/*    background-color: #535c5f;*/
+/*}*/
+
+.sample__wrapper a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #1C2331;
+}
+
+.sample__wrapper a:hover {
+    color: #1C2331;
+}
+
+.sample__img {
+    width: 80px;
+    height: 80px;
 }
