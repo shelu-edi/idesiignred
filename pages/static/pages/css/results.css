@@ -1,3 +1,19 @@
+body {
+    font-family: Helvetica;
+}
+
 .results__container {
     margin: 20px 0 100px 100px;
+}
+
+/* Customers */
+.customer__wrapper, .accessories__wrapper, .fabric__wrapper, .invoice__wrapper, .order__receiving__wrapper {
+    display: block;
+    overflow: auto;
+    margin: 10px 0 50px 0;
+}
+
+.customer__wrapper h3, .accessories__wrapper h3 , .fabric__wrapper h3, .invoice__wrapper h3, .order__receiving__wrapper h3 {
+    text-align: center;
+    color: #1C2331;
 }

@@ -7,7 +7,9 @@
     <meta charset="UTF-8">
 
     {% block title %}
-    <title>Idesiignred | Results</title>
+        {% if searched %}
+            <title>Idesiignred | Results- {{ searched }}</title>
+        {% endif %}
     {% endblock %}
 
     {% block extra_css %}
@@ -66,6 +68,314 @@
                    Invoice No: {{ invoice.invoice_no }} - Style No:{{ invoice.style_no }} Price: {{ invoice.price }}
                 {% endfor %}
             {% endif %}
+            {% if searched %}
+                {{ searched }}
+                <br>
+                {% for order_receiving in order_receivings %}
+                   Order No: {{ order_receiving.order_no }} - Style No:{{ order_receiving.style_no }} Price: {{ order_receiving.price }}
+                {% endfor %}
+            {% endif %}
+
+            {% if searched %}
+            <div class="customer__wrapper" id="customer-wrapper">
+                <h3> Customers </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Customer ID</th>
+                            <th scope="col">Salutation</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col"> Mobile </th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Address</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for customer in customers %}
+                        <tr class="customer__body">
+                            <td> {{ customer.customer_id }} </td>
+                            <td> {{ customer.salutation }} </td>
+                            <td> {{ customer.customer_first_name }} </td>
+                            <td> {{ customer.customer_last_name }} </td>
+                            <td> {{ customer.mobile_no_type }}: {{ customer.mobile_no }} </td>
+                            <td> {{ customer.email_type }}: {{ customer.email }} </td>
+                            <td> {{ customer.address }} </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+            </div>
+            {% endif %}
+
+            <div class="accessories__wrapper" id="accessories-received-in-wrapper">
+                <h3> Received In Accessories </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Accessories Id</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Invoice No</th>
+                            <th scope="col">Price (LKR)</th>
+                            <th scope="col">Value</th>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Delivery Date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">User Notes</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for accessories_received_in in accessories_received_ins %}
+                        <tr class="invoice__body">
+                            <td> {{ accessories_received_in.acc_name }} </td>
+                            <td> {{ accessories_received_in.acc_id }} </td>
+                            <td> {{ accessories_received_in.date }} </td>
+                            <td> {{ accessories_received_in.invoice.invoice_no }} </td>
+                            <td> {{ accessories_received_in.price }} </td>
+                            <td> {{ accessories_received_in.value }} </td>
+                            <td> {{ accessories_received_in.customer.customer_first_name }} {{ accessories_received_in.customer.customer_last_name }} </td>
+                            <td> {{ accessories_received_in.delivery_date }} </td>
+                            <td> {{ accessories_received_in.time }} </td>
+                            <td> {{ accessories_received_in.user_notes }} </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="accessories__wrapper" id="accessories-sent-out-wrapper">
+                <h3> Sent Out Accessories </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Accessories Name</th>
+                            <th scope="col">Accessories Id</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Invoice No</th>
+                            <th scope="col">Price (LKR)</th>
+                            <th scope="col">Value</th>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Delivery Date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">User Notes</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for accessories_sent_out in accessories_sent_outs %}
+                        <tr class="invoice__body">
+                            <td> {{ accessories_sent_out.acc_name }} </td>
+                            <td> {{ accessories_sent_out.acc_id }} </td>
+                            <td> {{ accessories_sent_out.date }} </td>
+                            <td> {{ accessories_sent_out.invoice.invoice_no }} </td>
+                            <td> {{ accessories_sent_out.price }} </td>
+                            <td> {{ accessories_sent_out.value }} </td>
+                            <td> {{ accessories_sent_out.customer.customer_first_name }} {{ accessories_sent_out.customer.customer_last_name }} </td>
+                            <td> {{ accessories_sent_out.delivery_date }} </td>
+                            <td> {{ accessories_sent_out.time }} </td>
+                            <td> {{ accessories_sent_out.user_notes }} </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="fabric__wrapper" id="fabric-order-in-wrapper">
+                <h3> Order In Fabrics </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Order Received</th>
+                            <th scope="col">Date Order Delivered</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Order No</th>
+                            <th scope="col">Remarks</th>
+                            <th scope="col">Required Date</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price (LKR)</th>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Consumption</th>
+                            <th scope="col">Total Consumption</th>
+                            <th scope="col">Delivery Date</th>
+                            <th scope="col">Order Status</th>
+                            <th scope="col">Order Progress</th>
+                            <th scope="col">Reason</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for fabric_order_out in fabric_order_outs %}
+                        <tr class="invoice__body">
+                            <td> {{ fabric_order_out.order_received }} </td>
+                            <td> {{ fabric_order_out.date_order_delivered }} </td>
+                            <td> {{ fabric_order_out.style_no }} </td>
+                            <td> {{ fabric_order_out.order.order_no }} </td>
+                            <td> {{ fabric_order_out.remarks }} </td>
+                            <td> {{ fabric_order_out.required_date }} </td>
+                            <td> {{ fabric_order_out.quantity }} </td>
+                            <td> {{ fabric_order_out.price }} </td>
+                            <td> {{ fabric_order_out.customer.customer_first_name }} {{ fabric_order_out.customer.customer_last_name }} </td>
+                            <td> {{ fabric_order_out.consumption }} </td>
+                            <td> {{ fabric_order_out.total_consumption }} </td>
+                            <td> {{ fabric_order_out.delivery_date }} </td>
+                            <td> {{ fabric_order_out.order_status }} </td>
+                            <td> {{ fabric_order_out.order_progress }} </td>
+                            <td> {{ fabric_order_out.reason }} </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="fabric__wrapper" id="fabric-order-in-wrapper">
+                <h3> Order Out Fabrics </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Order Received</th>
+                            <th scope="col">Date Order Delivered</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Order No</th>
+                            <th scope="col">Remarks</th>
+                            <th scope="col">Required Date</th>
+                            <th scope="col">Price (LKR)</th>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Consumption</th>
+                            <th scope="col">Total Consumption</th>
+                            <th scope="col">Delivery Date</th>
+                            <th scope="col">Order Status</th>
+                            <th scope="col">Order Progress</th>
+                            <th scope="col">Reason</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for fabric_order_in in fabric_order_ins %}
+                        <tr class="invoice__body">
+                            <td> {{ fabric_order_in.order_received }} </td>
+                            <td> {{ fabric_order_in.date_order_delivered }} </td>
+                            <td> {{ fabric_order_in.style_no }} </td>
+                            <td> {{ fabric_order_in.order.order_no }} </td>
+                            <td> {{ fabric_order_in.remarks }} </td>
+                            <td> {{ fabric_order_in.required_date }} </td>
+                            <td> {{ fabric_order_in.price }} </td>
+                            <td> {{ fabric_order_in.customer.customer_first_name }} {{ fabric_order_in.customer.customer_last_name }} </td>
+                            <td> {{ fabric_order_in.consumption }} </td>
+                            <td> {{ fabric_order_in.total_consumption }} </td>
+                            <td> {{ fabric_order_in.delivery_date }} </td>
+                            <td> {{ fabric_order_in.order_status }} </td>
+                            <td> {{ fabric_order_in.order_progress }} </td>
+                            <td> {{ fabric_order_in.reason }} </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="invoice__wrapper" id="invoice-wrapper">
+                <h3> Invoices </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Date</th>
+                            <th scope="col">Invoice No</th>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Order</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price (LKR)</th>
+                            <th scope="col">Value</th>
+                            <th scope="col">Method Of Payment</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for invoice in invoices %}
+                        <tr class="invoice__body">
+                            <td> {{ invoice.date }} </td>
+                            <td> {{ invoice.invoice_no }} </td>
+                            <td> {{ invoice.customer.customer_first_name }} {{ invoice.customer.customer_last_name }} </td>
+                            <td> {{ invoice.style_no }} </td>
+                            <td> {{ invoice.order.order_no }} </td>
+                            <td> {{ invoice.quantity }} </td>
+                            <td> {{ invoice.price }} </td>
+                            <td> {{ invoice.value }} </td>
+                            <td> {{ invoice.method_of_payment}} </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <div class="order__receiving__wrapper" id="order-receiving-wrapper">
+                <h3> Order Receiving </h3>
+
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr class="invoice__tr">
+                            <th scope="col">Order Received</th>
+                            <th scope="col">Date Order Delivered</th>
+                            <th scope="col">Style No</th>
+                            <th scope="col">Order</th>
+                            <th scope="col">Remarks</th>
+                            <th scope="col">Required Date</th>
+                            <th scope="col">Price (LKR)</th>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Consumption</th>
+                            <th scope="col">Total Consumption</th>
+                            <th scope="col">Delivery Date</th>
+                            <th scope="col">Order Status</th>
+                            <th scope="col">Order Progress</th>
+                            <th scope="col">Reason</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for order_receiving in order_receivings %}
+                        <tr class="invoice__body">
+                            <td> {{ order_receiving.order_received }} </td>
+                            <td> {{ order_receiving.date_order_delivered }} </td>
+                            <td> {{ order_receiving.style_no }} </td>
+                            <td> {{ order_receiving.order.order_no }} </td>
+                            <td> {{ order_receiving.remarks }} </td>
+                            <td> {{ order_receiving.required_date }} </td>
+                            <td> {{ order_receiving.price }} </td>
+                            <td> {{ invoice.customer.customer_first_name }} {{ invoice.customer.customer_last_name }} </td>
+                            <td> {{ order_receiving.consumption }} </td>
+                            <td> {{ order_receiving.total_consumption }} </td>
+                            <td> {{ order_receiving.delivery_date }} </td>
+                            <td> {{ order_receiving.order_status }} </td>
+                            <td> {{ order_receiving.order_progress }} </td>
+                            <td> {{ order_receiving.reason }} </td>
+                        {% endfor %}
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+
+
+
+
+
+
         </div>
 
 
