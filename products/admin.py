@@ -29,4 +29,4 @@ admin.site.register(BoysShirt)
 admin.site.register(BoysTshirt)
 admin.site.register(BoysShort)
 
-admin.site.register(Teenfrock)
+admin.site.register(TeenFrock)

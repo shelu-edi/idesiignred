@@ -1,5 +1,7 @@
-function LadiesSub() {
+console.log('blah')
 
+
+function LadiesSub() {
     // Sub Categories
     document.getElementById('ladies-sub').style.display = 'flex';
     document.getElementById('boys-sub').style.display = 'none';
@@ -20,6 +22,16 @@ function LadiesSub() {
     document.getElementById('girls-table-wrapper').style.display = 'none';
     document.getElementById('infant-table-wrapper').style.display = 'none';
     document.getElementById('teens-tables-wrapper').style.display = 'none';
+
+    // Top
+    document.getElementById('ladies-frock-top').style.display = 'block';
+    document.getElementById('ladies-blouse-top').style.display = 'none';
+    document.getElementById('ladies-pant-top').style.display = 'none';
+    document.getElementById('ladies-skirt-top').style.display = 'none';
+    document.getElementById('ladies-tshirt-top').style.display = 'none';
+    document.getElementById('maternity-frock-top').style.display = 'none';
+    document.getElementById('kaftan-top').style.display = 'none';
+    document.getElementById('nightwear-top').style.display = 'none';
 }
 
 function BoysSub() {

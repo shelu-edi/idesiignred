@@ -35,6 +35,7 @@ urlpatterns = [
     path('stock/', include('stock.urls')),
     path('invoice/', include('invoice.urls')),
     path('sample/', include('sample.urls')),
+    path('product/', include('products.urls')),
 
-]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                            document_root=settings.STATIC_ROOT)

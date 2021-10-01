@@ -17,7 +17,7 @@ from products.models import LadiesFrock as LadiesFrockProduct, LadiesSkirt as La
     GirlsFrock as GirlsFrockProduct, GirlsPant as GirlsPantProduct, GirlsTshirt as GirlsTshirtProduct, \
     GirlsShort as GirlsShortproduct, \
     InfantsFrock as InfantsFrockProduct, InfantsPant as InfantsPantProduct, \
-    Teenfrock as TeensFrockProduct
+    TeenFrock as TeensFrockProduct
 
 
 # Create your views here.

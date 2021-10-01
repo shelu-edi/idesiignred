@@ -23,6 +23,7 @@ class OrderIn(models.Model):
 	reason = models.CharField(max_length=1000)
 
 
+
 class OrderOut(models.Model):
 	fabric_id = models.CharField(max_length=100)
 	order_received = models.DateField()
@@ -40,4 +41,7 @@ class OrderOut(models.Model):
 	order_status = models.BooleanField(default=False)
 	order_progress = models.CharField(max_length=1000)
 	reason = models.CharField(max_length=1000)
+
+	def __str__(self):
+		return self.fabric_id
 

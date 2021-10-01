@@ -26,6 +26,11 @@
     <div class="area"></div><nav class="main-menu">
         <ul>
             <li>
+                <span class="nav-text">
+
+                </span>
+            </li>
+            <li>
                 <a href="/">
                 <i class="fa fa-home fa-2x nav-icon"></i>
                 <span class="nav-text">
@@ -87,14 +92,6 @@
                     </a>
                 </li>
                 <li class="has-subnav">
-                   <a href="{% url 'stock:stock_view' %}">
-                       <i class="fa fa-cubes fa-2x"></i>
-                        <span class="nav-text">
-                            Stock
-                        </span>
-                    </a>
-                </li>
-                <li class="has-subnav">
                    <a href="{% url 'invoice:invoice_view' %}">
                         <i class="fa fa-file fa-2x"></i>
                         <span class="nav-text">
@@ -103,10 +100,18 @@
                     </a>
                 </li>
                 <li class="has-subnav">
-                   <a href="{% url 'invoice:invoice_view' %}">
+                   <a href="{% url 'products:products_main' %}">
                         <i class="fa fa-truck fa-2x"></i>
                         <span class="nav-text">
                             Products
+                        </span>
+                    </a>
+                </li>
+                <li class="has-subnav">
+                   <a href="{% url 'stock:stock_view' %}">
+                       <i class="fa fa-cubes fa-2x"></i>
+                        <span class="nav-text">
+                            Stock
                         </span>
                     </a>
                 </li>
