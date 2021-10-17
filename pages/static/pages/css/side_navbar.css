@@ -21,8 +21,8 @@ overflow:visible;
 }
 
 .main-menu, .drop_btn {
-background:#002060;
-border-right:1px solid #e5e5e5;
+background:#072D75;
+/*border-right:1px solid #e5e5e5;*/
 position:fixed;
 top:0;
 bottom:0;
@@ -34,6 +34,7 @@ overflow:hidden;
 transition:width .05s linear;
 -webkit-transform:translateZ(0) scale(1,1);
 z-index:1000;
+color: #A3C100;
 }
 
 .main-menu>ul {

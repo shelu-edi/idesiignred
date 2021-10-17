@@ -1,0 +1,31 @@
+{% for order in orders %}
+  <tr>
+  <td> {{ order.order_received }} </td>
+  <td> {{ order.date_order_delivered }} </td>
+  <td> {{ order.style_no }} </td>
+  <td> {{ order.order_no }} </td>
+  <td> {{ order.remarks }} </td>
+  <td> {{ order.required_date }} </td>
+  <td> {{ order.price }} </td>
+  <td> {{ order.customer.customer_first_name }}
+       {{ order.customer.customer_last_name }}
+  </td>
+  <td> {{ order.customer.customer_id }} </td>
+  <td> {{ order.consumption }} </td>
+  <td> {{ order.total_consumption }} </td>
+  <td> {{ order.delivery_date }} </td>
+  <td>
+    {% if order.order_status == True %}
+        Complete
+    {% else %}
+        Incomplete
+    {% endif %}
+  </td>
+  <td> {{ order.order_progress }} </td>
+  <td> {{ order.reason }} </td>
+  </tr>
+{% empty %}
+  <tr>
+    <td colspan="7" class="text-center"> No Order </td>
+  </tr>
+{% endfor %}

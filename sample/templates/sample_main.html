@@ -136,7 +136,7 @@
                         <i class="fa fa-close" id="close-form" onclick="LadiesFrockCloseForm()"></i>
                         <h1> Ladies Frock </h1>
                         {{ ladies_frock_form| crispy}}
-                        <input type="submit" name=""  onclick="LadiesFrockCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ ladies_frock_form.prefix }}"  onclick="LadiesFrockCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -237,7 +237,7 @@
                         <i class="fa fa-close" id="close-form" onclick="LadiesBlouseCloseForm()"></i>
                         <h1> Ladies Blouse </h1>
                         {{ ladies_blouse_form| crispy}}
-                        <input type="submit" name="ladies-blouse-form"  onclick="LadiesBlouseCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ ladies_blouse_form.prefix }}"  onclick="LadiesBlouseCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -330,7 +330,7 @@
                         <i class="fa fa-close" id="close-form" onclick="LadiesPantCloseForm()"></i>
                         <h1> Ladies Pant </h1>
                         {{ ladies_pant_form| crispy}}
-                        <input type="submit" name=""  onclick="LadiesPantCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ ladies_pant_form.prefix }}"  onclick="LadiesPantCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -425,7 +425,7 @@
                         <i class="fa fa-close" id="close-form" onclick="LadiesSkirtCloseForm()"></i>
                         <h1> Ladies Skirt </h1>
                         {{ ladies_skirt_form| crispy}}
-                        <input type="submit" name=""  onclick="LadiesSkirtCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ ladies_skirt_form.prefix }}"  onclick="LadiesSkirtCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -520,7 +520,7 @@
                         <i class="fa fa-close" id="close-form" onclick="LadiesTshirtCloseForm()"></i>
                         <h1> Ladies T-shirt </h1>
                         {{ ladies_tshirt_form| crispy}}
-                        <input type="submit" name=""  onclick="LadiesTshirtCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ ladies_tshirt_form.prefix }}"  onclick="LadiesTshirtCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -614,7 +614,7 @@
                         <i class="fa fa-close" id="close-form" onclick="MaternityFrockCloseForm()"></i>
                         <h1> Maternity Frock </h1>
                         {{ maternity_frock_form| crispy}}
-                        <input type="submit" name=""  onclick="MaternityFrockCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ maternity_frock_form.prefix }}"  onclick="MaternityFrockCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -709,7 +709,7 @@
                         <i class="fa fa-close" id="close-form" onclick="KaftanCloseForm()"></i>
                         <h1> Kaftan </h1>
                         {{ kaftan_form| crispy}}
-                        <input type="submit" name=""  onclick="KaftanCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ kaftan_form.prefix }}"  onclick="KaftanCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -804,7 +804,7 @@
                         <i class="fa fa-close" id="close-form" onclick="NightwearCloseForm()"></i>
                         <h1> Nightwear </h1>
                         {{ nightwear_form| crispy}}
-                        <input type="submit" name=""  onclick="NightwearCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ nightwear_form.prefix }}"  onclick="NightwearCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -903,7 +903,7 @@
                         <i class="fa fa-close" id="close-form" onclick="BoysPantCloseForm()"></i>
                         <h1> Boys Pant </h1>
                         {{ boys_pant_form| crispy}}
-                        <input type="submit" name=""  onclick="BoysPantCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ boys_pant_form.prefix }}"  onclick="BoysPantCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -998,7 +998,7 @@
                         <i class="fa fa-close" id="close-form" onclick="BoysShirtCloseForm()"></i>
                         <h1> Boys Shirt </h1>
                         {{ boys_shirt_form| crispy}}
-                        <input type="submit" name=""  onclick="BoysShirtCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ boys_shirt_form.prefix }}"  onclick="BoysShirtCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -1093,7 +1093,7 @@
                         <i class="fa fa-close" id="close-form" onclick="BoysTshirtCloseForm()"></i>
                         <h1> Boys T-Shirt </h1>
                         {{ boys_tshirt_form| crispy}}
-                        <input type="submit" name=""  onclick="BoysTshirtCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ boys_tshirt_form.prefix }}"  onclick="BoysTshirtCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -1188,7 +1188,7 @@
                         <i class="fa fa-close" id="close-form" onclick="BoysShortCloseForm()"></i>
                         <h1> Boys Short </h1>
                         {{ boys_short_form| crispy}}
-                        <input type="submit" name=""  onclick="BoysShortCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ boys_short_form.prefix }}"  onclick="BoysShortCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -1287,7 +1287,7 @@
                         <i class="fa fa-close" id="close-form" onclick="GirlsFrockCloseForm()"></i>
                         <h1> Girls Frock </h1>
                         {{ girls_frock_form| crispy}}
-                        <input type="submit" name=""  onclick="GirlsFrockCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ girls_frock_form.prefix }}"  onclick="GirlsFrockCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -1382,7 +1382,7 @@
                         <i class="fa fa-close" id="close-form" onclick="GirlsPantCloseForm()"></i>
                         <h1> Girls Pant </h1>
                         {{ girls_pant_form| crispy}}
-                        <input type="submit" name=""  onclick="GirlsPantCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ girls_pant_form.prefix }}"  onclick="GirlsPantCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -1477,7 +1477,7 @@
                         <i class="fa fa-close" id="close-form" onclick="GirlsTshirtCloseForm()"></i>
                         <h1> Girls T-shirt </h1>
                         {{ girls_tshirt_form| crispy}}
-                        <input type="submit" name=""  onclick="GirlsTshirtCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ girls_tshirt_form.prefix }}"  onclick="GirlsTshirtCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -1572,7 +1572,7 @@
                         <i class="fa fa-close" id="close-form" onclick="GirlsShortCloseForm()"></i>
                         <h1> Girls Short </h1>
                         {{ girls_short_form| crispy}}
-                        <input type="submit" name=""  onclick="GirlsShortCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ girls_short_form.prefix }}"  onclick="GirlsShortCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -1672,7 +1672,7 @@
                             <i class="fa fa-close" id="close-form" onclick="InfantsFrockCloseForm()"></i>
                             <h1> Infants Frock </h1>
                             {{ infants_frock_form| crispy}}
-                            <input type="submit" name=""  onclick="InfantsFrockCloseForm()" value="Save" id="save-btn" >
+                            <input type="submit" name="{{ infants_frock_form.prefix }}"  onclick="InfantsFrockCloseForm()" value="Save" id="save-btn" >
                          </form>
                     </div>
 
@@ -1766,7 +1766,7 @@
                         <i class="fa fa-close" id="close-form" onclick="InfantsPantCloseForm()"></i>
                         <h1> Infants Pant </h1>
                         {{ infants_pant_form| crispy}}
-                        <input type="submit" name=""  onclick="InfantsPantCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ infants_pant_form.prefix }}"  onclick="InfantsPantCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 
@@ -1864,7 +1864,7 @@
                         <i class="fa fa-close" id="close-form" onclick="TeensFrockCloseForm()"></i>
                         <h1> Teens Frock </h1>
                         {{ teens_frock_form| crispy}}
-                        <input type="submit" name=""  onclick="TeensFrockCloseForm()" value="Save" id="save-btn" >
+                        <input type="submit" name="{{ teens_frock_form.prefix }}"  onclick="TeensFrockCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
 

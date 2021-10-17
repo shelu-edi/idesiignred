@@ -1,0 +1,89 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.customer__container {
+	margin: 100px 0 0 100px;
+}
+
+.customer__container h1 {
+	text-align: center;
+}
+
+/* Add Button */
+.customer__add__button__container{
+	display: flex;
+	float: right;
+	margin-bottom: 10px;
+}
+
+.customer__add__button, #save-btn {
+	border-radius: 4px;
+	background-color: #FF6600;
+	display: flex;
+ 	border: none;
+  	color: white;
+  	padding: 12px 16px;
+  	/*font-size: 1rem;*/
+  	cursor: pointer;
+	margin-right: 20px;
+	height: 40px;
+	width: 80px;
+	justify-content: space-between;
+
+}
+
+#close-form {
+    color: #002060;
+    cursor: pointer;
+    display: flex;
+	float: right;
+}
+
+.customer__add__button:hover {
+	background-color: white;
+	border: #FF6600;
+	color: #FF6600;
+	transition: 0.4s ease-in-out;
+}
+
+.fa-cstm {
+	margin-right: 10px;
+}
+
+/*.customer__tr {*/
+/*	background-color: #002060;*/
+/*	color: #fff;*/
+/*}*/
+
+/*.customer__tr th {*/
+/*	color: #fff;*/
+/*}*/
+
+/*.customer__body {*/
+/*	background-color: #FF6600;*/
+/*}*/
+
+.table thead tr {
+	border-color: yellow;
+}
+
+#customer-form, #customer-update-form {
+    margin-left: 200px;
+    height: 100%;
+	width: 60%;
+    border-radius: 2px;
+	/*height: auto;*/
+	overflow: auto;
+	bottom: 0;
+	display: none;
+	z-index: 800;
+	position: fixed;
+	background-color: white;
+	opacity: 1;
+    transition: .8s ease-in-out;
+}
+
+#customer-update-td {
+	cursor: pointer;
+}

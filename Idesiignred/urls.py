@@ -36,6 +36,37 @@ urlpatterns = [
     path('invoice/', include('invoice.urls')),
     path('sample/', include('sample.urls')),
     path('product/', include('products.urls')),
+    path('customer/', include('customers.urls')),
+    path('users/', include('users.urls')),
+
+    path('super-admin-dashboard', super_admin_dashboard_view, name='super-admin-dashboard'),
+
+    path('ladies-frock-sample-profit', ladies_frock_profit_view, name='ladies-frock-sample-product-view'),
+    path('ladies-frock-accepted', ladies_frock_sample_accept_view, name='ladies-frock-accepted'),
+
+    path('ladies-blouse-sample-profit', ladies_blouse_profit_view, name='ladies-blouse-sample-product-view'),
+    path('ladies-blouse-accepted', ladies_blouse_sample_accept_view, name='ladies-blouse-accepted'),
+
+    path('ladies-skirt-sample-profit', ladies_skirt_profit_view, name='ladies-skirt-sample-product-view'),
+    path('ladies-skirt-accepted', ladies_skirt_sample_accept_view, name='ladies-skirt-accepted'),
+
+    path('ladies-pant-sample-profit', ladies_pant_profit_view, name='ladies-pant-sample-product-view'),
+    path('ladies-pant-accepted', ladies_pant_sample_accept_view, name='ladies-pant-accepted'),
+
+    path('ladies-tshirt-sample-profit', ladies_tshirt_profit_view, name='ladies-tshirt-sample-product-view'),
+    path('ladies-tshirt-accepted', ladies_tshirt_sample_accept_view, name='ladies-tshirt-accepted'),
+
+    path('maternity-frock-sample-profit', ladies_maternity_frock_profit_view, name='maternity-frock-sample-product-view'),
+    path('maternity-frock-accepted', ladies_maternity_frock_sample_accept_view, name='maternity-frock-accepted'),
+
+    path('kaftan-sample-profit', kaftan_profit_view, name='kaftan-sample-product-view'),
+    path('kaftan-accepted', kaftan_sample_accept_view, name='kaftan-accepted'),
+
+    path('nigtwear-sample-profit', nightwear_profit_view, name='nightwear-sample-product-view'),
+    path('nightwear-accepted', nightwear_sample_accept_view, name='nightwear-frock-accepted'),
+
+    path('order-price', order_order_price_view, name='order-price'),
+    path('order-completed', order_completed_view, name='order-completed'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                            document_root=settings.STATIC_ROOT)

@@ -1,5 +1,9 @@
 from django.shortcuts import render
+from django.urls import reverse
 from django.views import View
+from django.http import Http404, HttpResponseRedirect
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 from .models import *
 from .forms import *
@@ -12,6 +16,13 @@ def _get_form(request, formcls, prefix):
     return formcls(data, prefix=prefix)
 
 
+def _get_edit_form(request, form_cls, instance,prefix):
+    data = request.POST if prefix in request.POST else None
+
+    return form_cls(data, instance=instance, prefix=prefix)
+
+
+@method_decorator(login_required(login_url='../users/login'), name='get')
 class ProductsMainView(View):
     template_name = 'products_main.html'
 
@@ -221,11 +232,10 @@ class ProductsMainView(View):
 
         if ladies_frock_form.is_bound and ladies_frock_form.is_valid():
             ladies_frock_form.save()
-            ladies_frock_form = LadiesFrockForm()
         elif ladies_blouse_form.is_bound and ladies_blouse_form.is_valid():
             ladies_blouse_form.save()
             ladies_blouse_form = LadiesBlouseForm()
-        elif ladies_skirt_form.is_bound and ladies_skirt_form.is_bound():
+        elif ladies_skirt_form.is_bound and ladies_skirt_form.is_valid():
             ladies_skirt_form.save()
             ladies_skirt_form = LadiesSkirtForm()
         elif ladies_pant_form.is_bound and ladies_pant_form.is_valid():
@@ -306,5 +316,34 @@ class ProductsMainView(View):
         }
 
         return render(request, self.template_name, context)
+
+
+def edit_view(self, request, id):
+    template_name = 'products_main.html'
+    try:
+        ladies_frock_object = LadiesFrock.objects.get(id=id)
+    except LadiesFrock.DoesNotExist:
+        raise Http404
+
+    """ladies_frock_edit_form = _get_edit_form(request, LadiesFrockForm, instance=ladies_frock_object, prefix='ladies-frock')
+
+    if ladies_frock_edit_form.is_bound and ladies_frock_edit_form.is_valid():
+        ladies_frock_edit_form.save()
+    else:
+        ladies_frock_edit_form = LadiesFrockForm(instance=ladies_frock_object, prefix='ladies-frock-edit')"""
+
+    if request.method == 'POST':
+        ladies_frock_edit_form = LadiesFrockForm(data=request.POST, instance=ladies_frock_object)
+        if ladies_frock_edit_form.is_valid():
+            ladies_frock_edit_form.save()
+    else:
+        ladies_frock_edit_form = LadiesBlouseForm(instance=ladies_frock_object)
+
+    context = {
+        'ladies_frock_edit_form': ladies_frock_edit_form,
+    }
+
+    return render(request, template_name, context)
+
 
 

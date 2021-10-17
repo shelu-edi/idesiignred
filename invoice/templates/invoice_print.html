@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Idesiignerd | {{ object.invoice_no}}</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'invoice/css/invoice.css' %}">
+
+</head>
+<body>
+
+    <div class="invoice__container">
+
+            <div class="container">
+
+            <div class="card">
+                <div class="card-body">
+                    <div id="invoice">
+
+                        <div class="invoice overflow-auto">
+                            <div style="min-width: 600px">
+                                <header>
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="javascript:;">
+                                                            <img src="assets/images/logo-icon.png" width="80" alt="">
+                                                        </a>
+                                        </div>
+                                        <div class="col company-details">
+                                            <h2 class="name company-name">
+                                            Idesiignred
+                                            </h2>
+                                            <div>455 Foggy Heights, AZ 85004, US</div>
+                                            <div>(123) 456-789</div>
+                                            <div>company@example.com</div>
+                                        </div>
+                                    </div>
+                                </header>
+                                <main>
+                                    <div class="row contacts">
+                                        <div class="col invoice-to">
+                                            <div class="text-gray-light">INVOICE TO:</div>
+                                            <h2 class="to">{{ object.customer.customer_first_name }} {{ object.customer.customer_last_name }}</h2>
+                                            <div class="address">{{ object.customer.address }}</div>
+                                            <div class="mobile">{{ object.customer.mobile_no }}</div>
+                                            <div class="email"><a href="mailto:john@example.com">{{ object.customer.email }}</a>
+                                            </div>
+                                        </div>
+                                        <div class="col invoice-details">
+                                            <h1 class="invoice-id">{{ object.invoice_no }}</h1>
+                                            <div class="date">Date of Invoice: {{ object.date }}</div>
+                                            <div class="date">Due Date: 30/10/2018</div>
+                                        </div>
+                                    </div>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th class="text-left">DESCRIPTION</th>
+                                                <th class="text-right">UNIT PRICE(LKR)</th>
+                                                <th class="text-right">ITEMS</th>
+                                                <th class="text-right">TOTAL(LKR)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="no">{{ object.style_no }}</td>
+                                                <td class="text-left">
+                                                    <h3> Fill This
+                                                    </h3>
+                                                <td class="unit">{{ object.price }}</td>
+                                                <td class="qty">{{ object.quantity }}</td>
+                                                <td class="total">{{ object.value }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="no">01</td>
+                                                <td class="text-left">
+                                                    <h3>Website Design</h3>Creating a recognizable design solution based on the company's existing visual identity</td>
+                                                <td class="unit">$40.00</td>
+                                                <td class="qty">30</td>
+                                                <td class="total">$1,200.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="no">02</td>
+                                                <td class="text-left">
+                                                    <h3>Website Development</h3>Developing a Content Management System-based Website</td>
+                                                <td class="unit">$40.00</td>
+                                                <td class="qty">80</td>
+                                                <td class="total">$3,200.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="no">03</td>
+                                                <td class="text-left">
+                                                    <h3>Search Engines Optimization</h3>Optimize the site for search engines (SEO)</td>
+                                                <td class="unit">$40.00</td>
+                                                <td class="qty">20</td>
+                                                <td class="total">$800.00</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="2"></td>
+                                                <td colspan="2">SUBTOTAL</td>
+                                                <td>$5,200.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2"></td>
+                                                <td colspan="2">TAX 25%</td>
+                                                <td>$1,300.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2"></td>
+                                                <td colspan="2">GRAND TOTAL</td>
+                                                <td>$6,500.00</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                    <div class="thanks">Thank you!</div>
+                                    <div class="notices">
+                                        <div>NOTICE:</div>
+                                        <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+                                    </div>
+                                </main>
+                                <footer>Invoice was created on a computer and is valid without the signature and seal.</footer>
+                            </div>
+                            <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+</body>
+</html>

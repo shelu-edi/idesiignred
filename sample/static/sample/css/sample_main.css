@@ -21,8 +21,8 @@
 .sample__main {
     border-radius: 4px;
     /*border: 1px solid blue;*/
-    background-color: whitesmoke;
-    color: #002060;
+    background-color: #fff;
+    color: #072D75;
     width: 200px;
     cursor: pointer;
 }
@@ -36,14 +36,15 @@
 }
 
 #close-form {
-    color: #002060;
+    color: #072D75;
     cursor: pointer;
     display: flex;
 	float: right;
 }
 
 #ladies-main {
-    background: grey;
+    background: #072D75;
+    color: #fff;
 }
 
 /* Sub Categories */
@@ -68,7 +69,8 @@
 }
 
 #ladies-frock {
-    background: grey;
+    background: #072D75;
+    color: #fff;
 }
 
 /* Tables */

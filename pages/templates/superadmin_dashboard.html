@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title> Idesiignred </title>
+
+    <link rel="stylesheet" href="{% static 'pages/css/superadmin_dashboard.css' %}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <div id="container">
+        <div class="main__wrapper">
+            <div class="user__details__wrapper">
+                <div class="wrapper__one">
+                    <p> {{ request.user.first_name }} {{ request.user.last_name }} </p>
+                </div>
+                <div class="wrapper__two">
+                    <p> Super Admin </p>
+                </div>
+            </div>
+
+            <div class="department__container">
+                <div class="department__block" id="sample-block" onclick="SampleDisplay()">
+                    Sample
+                </div>
+                <div class="department__block" id="order-block" onclick="OrderDisplay()">
+                    Order
+                </div>
+                <div class="department__block" id="fabric-block" onclick="FabricDisplay()">
+                    Fabric
+                </div>
+                <div class="department__block" id="cutting-block" onclick="CuttingDisplay()">
+                    Cutting
+                </div>
+                <div class="department__block" id="acc-block" onclick="AccDisplay()">
+                    Accessories
+                </div>
+                <div class="department__block" id="sewing-block" onclick="SewingDisplay()">
+                    Sewing
+                </div>
+                <div class="department__block" id="products-block" onclick="ProductDisplay()">
+                    Products
+                </div>
+                <div class="department__block" id="stock-block" onclick="StockDisplay()">
+                    Stock
+                </div>
+            </div>
+
+            <!-- <div class="stats__container">
+                <div id="stats-wrapper">
+                    <div id="container" style="width: 75%;">
+                        <canvas id="test-chart" data-url="#"></canvas>
+                </div>
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+            </div>-->
+
+            <div class="stats__container" id="sample-stats">
+                <div id="stats-wrapper">
+                    <div id="container" style="width: 75%;">
+                        <canvas id="test-chart" data-url="{% url 'super-admin-dashboard' %}"></canvas>
+                    </div>
+                </div>
+                <div id="stats-wrapper">
+                    <div id="container" style="width: 75%;">
+                        <canvas id="ladies-frock-profit-chart" data-url="{% url 'ladies-frock-sample-product-view' %}"></canvas>
+                    </div>
+                </div>
+                <div id="stats-wrapper">
+                    <div id="container" style="width: 75%;">
+                        <canvas id="ladies-frock-accepted-chart" data-url="{% url 'ladies-frock-accepted' %}"></canvas>
+                    </div>
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+            </div>
+
+            <div class="stats__container" id="order-stats">
+                <div id="stats-wrapper">
+                    <div id="container" style="width: 75%;">
+                        <canvas id="order-price-chart" data-url="{% url 'order-price' %}"></canvas>
+                    </div>
+                </div>
+                <div id="stats-wrapper">
+                    <div id="order-completed-pie" style="width: 75%">
+                        <canvas id="order-completed-pie-chart" data-url="{% url 'order-completed' %}"></canvas>
+                    </div>
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+            </div>
+
+            <div class="stats__container" id="fabric-stats">
+                <div id="stats-wrapper">
+                    <div id="container" style="width: 75%;">
+                        <canvas id="ladies-frock-profit-chart" data-url="{% url 'ladies-frock-sample-product-view' %}"></canvas>
+                    </div>
+                </div>
+                <div id="stats-wrapper">
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+            </div>
+
+            <div class="stats__container" id="cutting-stats">
+                <div id="stats-wrapper">
+                    Cutting
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+            </div>
+
+            <div class="stats__container" id="acc-stats">
+                <div id="stats-wrapper">
+                    Accessories
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+            </div>
+
+            <div class="stats__container" id="sewing-stats">
+                <div id="stats-wrapper">
+                    Sewing
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+            </div>
+
+            <div class="stats__container" id="products-stats">
+                <div id="stats-wrapper">
+                    Products
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+            </div>
+
+            <div class="stats__container" id="stock-stats">
+                <div id="stats-wrapper">
+                    Stock
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+                <div id="stats-wrapper">
+                    Some
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        // Sample
+        var config = {
+          type: 'pie',
+          data: {
+            datasets: [{
+              data: {{ data|safe }},
+              backgroundColor: [
+                '#696969', '#808080', '#A9A9A9', '#C0C0C0', '#D3D3D3'
+              ],
+              label: 'Order Complete'
+            }],
+            labels: {{ labels|safe }}
+          },
+          options: {
+            responsive: true
+          }
+        };
+
+        window.onload = function() {
+          var ctx = document.getElementById('ladies-frock-accepted-chart').getContext('2d');
+          window.myPie = new Chart(ctx, config);
+        };
+
+
+        var config = {
+      type: 'pie',
+      data: {
+        datasets: [{
+          data: {{ data|safe }},
+          backgroundColor: [
+            '#696969', '#808080', '#A9A9A9', '#C0C0C0', '#D3D3D3'
+          ],
+          label: 'Order Complete'
+        }],
+        labels: {{ labels|safe }}
+      },
+      options: {
+        responsive: true
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('order-completed-pie-chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="{% static 'pages/js/dashboard/super-admin/super-admin.js' %}"></script>
+
+</body>
+</html>

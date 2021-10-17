@@ -219,6 +219,14 @@ function LadiesFrockDisplayForm() {
     document.getElementById('ladies-frock-form').style.display = 'block';
 }
 
+function LadiesFrockEditDisplayForm() {
+    document.getElementById('ladies-frock-edit-form').style.display = 'block';
+}
+
+function LadiesFrockEditCloseForm() {
+    document.getElementById('ladies-frock-edit-form').style.display = 'none';
+}
+
 function LadiesFrockCloseForm() {
     document.getElementById('ladies-frock-form').style.display = 'none';
 }

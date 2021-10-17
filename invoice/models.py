@@ -17,7 +17,7 @@ class Invoice(models.Model):
 	customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 	#customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
 	style_no = models.CharField(max_length=1000)
-	order =  models.ForeignKey(OrderReceiving, on_delete=models.SET_NULL, null=True, blank=True)
+	order = models.ForeignKey(OrderReceiving, on_delete=models.SET_NULL, null=True, blank=True)
 	quantity = models.IntegerField()
 	price = models.DecimalField(decimal_places=2, max_digits=1000)
 	value = models.IntegerField()

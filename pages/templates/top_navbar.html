@@ -14,7 +14,6 @@
     
     <link rel="stylesheet" href="{% static 'pages/css/top_navbar.css' %}">
 
-
     <title>Tech Mall</title>
 </head>
 <body>
@@ -48,7 +47,7 @@
           {% if user.is_authenticated %}
           <li class="navabr__item">
             <a href="#" class="navbar__links" id="about-page" >              
-              {{ request.user.username }}            
+              {{ request.user.username }}
           </a>
           </li>
           {% endif %}
@@ -57,7 +56,7 @@
                 <form method="post" action="{% url 'search-results' %}">
                     {% csrf_token %}
                     <button type="button" class="btn-search"><i class="fa fa-search"></i></button>
-                    <input type="search" class="input-search" placeholder="Type to Search..." name="searched" id="search-input">
+                    <label for="search-input"></label><input type="search" class="input-search" placeholder="Type to Search..." name="searched" id="search-input">
                 </form>
             </div>  
           </li>  
@@ -73,5 +72,11 @@
     </script>      
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
     </script>
+    <script src="{% static 'pages/js/top_navbar.js' %}">
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" />
 </body>
 </html>

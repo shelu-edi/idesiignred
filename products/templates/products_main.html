@@ -138,6 +138,16 @@
                         <input type="submit" name="{{ ladies_frock_form.prefix }}"  onclick="LadiesFrockCloseForm()" value="Save" id="save-btn" >
                      </form>
                 </div>
+
+                <div class="ladies__frock__edit__form" >
+                    <form class="form-group" action="." method="POST" id="ladies-frock-edit-form">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="LadiesFrockEditCloseForm()"></i>
+                        <h1> Ladies Frock Edit</h1>
+                        {{ ladies_frock_edit_form |crispy}}
+                        <input type="submit" name="{{ ladies_frock_edit_form.prefix }}"  onclick="LadiesFrockEditCloseForm()" value="Update" id="save-btn" >
+                     </form>
+                </div>
             </div>
 
             <div class="del__btn" id="del-div">
@@ -169,7 +179,7 @@
                     {% for ladies_frock in ladies_frocks %}
                     <tr>
                     <td><input type="checkbox" aria-label="Checkbox for following text input" id="chbx"></td>
-                    <td> {{ ladies_frock.product_name }} </td>
+                    <td  id="ladies-frock-prod" onclick="LadiesFrockEditDisplayForm()"> {{ ladies_frock.product_name }} </td>
                     <td> {{ ladies_frock.product_id }} </td>
                     <td> {{ ladies_frock.product_manufacture_date }} </td>
                     <td> {{ ladies_frock.sample.style_no }} </td>
@@ -1193,7 +1203,7 @@
                 </div>
 
                 <div class="infants__pant__form" id="infants-pant-form">
-                    <form class="form-group" action='' method="POST">
+                    <form class="form-group" action='.' method="POST">
                         {% csrf_token %}
                         <i class="fa fa-close" id="close-form" onclick="InfantsPantCloseForm()"></i>
                         <h1> Infants Pant </h1>

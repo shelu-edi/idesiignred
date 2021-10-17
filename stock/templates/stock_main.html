@@ -2,30 +2,82 @@
 <html lang="en">
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
     <meta charset="UTF-8">
 
     {% block title %}
-    <title>Idesiignred | Stock</title>
-    {% endblock %} 
+    <title>Idesiignred | Orders</title>
+    {% endblock %}
 
     {% block extra_css %}
-        <link rel="stylesheet" href="{% static 'stock/css/stock_main.css' %}">
-    {% endblock %}  
+        <link rel="stylesheet" href="{% static 'orders/css/order_main.css' %}">
+    {% endblock %}
 
 </head>
 <body>
 
     {% block content %}
-        <div class="stock__container">
-            <h1> Stock </h1>
+        <div class="order__container">
+            <h1> Orders </h1>
+            <p>
+            <button type="button" class="btn btn-primary js-create-book">
+            <span class="glyphicon glyphicon-plus"></span>
+            Add Order
+            </button>
+            </p>
+
+            <div class="order__add__button__container" >
+              <button class="order__add__button js-create-stock">
+                Add
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="table" id="order-table">
+                <thead>
+                  <tr class="order__tr">
+                    <th scope="col">Order Received</th>
+                    <th scope="col">Date Order Delivered</th>
+                    <th scope="col">Style No</th>
+                    <th scope="col">Order No</th>
+                    <th scope="col">Remarks/Adjustment</th>
+                    <th scope="col">Required Date</th>
+                    <th scope="col">Price(LKR)</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Cutomer ID</th>
+                    <th scope="col">Consumption</th>
+                    <th scope="col">Total Consumption</th>
+                    <th scope="col">Delivery Date</th>
+                    <th scope="col">Order Status</th>
+                    <th scope="col">Order Progress</th>
+                    <th scope="col">Reason</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% include 'stock_list.html' %}
+                </tbody>
+              </table>
+                <div class="modal fade" id="modal-stock">
+                <div class="modal-dialog">
+                <div class="modal-content">
+
+            </div>
+
+            </div>
+            </div>
         </div>
-        
+        </div>
+
+
+
+
+
     {% endblock %}
 
-    
+
     {% block extra_scripts %}
+      <script src="{% static 'stock/js/stock.js' %}" ></script>
     {% endblock %}
 </body>
-</html>    
+</html>

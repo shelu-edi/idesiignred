@@ -144,7 +144,7 @@ STATIC_ROOT = [
     BASE_DIR / "static"
 ]
 
-LOGIN_REDIRECT_URL = '/users/myaccount/'
+LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

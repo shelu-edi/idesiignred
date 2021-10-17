@@ -4,21 +4,21 @@ from django.db import models
 
 # salutation choices
 salutation_choices = (
-		('mr', 'Mr'),
-		('mrs', 'Mrs'),
-		('miss', 'Miss')
+		('Mr', 'Mr'),
+		('Mrs', 'Mrs'),
+		('Miss', 'Miss')
 		)
 
 # mobile number type
 mobile_no_type = (
-		('mobile', 'Mobile'),
-		('home', 'Home'),
-		('work', 'Work')
+		('Mobile', 'Mobile'),
+		('Home', 'Home'),
+		('Work', 'Work')
 		)
 # email type
 email_type = (
-		('work', 'Work'),
-		('personal', 'Personal'))
+		('Work', 'Work'),
+		('Personal', 'Personal'))
 
 class Customer(models.Model):
 	customer_id = models.CharField(max_length=100)

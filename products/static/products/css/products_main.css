@@ -95,7 +95,7 @@
     height: 100%;
 }
 
-#ladies-frock-form{
+#ladies-frock-form , #ladies-frock-edit-form{
     margin-left: 200px;
     height: 100%;
 	width: 60%;
@@ -109,6 +109,10 @@
 	background-color: white;
 	opacity: 1;
     transition: .8s ease-in-out;
+}
+
+#ladies-frock-prod {
+    cursor: pointer;
 }
 
 /* Ladies Blouse */

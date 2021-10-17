@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+
+    {% block title %}
+    <title>Idesiignred | Customers</title>
+    {% endblock %}
+
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'customers/css/customers_main.css' %}">
+    {% endblock %}
+
+</head>
+<body>
+
+    {% block content %}
+        <div class="customer__container">
+            <h1> Customers </h1>
+
+            <div class="customer__add__button__container" >
+              <button class="customer__add__button" onclick="CustomerDisplayForm()">
+                <i class="fa fa-plus fa-cstm"></i>
+                Add
+              </button>
+            </div>
+
+            <div class="customer__form" >
+                    <form class="form-group" action="." method="POST" id="customer-form">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-form" onclick="CustomerCloseForm()"></i>
+                        <h1> Customer</h1>
+                        {{ customer_form| crispy}}
+                        <input type="submit" name=""  onclick="CustomerCloseForm()" value="Save" id="save-btn" >
+                    </form>
+            </div>
+
+            <div class="customer__form" >
+                    <form class="form-group" action="." method="POST" id="customer-update-form">
+                        {% csrf_token %}
+                        <i class="fa fa-close" id="close-update-form" onclick="CustomerUpdateCloseForm()"></i>
+                        <h1> Customer</h1>
+                        {{ customer_update_form| crispy}}
+                        <input type="submit" name=""  onclick="CustomerUpdateCloseForm()" value="Save" id="save-btn" >
+                    </form>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr class="customer__tr">
+                    <th scope="col">Customer Id</th>
+                    <th scope="col">Salutation</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Mobile No</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Address</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for customer in customers %}
+                  <tr class="customer__body">
+                    <td id="customer-update-td" onclick="CustomerUpdateDisplayForm()"> {{ customer.customer_id }} </td>
+                    <td> {{ customer.salutation }} </td>
+                    <td> {{ customer.customer_first_name }} </td>
+                    <td> {{ customer.customer_last_name }} </td>
+                    <td> {{ customer.mobile_no_type }}: {{ customer.mobile_no }}  </td>
+                    <td> {{ customer.email_type }}: {{ customer.email }} </td>
+                    <td> {{ customer.address }} </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+        </div>
+
+    {% endblock %}
+
+
+    {% block extra_scripts %}
+        <script src="{% static 'customers/js/customer_main.js' %}" ></script>
+    {% endblock %}
+</body>
+</html>

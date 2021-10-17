@@ -10,6 +10,7 @@ app_name = 'products'
 
 urlpatterns = [
     path('', ProductsMainView.as_view(), name="products_main"),
+    path('edit', edit_view, name="products_edit"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                            document_root=settings.STATIC_ROOT)

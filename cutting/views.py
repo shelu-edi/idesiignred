@@ -1,11 +1,15 @@
 from django.shortcuts import render
-
 from django.views import View
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+
 
 from .models import *
 
 # Create your views here.
 
+
+@method_decorator(login_required(login_url='../users/login'), name='get')
 class CuttingMainView(View):
 	template_name = 'cutting_main.html'
 	recieved_in_query = RecievedIn.objects.all()

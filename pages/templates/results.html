@@ -21,59 +21,8 @@
 
     {% block content %}
         <div class="results__container" id="results-container">
-            <div><h1> Results </h1></div>
-
             {% if searched %}
-                {{ searched }}
-                <br>
-                {% for customer in customers %}
-                    {{ customer.customer_first_name }} {{ customer.customer_last_name }}
-                {% endfor %}
-            {% endif %}
-            <br>
-            {% if searched %}
-                {{ searched }}
-                <br>
-                {% for accessories_received_in in accessories_received_ins %}
-                   Name: {{ accessories_received_in.acc_name }} - ID:{{ accessories_received_in.id }} {{ accessories_received_in.date }}
-                {% endfor %}
-            {% endif %}
-            <br>
-            {% if searched %}
-                {{ searched }}
-                <br>
-                {% for accessories_sent_out in accessories_sent_outs %}
-                   Name: {{ accessories_sent_out.acc_name }} - ID:{{ accessories_sent_out.id }} {{ accessories_sent_out.date }}
-                {% endfor %}
-            {% endif %}
-            <br>
-            {% if searched %}
-                {{ searched }}
-                <br>
-                {% for fabric_order_in in fabric_order_ins %}
-                   Order: {{ fabric_order_in.order_received }} - Style No:{{ fabric_order_in.style_no }} Price: {{ fabric_order_in.price }}
-                {% endfor %}
-            {% endif %}
-            {% if searched %}
-                {{ searched }}
-                <br>
-                {% for fabric_order_out in fabric_order_outs %}
-                   Order: {{ fabric_order_out.order_received }} - Style No:{{ fabric_order_out.style_no }} Price: {{ fabric_order_out.price }}
-                {% endfor %}
-            {% endif %}
-            {% if searched %}
-                {{ searched }}
-                <br>
-                {% for invoice in invoices %}
-                   Invoice No: {{ invoice.invoice_no }} - Style No:{{ invoice.style_no }} Price: {{ invoice.price }}
-                {% endfor %}
-            {% endif %}
-            {% if searched %}
-                {{ searched }}
-                <br>
-                {% for order_receiving in order_receivings %}
-                   Order No: {{ order_receiving.order_no }} - Style No:{{ order_receiving.style_no }} Price: {{ order_receiving.price }}
-                {% endfor %}
+            <div><h3> You searched for: {{ searched }} </h3></div>
             {% endif %}
 
             {% if searched %}
@@ -81,28 +30,28 @@
                 <h3> Customers </h3>
 
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table" id="customer-table">
                     <thead>
                         <tr class="invoice__tr">
-                            <th scope="col">Customer ID</th>
-                            <th scope="col">Salutation</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col"> Mobile </th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Address</th>
+                            <th scope="col" class="customer__table">Customer ID</th>
+                            <th scope="col" class="customer__table">Salutation</th>
+                            <th scope="col" class="customer__table">First Name</th>
+                            <th scope="col" class="customer__table">Last Name</th>
+                            <th scope="col" class="customer__table"> Mobile </th>
+                            <th scope="col" class="customer__table">Email</th>
+                            <th scope="col" class="customer__table">Address</th>
                             </tr>
                     </thead>
                     <tbody>
                         {% for customer in customers %}
                         <tr class="customer__body">
-                            <td> {{ customer.customer_id }} </td>
-                            <td> {{ customer.salutation }} </td>
-                            <td> {{ customer.customer_first_name }} </td>
-                            <td> {{ customer.customer_last_name }} </td>
-                            <td> {{ customer.mobile_no_type }}: {{ customer.mobile_no }} </td>
-                            <td> {{ customer.email_type }}: {{ customer.email }} </td>
-                            <td> {{ customer.address }} </td>
+                            <td class="customer__table"> {{ customer.customer_id }} </td>
+                            <td class="customer__table"> {{ customer.salutation }} </td>
+                            <td class="customer__table"> {{ customer.customer_first_name }} </td>
+                            <td class="customer__table"> {{ customer.customer_last_name }} </td>
+                            <td class="customer__table"> {{ customer.mobile_no_type }}: {{ customer.mobile_no }} </td>
+                            <td class="customer__table"> {{ customer.email_type }}: {{ customer.email }} </td>
+                            <td class="customer__table"> {{ customer.address }} </td>
                         {% endfor %}
                         </tr>
                     </tbody>
@@ -1722,7 +1671,7 @@
 
 
     {% block extra_scripts %}
-        <script src="{% static 'pages/js/home.js' %}"></script>
+        <script src="{% static 'pages/js/results.js' %}"></script>
     {% endblock %}
 </body>
 </html>

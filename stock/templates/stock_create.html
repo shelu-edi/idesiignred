@@ -1,0 +1,12 @@
+{% load crispy_forms_tags %}
+
+<div class="ladies__frock__form" >
+    <form class="form-group" action="." method="POST" id="ladies-frock-form">
+        {% csrf_token %}
+        <i class="fa fa-close" id="close-form" onclick="LadiesFrockCloseForm()"></i>
+        <h1 class="modal-title"> Ladies Frock </h1>
+        {{ form| crispy}}
+        <button class="button bg-danger" data-dismiss="modal"> Close </button>
+        <input type="submit" name=""  onclick="LadiesFrockCloseForm()" value="Save" id="save-btn" >
+    </form>
+</div>

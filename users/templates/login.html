@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load crispy_forms_tags %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+
+    {% block title %}
+    <title>Idesiignred | Login</title>
+    {% endblock %}
+
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'sample/css/sample_main.css' %}">
+    {% endblock %}
+
+</head>
+<body>
+
+    {% block content %}
+        <div style="margin-left: 100px">
+            <h1> Login </h1>
+            <form action="{% url 'home' %}">
+                {{ form| crispy }}
+                <input type="submit" name="" value="Save" id="save-btn" >
+            </form>
+        </div>
+    {% endblock %}
+
+</body>
+</html>
+

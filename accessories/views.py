@@ -1,14 +1,12 @@
 from django.shortcuts import render
-
 from django.views import View
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 from .models import *
 
-# Create your views here.
-def accessories_main_view(request):
-	
-	return render(request, 'accessories_main.html')
 
+@method_decorator(login_required(login_url='../users/login'), name='get')
 class AccessoriesMainView(View):
 	template_name = 'accessories_main.html'
 	acc_recieved_in_query = AccRecievedIn.objects.all()
