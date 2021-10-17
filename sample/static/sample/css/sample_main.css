@@ -630,7 +630,25 @@
     margin: 20px 140px 0 0;
 }
 
-#add-btn, #save-btn {
+#add-btn {
+    justify-self: center;
+    border: none;
+	outline: none;
+	border-radius: 4px;
+    background-color: #072D75;
+	color: #fff;
+    height: 40px;
+    width: 80px;
+}
+
+#add-btn:hover {
+    background-color: #fff;
+	color: #072D75;
+    transition: 0.5s ease-in-out;
+    border: #072D75 1px solid;
+}
+
+#save-btn {
     border: none;
 	outline: none;
 	border-radius: 4px;
